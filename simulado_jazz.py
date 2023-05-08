@@ -134,7 +134,11 @@ st.markdown(html_header, unsafe_allow_html=True)
 
 ### Leitura das bases de dados
 
-base_matriz = pd.read_csv('C:/Simulado Nacional - Jazz Vestibular - 2023.1 - Matriz de Questões.csv')
+#base_matriz = pd.read_csv('C:/Simulado Nacional - Jazz Vestibular - 2023.1 - Matriz de Questões.csv')
+
+url = 'https://github.com/padre-alexandre/Relatorio-Simulado-Nacional-2023.1/blob/main/Simulado%20Nacional%20-%20Jazz%20Vestibular%20-%202023.1%20-%20Matriz%20de%20Questões.csv'
+base_matriz = pd.read_csv(url, index_col=0)
+
 base_resultados = pd.read_csv('C:/Simulado Nacional - Jazz Vestibular - 2023.1 - Resultado 1º fase.csv')
 base_resultados_2fase = pd.read_csv('C:/Simulado Nacional - Jazz Vestibular - 2023.1 - Resultado 2º fase.csv')
 #base_resultados_2fase = pd.read_csv('./Jazz Vestibular - 2022.2 - Operacao - [RELATORIO] Base de Dados 2 fase copy.csv')
