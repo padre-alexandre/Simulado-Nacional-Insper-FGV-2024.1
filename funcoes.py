@@ -957,7 +957,7 @@ def fun_tabela_temas_debate(dataframe,coluna1,cor_texto,cor_back):
 def fun_tabela_temas_arguicao(dataframe,coluna1,cor_texto,cor_back):
     html_table_temas_arguicao=""" 
     <table bordercolor=#FFF0FC>
-      <tr style="background-color:#FFF0FC; height: 90px; color:#FFFFFF; font-family:Georgia; font-size: 17px; text-align: center">
+      <tr style="background-color:#9E089E; height: 90px; color:#FFFFFF; font-family:Georgia; font-size: 17px; text-align: center">
         <th style="width:100px; bordercolor=#FFF0FC">Temas</th>
       </tr>
       <tr style="background-color:"""+cor_back[0]+"""; height: 42px; color:"""+cor_texto[0]+"""; font-size: 16px;text-align: center">
