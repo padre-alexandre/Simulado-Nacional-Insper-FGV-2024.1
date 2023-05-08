@@ -459,7 +459,8 @@ if login_aluno != '':
             st.markdown(html_br, unsafe_allow_html=True)
             st.markdown(html_br, unsafe_allow_html=True)
             st.markdown(html_br, unsafe_allow_html=True)
-            st.markdown(html_card_header_destaques_gerais, unsafe_allow_html=True)
+            if resultados_gerais_aluno['Classificação'][0] <= numero_candidatos:
+                st.markdown(html_card_header_destaques_gerais, unsafe_allow_html=True)
         with col5:
             st.write("")
 
