@@ -3340,7 +3340,6 @@ if login_aluno != '':
     </div>
     """    
     ### Block 1#########################################################################################
-    st.dataframe(resultado_final_aluno2)
     with st.container():
         col1, col2, col3, col4, col5 = st.columns([9,25,2,25,4])
         with col1:
@@ -3375,7 +3374,8 @@ if login_aluno != '':
             st.markdown(html_br, unsafe_allow_html=True)
             st.markdown(html_br, unsafe_allow_html=True)
             st.markdown(html_br, unsafe_allow_html=True)
-            st.markdown(html_card_header_destaques_gerais, unsafe_allow_html=True)
+            if resultado_final_aluno2['Classificação'][0] <= numero_candidatos:
+                st.markdown(html_card_header_destaques_gerais, unsafe_allow_html=True)
         with col5:
             st.write("")
     html_final="""
