@@ -37,7 +37,7 @@ def get_binary_file_downloader_html(bin_file, file_label='File'):
 def tabela_questoes_arguicao(dataframe,coluna1,coluna2,coluna3,cor_texto,cor_back):
     html_table_questoes_arguicao=""" 
     <table bordercolor=#FFF0FC>
-      <tr style="background-color:#FFF0FC; height: 90px; color:#FFFFFF; font-family:Georgia; font-size: 17px; text-align: center">
+      <tr style="background-color:#9E089E; height: 90px; color:#FFFFFF; font-family:Georgia; font-size: 17px; text-align: center">
         <th style="width:100px; bordercolor=#FFF0FC">Temas</th>
         <th style="width:200px; bordercolor=#FFF0FC">Aprender a aprender - Resultado Individual</th>
         <th style="width:350px; bordercolor=#FFF0FC">Aprender a aprender - Resultado Geral</th>
@@ -64,7 +64,7 @@ def tabela_questoes_arguicao(dataframe,coluna1,coluna2,coluna3,cor_texto,cor_bac
 def tabela_questoes_debate(dataframe,coluna1,coluna2,coluna3,coluna4,coluna5,coluna6,coluna7,cor_texto,cor_back):
     html_table_questoes_debate=""" 
     <table bordercolor=#FFF0FC>
-      <tr style="background-color:#FFF0FC; height: 90px; color:#FFFFFF; font-family:Georgia; font-size: 17px; text-align: center">
+      <tr style="background-color:#9E089E; height: 90px; color:#FFFFFF; font-family:Georgia; font-size: 17px; text-align: center">
         <th style="width:100px; bordercolor=#FFF0FC">Temas</th>
         <th style="width:200px; bordercolor=#FFF0FC">Comunicação Assertiva - Resultado Individual</th>
         <th style="width:350px; bordercolor=#FFF0FC">Comunicação Assertiva - Resultado Geral</th>
@@ -935,7 +935,7 @@ def tabela_questoes(dataframe,coluna1,coluna2,coluna3,coluna4,coluna5,coluna6,co
 def fun_tabela_temas_debate(dataframe,coluna1,cor_texto,cor_back):
     html_table_temas_debate=""" 
     <table bordercolor=#FFF0FC>
-      <tr style="background-color:#FFF0FC; height: 90px; color:#FFFFFF; font-family:Georgia; font-size: 17px; text-align: center">
+      <tr style="background-color:#9E089E; height: 90px; color:#FFFFFF; font-family:Georgia; font-size: 17px; text-align: center">
         <th style="width:100px; bordercolor=#FFF0FC">Temas</th>
       </tr>
       <tr style="background-color:"""+cor_back[0]+"""; height: 42px; color:"""+cor_texto[0]+"""; font-size: 16px;text-align: center">
