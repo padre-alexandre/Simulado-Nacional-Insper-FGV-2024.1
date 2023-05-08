@@ -2074,8 +2074,9 @@ if login_aluno != '':
 
     classificacao_aluno_red = base_redacao_disciplina2[base_redacao_disciplina2['Login do aluno(a)'] == login_aluno].reset_index()
     st.write(len(classificacao_aluno_red))
-    if classificacao_aluno_red['level_0'][0] > numero_candidatos and len(classificacao_aluno_red) > 0:
-        classificacao_aluno_red['level_0'][0] = numero_candidatos
+    if len(classificacao_aluno_red) > 0:
+        if classificacao_aluno_red['level_0'][0] > numero_candidatos:
+            classificacao_aluno_red['level_0'][0] = numero_candidatos
     
     ponto = str(round(100*(numero_candidatos-(classificacao_aluno_red['level_0'][0]))/numero_candidatos,0)).find('.')
     texto = str(round(100*(numero_candidatos-(classificacao_aluno_red['level_0'][0]))/numero_candidatos,0))[0:ponto]
