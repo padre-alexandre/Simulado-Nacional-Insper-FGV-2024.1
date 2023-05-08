@@ -132,7 +132,6 @@ with st.container():
         with col4:
             st.markdown(html_br, unsafe_allow_html=True)
 
-st.markdown(html_br, unsafe_allow_html=True)
 st.markdown(html_header, unsafe_allow_html=True)
 
 ### Leitura das bases de dados
