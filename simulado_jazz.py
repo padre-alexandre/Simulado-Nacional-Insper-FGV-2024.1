@@ -134,9 +134,9 @@ st.markdown(html_header, unsafe_allow_html=True)
 
 ### Leitura das bases de dados
 
-base_matriz = pd.read_csv('C:/matrizquestoes.csv')
+base_matriz = pd.read_csv('./matrizquestoes.csv')
 
-base_resultados = pd.read_csv('C:/Simulado Nacional - Jazz Vestibular - 2023.1 - Resultado 1º fase.csv')
+base_resultados = pd.read_csv('./Simulado Nacional - Jazz Vestibular - 2023.1 - Resultado 1º fase.csv')
 base_resultados_2fase = pd.read_csv('C:/Simulado Nacional - Jazz Vestibular - 2023.1 - Resultado 2º fase.csv')
 #base_resultados_2fase = pd.read_csv('./Jazz Vestibular - 2022.2 - Operacao - [RELATORIO] Base de Dados 2 fase copy.csv')
 
