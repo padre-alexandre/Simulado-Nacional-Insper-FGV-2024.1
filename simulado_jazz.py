@@ -2073,6 +2073,7 @@ if login_aluno != '':
     base_redacao_disciplina2 = base_redacao_disciplina.sort_values(by = 'Nota na questão', ascending = False).reset_index()
 
     classificacao_aluno_red = base_redacao_disciplina2[base_redacao_disciplina2['Login do aluno(a)'] == login_aluno].reset_index()
+    st.write(len(classificacao_aluno_red))
     if classificacao_aluno_red['level_0'][0] > numero_candidatos:
         classificacao_aluno_red['level_0'][0] = numero_candidatos
     
