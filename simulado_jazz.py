@@ -122,12 +122,10 @@ with st.container():
         with col1:
             st.markdown(html_br, unsafe_allow_html=True)
         with col2:
-            st.markdown(html_br, unsafe_allow_html=True)
             st.markdown(html_card_instagram, unsafe_allow_html=True)
             st.markdown(html_br, unsafe_allow_html=True)
             st.write("##### [Clique aqui para conhecer nossa página](https://www.instagram.com/jazz_vestibular/)")
         with col3:
-            st.markdown(html_br, unsafe_allow_html=True)
             st.markdown(html_card_whatsapp, unsafe_allow_html=True)
             st.markdown(html_br, unsafe_allow_html=True)
             st.write("##### [Clique aqui para falar conosco](https://api.whatsapp.com/send?phone=55032998025088)")
