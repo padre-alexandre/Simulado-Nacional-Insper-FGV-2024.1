@@ -113,7 +113,7 @@ with st.container():
         with col1:
             st.markdown(html_br, unsafe_allow_html=True)
         with col2:
-            st.image('[LOGO 3] Jazz.png')
+            st.image('[LOGO 3] Jazz.png', width=400)
         with col3:
             st.markdown(html_br, unsafe_allow_html=True)
 
