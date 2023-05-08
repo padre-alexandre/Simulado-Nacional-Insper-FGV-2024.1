@@ -109,7 +109,7 @@ html_br="""
     """
 
 with st.container():
-        col1, col2, col3 = st.columns([10, 5, 5])
+        col1, col2, col3 = st.columns([5, 5, 5])
         with col1:
             st.image('[LOGO] Jazz.png')
         with col2:
