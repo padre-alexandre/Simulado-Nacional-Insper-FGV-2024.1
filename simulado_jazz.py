@@ -111,7 +111,7 @@ html_br="""
 with st.container():
         col1, col2, col3 = st.columns([10, 5, 5])
         with col1:
-            st.image('[LOGO] Jazz.png')
+            st.image('[LOGO 3] Jazz.png')
         with col2:
             st.markdown(html_br, unsafe_allow_html=True)
             st.markdown(html_br, unsafe_allow_html=True)
