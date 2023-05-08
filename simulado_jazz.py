@@ -107,6 +107,7 @@ html_card_whatsapp="""
 html_br="""
     <br>
     """
+st.image('[LOGO 3] Jazz.png')
 
 with st.container():
         col1, col2, col3 = st.columns([10, 5, 5])
