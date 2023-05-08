@@ -2391,66 +2391,66 @@ if login_aluno != '':
             tabela_detalhes['Gabarito'][i] = 'E'
         else:
             tabela_detalhes['Gabarito'][i] = ''
-        tabela_detalhes_fizeram = tabela_detalhes[tabela_detalhes['Nome do aluno(a)'].isin(alunos_fizeram['Nome do aluno(a)'])].reset_index(drop = True)
-        tabela_detalhes_aluno = tabela_detalhes[tabela_detalhes['Login do aluno(a)'] == login_aluno]
-        tabela_detalhes_aluno2 = tabela_detalhes_aluno.drop(columns = ['Nota na questão','Valor da questão','Nome do aluno(a)','Login do aluno(a)','Certo ou errado'])
-        tabela_detalhes_media = tabela_detalhes_fizeram.groupby('Número da questão').mean().reset_index()
-        tabela_detalhes_media2 = tabela_detalhes_media.drop(columns = ['Nota na questão','Valor da questão'])
+    tabela_detalhes_fizeram = tabela_detalhes[tabela_detalhes['Nome do aluno(a)'].isin(alunos_fizeram['Nome do aluno(a)'])].reset_index(drop = True)
+    tabela_detalhes_aluno = tabela_detalhes[tabela_detalhes['Login do aluno(a)'] == login_aluno]
+    tabela_detalhes_aluno2 = tabela_detalhes_aluno.drop(columns = ['Nota na questão','Valor da questão','Nome do aluno(a)','Login do aluno(a)','Certo ou errado'])
+    tabela_detalhes_media = tabela_detalhes_fizeram.groupby('Número da questão').mean().reset_index()
+    tabela_detalhes_media2 = tabela_detalhes_media.drop(columns = ['Nota na questão','Valor da questão'])
 
-        tabela_detalhes_aluno3 = pd.merge(tabela_detalhes_aluno2, tabela_detalhes_media2, on = 'Número da questão', how = 'inner')
+    tabela_detalhes_aluno3 = pd.merge(tabela_detalhes_aluno2, tabela_detalhes_media2, on = 'Número da questão', how = 'inner')
         
-        if turma_aluno['Turma'][0] == turma_eng or turma_aluno['Turma'][0] == turma_cien:
-             for i in range(len(tabela_detalhes_aluno3['Número da questão'])):
-                if tabela_detalhes_aluno3['Número da questão'][i] < 73:
-                    tabela_detalhes_aluno3['Número da questão'][i] = tabela_detalhes_aluno3['Número da questão'][i] - 24
-                if tabela_detalhes_aluno3['Número da questão'][i] > 73:
-                    tabela_detalhes_aluno3['Número da questão'][i] = tabela_detalhes_aluno3['Número da questão'][i] - 25
+    if turma_aluno['Turma'][0] == turma_eng or turma_aluno['Turma'][0] == turma_cien:
+        for i in range(len(tabela_detalhes_aluno3['Número da questão'])):
+            if tabela_detalhes_aluno3['Número da questão'][i] < 73:
+                tabela_detalhes_aluno3['Número da questão'][i] = tabela_detalhes_aluno3['Número da questão'][i] - 24
+            if tabela_detalhes_aluno3['Número da questão'][i] > 73:
+                tabela_detalhes_aluno3['Número da questão'][i] = tabela_detalhes_aluno3['Número da questão'][i] - 25
 
         #for i in range(len(tabela_detalhes_aluno3['Número da questão'])):
             #if tabela_detalhes_aluno3['Número da questão'][i] > 90:
             #    tabela_detalhes_aluno3['Número da questão'][i] = tabela_detalhes_aluno3['Número da questão'][i] - 30
-        tabela_detalhes_aluno5 = tabela_detalhes_aluno3.drop(columns = ['Nome da avaliação','Turma'])
-        tabela_detalhes_aluno4 = tabela_detalhes_aluno5.sort_values(by = 'Número da questão', ascending = True).reset_index()
-        cor_back = []
-        cor_texto = []
+    tabela_detalhes_aluno5 = tabela_detalhes_aluno3.drop(columns = ['Nome da avaliação','Turma'])
+    tabela_detalhes_aluno4 = tabela_detalhes_aluno5.sort_values(by = 'Número da questão', ascending = True).reset_index()
+    cor_back = []
+    cor_texto = []
         
-        for i in range(len(tabela_detalhes_aluno4['Número da questão'])):
-            minutes, seconds= divmod(tabela_detalhes_aluno4['Tempo na questão_x'][i], 60)
-            aux1 = str(round(minutes,0)).find('.')
-            texto1 = str(round(minutes,0))[0:aux1]
-            aux2 = str(round(seconds,0)).find('.')  
-            texto2 = str(round(seconds,0))[0:aux2]  
-            tabela_detalhes_aluno4['Tempo na questão_x'][i] = texto1+' min '+texto2+' s' 
-            minutes, seconds= divmod(tabela_detalhes_aluno4['Tempo na questão_y'][i], 60)
-            aux1 = str(round(minutes,0)).find('.')
-            texto1 = str(round(minutes,0))[0:aux1]
-            aux2 = str(round(seconds,0)).find('.')  
-            texto2 = str(round(seconds,0))[0:aux2]  
-            tabela_detalhes_aluno4['Tempo na questão_y'][i] = texto1+' min '+texto2+' s' 
-            tabela_detalhes_aluno4['Acerto_x'][i] = "{0:.0%}".format(tabela_detalhes_aluno4['Acerto_x'][i])
-            tabela_detalhes_aluno4['Acerto_y'][i] = "{0:.0%}".format(tabela_detalhes_aluno4['Acerto_y'][i])
+    for i in range(len(tabela_detalhes_aluno4['Número da questão'])):
+        minutes, seconds= divmod(tabela_detalhes_aluno4['Tempo na questão_x'][i], 60)
+        aux1 = str(round(minutes,0)).find('.')
+        texto1 = str(round(minutes,0))[0:aux1]
+        aux2 = str(round(seconds,0)).find('.')  
+        texto2 = str(round(seconds,0))[0:aux2]  
+        tabela_detalhes_aluno4['Tempo na questão_x'][i] = texto1+' min '+texto2+' s' 
+        minutes, seconds= divmod(tabela_detalhes_aluno4['Tempo na questão_y'][i], 60)
+        aux1 = str(round(minutes,0)).find('.')
+        texto1 = str(round(minutes,0))[0:aux1]
+        aux2 = str(round(seconds,0)).find('.')  
+        texto2 = str(round(seconds,0))[0:aux2]  
+        tabela_detalhes_aluno4['Tempo na questão_y'][i] = texto1+' min '+texto2+' s' 
+        tabela_detalhes_aluno4['Acerto_x'][i] = "{0:.0%}".format(tabela_detalhes_aluno4['Acerto_x'][i])
+        tabela_detalhes_aluno4['Acerto_y'][i] = "{0:.0%}".format(tabela_detalhes_aluno4['Acerto_y'][i])
             
-            if tabela_detalhes_aluno4['Resposta do aluno(a)'][i] == tabela_detalhes_aluno4['Gabarito'][i]:# or (tabela_detalhes_aluno4['Número da questão'][i] == 73 and tabela_detalhes_aluno4['Acerto_x'][i] > tabela_detalhes_aluno4['Acerto_y'][i]): #tabela_detalhes_aluno4['Acerto_x'][i] == '100%' or tabela_detalhes_aluno4['Acerto_x'][i] > tabela_detalhes_aluno4['Acerto_y'][i]:
-                cor_back.append('#a5ffa5')
-                cor_texto.append('#008800')
-            else:
-                cor_back.append('#ffb1b1')
-                cor_texto.append('#a80000')
+        if tabela_detalhes_aluno4['Resposta do aluno(a)'][i] == tabela_detalhes_aluno4['Gabarito'][i]:# or (tabela_detalhes_aluno4['Número da questão'][i] == 73 and tabela_detalhes_aluno4['Acerto_x'][i] > tabela_detalhes_aluno4['Acerto_y'][i]): #tabela_detalhes_aluno4['Acerto_x'][i] == '100%' or tabela_detalhes_aluno4['Acerto_x'][i] > tabela_detalhes_aluno4['Acerto_y'][i]:
+            cor_back.append('#a5ffa5')
+            cor_texto.append('#008800')
+        else:
+            cor_back.append('#ffb1b1')
+            cor_texto.append('#a80000')
         
-        tabela_detalhes_aluno4 = tabela_detalhes_aluno4[['Número da questão','Disciplina','Assunto','Resposta do aluno(a)','Gabarito','Acerto_x','Acerto_y','Tempo na questão_x','Tempo na questão_y']]
-        tabela_detalhes_aluno4.rename(columns = {'Disciplina':'Área do conhecimento','Acerto_x':'Resultado Individual','Acerto_y':'Resultado Geral','Tempo na questão_x':'Tempo na questão','Tempo na questão_y':'Média geral'}, inplace = True)
+    tabela_detalhes_aluno4 = tabela_detalhes_aluno4[['Número da questão','Disciplina','Assunto','Resposta do aluno(a)','Gabarito','Acerto_x','Acerto_y','Tempo na questão_x','Tempo na questão_y']]
+    tabela_detalhes_aluno4.rename(columns = {'Disciplina':'Área do conhecimento','Acerto_x':'Resultado Individual','Acerto_y':'Resultado Geral','Tempo na questão_x':'Tempo na questão','Tempo na questão_y':'Média geral'}, inplace = True)
         #tabela_detalhes_aluno5 = tabela_detalhes_aluno4.sort_values(by = 'Número da questão', ascending = True).reset_index()
         
-        tabela_final = tabela_questoes(tabela_detalhes_aluno4,'Número da questão','Área do conhecimento','Assunto','Resposta do aluno(a)','Gabarito','Resultado Individual','Resultado Geral','Tempo na questão','Média geral',cor_texto,cor_back)
+    tabela_final = tabela_questoes(tabela_detalhes_aluno4,'Número da questão','Área do conhecimento','Assunto','Resposta do aluno(a)','Gabarito','Resultado Individual','Resultado Geral','Tempo na questão','Média geral',cor_texto,cor_back)
         
-        with st.container():
-            col1, col2, col3 = st.columns([0.5, 20, 0.5])
-            with col1:
-                st.write("")
-            with col2:
-                st.markdown(tabela_final, unsafe_allow_html=True)
-            with col3:
-                st.write("")
+    with st.container():
+        col1, col2, col3 = st.columns([0.5, 20, 0.5])
+        with col1:
+            st.write("")
+        with col2:
+            st.markdown(tabela_final, unsafe_allow_html=True)
+        with col3:
+            st.write("")
 
     html_header_2fase="""
     <h2 style="font-size:200%; color: #9E089E; font-family:Georgia"> 2º FASE<br>
