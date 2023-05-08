@@ -245,7 +245,6 @@ if len(login_aluno) > 0:
     html_br="""
     <br>
     """
-    st.markdown(html_br, unsafe_allow_html=True)
 if login_aluno != '':
     resultados_gerais3.to_csv('resultado_compilado.csv')
     resultados_gerais_aluno = resultados_gerais3[resultados_gerais3['Nome do aluno(a)'] == nome_aluno3['Nome do aluno(a)'][0]].reset_index()
