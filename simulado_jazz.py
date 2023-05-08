@@ -2365,32 +2365,32 @@ if login_aluno != '':
         
     tabela_detalhes = base.copy()
         
-        for i in range(len(tabela_detalhes['Nome do aluno(a)'])):
-            if tabela_detalhes['Resposta do aluno(a)'][i] == 'a':
-                tabela_detalhes['Resposta do aluno(a)'][i] = 'A'
-            elif tabela_detalhes['Resposta do aluno(a)'][i] == 'b':
-                tabela_detalhes['Resposta do aluno(a)'][i] = 'B'
-            elif tabela_detalhes['Resposta do aluno(a)'][i] == 'c':
-                tabela_detalhes['Resposta do aluno(a)'][i] = 'C'
-            elif tabela_detalhes['Resposta do aluno(a)'][i] == 'd':
-                tabela_detalhes['Resposta do aluno(a)'][i] = 'D'
-            elif tabela_detalhes['Resposta do aluno(a)'][i] == 'e':
-                tabela_detalhes['Resposta do aluno(a)'][i] = 'E'
-            else:
-                tabela_detalhes['Resposta do aluno(a)'][i] = ''
+    for i in range(len(tabela_detalhes['Nome do aluno(a)'])):
+        if tabela_detalhes['Resposta do aluno(a)'][i] == 'a':
+           tabela_detalhes['Resposta do aluno(a)'][i] = 'A'
+        elif tabela_detalhes['Resposta do aluno(a)'][i] == 'b':
+            tabela_detalhes['Resposta do aluno(a)'][i] = 'B'
+        elif tabela_detalhes['Resposta do aluno(a)'][i] == 'c':
+            tabela_detalhes['Resposta do aluno(a)'][i] = 'C'
+        elif tabela_detalhes['Resposta do aluno(a)'][i] == 'd':
+            tabela_detalhes['Resposta do aluno(a)'][i] = 'D'
+        elif tabela_detalhes['Resposta do aluno(a)'][i] == 'e':
+            tabela_detalhes['Resposta do aluno(a)'][i] = 'E'
+        else:
+            tabela_detalhes['Resposta do aluno(a)'][i] = ''
 
-            if tabela_detalhes['Gabarito'][i] == 'a':
-                tabela_detalhes['Gabarito'][i] = 'A'
-            elif tabela_detalhes['Gabarito'][i] == 'b':
-                tabela_detalhes['Gabarito'][i] = 'B'
-            elif tabela_detalhes['Gabarito'][i] == 'c':
-                tabela_detalhes['Gabarito'][i] = 'C'
-            elif tabela_detalhes['Gabarito'][i] == 'd':
-                tabela_detalhes['Gabarito'][i] = 'D'
-            elif tabela_detalhes['Gabarito'][i] == 'e':
-                tabela_detalhes['Gabarito'][i] = 'E'
-            else:
-                tabela_detalhes['Gabarito'][i] = ''
+        if tabela_detalhes['Gabarito'][i] == 'a':
+            tabela_detalhes['Gabarito'][i] = 'A'
+        elif tabela_detalhes['Gabarito'][i] == 'b':
+            tabela_detalhes['Gabarito'][i] = 'B'
+        elif tabela_detalhes['Gabarito'][i] == 'c':
+            tabela_detalhes['Gabarito'][i] = 'C'
+        elif tabela_detalhes['Gabarito'][i] == 'd':
+            tabela_detalhes['Gabarito'][i] = 'D'
+        elif tabela_detalhes['Gabarito'][i] == 'e':
+            tabela_detalhes['Gabarito'][i] = 'E'
+        else:
+            tabela_detalhes['Gabarito'][i] = ''
         tabela_detalhes_fizeram = tabela_detalhes[tabela_detalhes['Nome do aluno(a)'].isin(alunos_fizeram['Nome do aluno(a)'])].reset_index(drop = True)
         tabela_detalhes_aluno = tabela_detalhes[tabela_detalhes['Login do aluno(a)'] == login_aluno]
         tabela_detalhes_aluno2 = tabela_detalhes_aluno.drop(columns = ['Nota na questão','Valor da questão','Nome do aluno(a)','Login do aluno(a)','Certo ou errado'])
