@@ -124,7 +124,7 @@ with st.container():
         with col2:
             st.markdown(html_card_instagram, unsafe_allow_html=True)
             st.markdown(html_br, unsafe_allow_html=True)
-            st.write("##### [Clique aqui para conhecer nossa página](https://www.instagram.com/jazz_vestibular/)")
+            st.write("##### [Clique aqui para ver nossa página](https://www.instagram.com/jazz_vestibular/)")
         with col3:
             st.markdown(html_card_whatsapp, unsafe_allow_html=True)
             st.markdown(html_br, unsafe_allow_html=True)
