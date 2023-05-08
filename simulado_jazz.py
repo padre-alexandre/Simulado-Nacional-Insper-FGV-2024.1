@@ -109,7 +109,7 @@ html_br="""
     """
 
 with st.container():
-        col1, col2, col3 = st.columns([5,5,5])
+        col1, col2, col3 = st.columns([3,5,3])
         with col1:
             st.markdown(html_br, unsafe_allow_html=True)
         with col2:
