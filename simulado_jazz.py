@@ -107,7 +107,15 @@ html_card_whatsapp="""
 html_br="""
     <br>
     """
-st.image('[LOGO 3] Jazz.png')
+
+with st.container():
+        col1, col2, col3 = st.columns([2, 10, 2])
+         with col1:
+            st.markdown(html_br, unsafe_allow_html=True)
+        with col2:
+            st.image('[LOGO 3] Jazz.png')
+        with col3:
+            st.markdown(html_br, unsafe_allow_html=True)
 
 with st.container():
         col1, col2, col3 = st.columns([10, 5, 5])
