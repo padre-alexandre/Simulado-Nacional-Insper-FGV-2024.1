@@ -3359,7 +3359,7 @@ if login_aluno != '':
                                        xanchor="left",
                                        x=0.01),
                            margin=dict(l=1, r=1, b=1, t=30))
-            if resultado_final_aluno2['Nota 2ºfase'] > 0:
+            if resultado_final_aluno2['Nota 2ºfase'][0] > 0:
                 fig.add_vline(x=int(round(resultado_final_aluno2['Nota Final'].mean(),1)), line_width=7, line_dash="dash", line_color="#9E089E", annotation_text="Você está aqui!", annotation_position="top right")
             fig.add_vline(x=int(round(truncar(resultado_finalaux['Nota Final'].mean(),-1),0)), line_width=7, line_dash="dash", line_color="#01ECEC", annotation_text="Média", annotation_position="top right")
             fig.update_xaxes(showline=True, linewidth=1, linecolor='#9E089E', mirror=False, nticks=6, rangemode="tozero",
