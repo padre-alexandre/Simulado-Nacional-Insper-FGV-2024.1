@@ -2076,9 +2076,9 @@ if login_aluno != '':
     st.write(len(classificacao_aluno_red))
     if len(classificacao_aluno_red) > 0:
         if classificacao_aluno_red['level_0'][0] > numero_candidatos:
-            classificacao_aluno_red['level_0'][0] = numero_candidatos
+            class_aluno_red = numero_candidatos
         else: 
-            classificacao_aluno_red['level_0'][0] = numero_candidatos
+            class_aluno_red = classificacao_aluno_red['level_0'][0]
     
     ponto = str(round(100*(numero_candidatos-(classificacao_aluno_red['level_0'][0]))/numero_candidatos,0)).find('.')
     texto = str(round(100*(numero_candidatos-(classificacao_aluno_red['level_0'][0]))/numero_candidatos,0))[0:ponto]
