@@ -2350,20 +2350,20 @@ if login_aluno != '':
 
         st.markdown(html_br, unsafe_allow_html=True)
 
-        html_subtitle="""
-        <h2 style="color:#9E089E; font-family:Georgia;"> DETALHAMENTO POR QUESTÃO
-        <hr style= "  display: block;
-          margin-top: 0.5em;
-          margin-bottom: 0.5em;
-          margin-left: auto;
-          margin-right: auto;
-          border-style: inset;
-          border-width: 1.5px;"></h2>
-        """
-        st.markdown(html_subtitle, unsafe_allow_html=True)
+    html_subtitle="""
+    <h2 style="color:#9E089E; font-family:Georgia;"> DETALHAMENTO POR QUESTÃO
+    <hr style= "  display: block;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        margin-left: auto;
+        margin-right: auto;
+        border-style: inset;
+        border-width: 1.5px;"></h2>
+    """
+    st.markdown(html_subtitle, unsafe_allow_html=True)
         
         
-        tabela_detalhes = base.copy()
+    tabela_detalhes = base.copy()
         
         for i in range(len(tabela_detalhes['Nome do aluno(a)'])):
             if tabela_detalhes['Resposta do aluno(a)'][i] == 'a':
