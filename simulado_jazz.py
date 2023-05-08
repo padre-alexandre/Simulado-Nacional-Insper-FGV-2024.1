@@ -118,9 +118,9 @@ with st.container():
             st.markdown(html_br, unsafe_allow_html=True)
 
 with st.container():
-        col1, col2, col3 = st.columns([10, 5, 5])
+        col1, col2, col3, col4= st.columns([5, 5, 5, 5])
         with col1:
-            st.image('[LOGO 3] Jazz.png')
+            st.markdown(html_br, unsafe_allow_html=True)
         with col2:
             st.markdown(html_br, unsafe_allow_html=True)
             st.markdown(html_br, unsafe_allow_html=True)
@@ -137,6 +137,8 @@ with st.container():
             st.markdown(html_card_whatsapp, unsafe_allow_html=True)
             st.markdown(html_br, unsafe_allow_html=True)
             st.write("##### [Clique aqui para falar conosco](https://api.whatsapp.com/send?phone=55032998025088)")
+        with col4:
+            st.markdown(html_br, unsafe_allow_html=True)
 
 st.markdown(html_br, unsafe_allow_html=True)
 st.markdown(html_header, unsafe_allow_html=True)
