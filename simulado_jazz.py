@@ -3340,6 +3340,7 @@ if login_aluno != '':
     </div>
     """    
     ### Block 1#########################################################################################
+    st.dataframe(resultado_final_aluno2)
     with st.container():
         col1, col2, col3, col4, col5 = st.columns([9,25,2,25,4])
         with col1:
