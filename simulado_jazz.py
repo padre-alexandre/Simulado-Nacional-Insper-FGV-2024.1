@@ -1413,11 +1413,11 @@ if login_aluno != '':
         else:
             ciencias_detalhes = base_alunos_fizeram[base_alunos_fizeram['Disciplina'] == 'Ciências da Natureza']
     
-        ciencias_detalhes_media = ciencias_detalhes.groupby('Assunto').mean().reset_index()
+        ciencias_detalhes_media = ciencias_detalhes.groupby('Assunto').mean(['Acerto']).reset_index()
 
         ciencias_aluno = ciencias_detalhes[ciencias_detalhes['Login do aluno(a)'] == login_aluno]
 
-        ciencias_aluno_media = ciencias_aluno.groupby('Assunto').mean().reset_index()
+        ciencias_aluno_media = ciencias_aluno.groupby('Assunto').mean(['Acerto']).reset_index()
         ciencias_aluno_media2 = ciencias_aluno.groupby('Assunto').count().reset_index()
         ciencias_aluno_media3 = pd.DataFrame()
         ciencias_aluno_media3['Assunto'] = ciencias_aluno_media2['Assunto']
