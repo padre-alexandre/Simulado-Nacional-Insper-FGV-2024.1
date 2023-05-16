@@ -2003,7 +2003,7 @@ if login_aluno != '':
     
     base_redacao2 = base_redacao[base_redacao['Nota na questão'] >= 0]
     base_redacao_aux = base_redacao[base_redacao['Nota na questão'] > 0]
-    st.dataframe(base_redacao_aux)
+    
     redacao_detalhes_media = base_redacao_aux.groupby('Competência').mean(['Acerto']).reset_index()
     
     redacao_aluno = base_redacao2[base_redacao2['Login do aluno(a)'] == login_aluno]
@@ -2171,6 +2171,7 @@ if login_aluno != '':
                 base_redacao3['Nota na questão'][i] = 200 + 0.8*base_redacao3['Nota na questão'][i]
         base_redacao4 = base_redacao3[base_redacao3['Login do aluno(a)'] == login_aluno]
         base_redacao3aux = base_redacao3[base_redacao3['Nota na questão'] > 0]
+        st.dataframe(base_redacao3aux)
         base_redacao5 = base_redacao3aux.mean()
 
         with st.container():
