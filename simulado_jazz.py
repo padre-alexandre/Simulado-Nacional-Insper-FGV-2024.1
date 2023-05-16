@@ -2172,7 +2172,7 @@ if login_aluno != '':
         base_redacao4 = base_redacao3[base_redacao3['Login do aluno(a)'] == login_aluno]
         base_redacao3aux = base_redacao3[base_redacao3['Nota na questão'] > 0]
         st.dataframe(base_redacao3aux)
-        base_redacao5 = base_redacao3aux.mean()
+        base_redacao5 = base_redacao3aux.mean('Nota na questão')
 
         with st.container():
             col1, col2, col3, col4, col5 = st.columns([9,25,2,25,4])
