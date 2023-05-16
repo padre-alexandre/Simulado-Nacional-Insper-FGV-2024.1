@@ -3233,7 +3233,7 @@ if login_aluno != '':
     
     resultado_finalaux = resultado_final[resultado_final['Nota Final 2º fase'] > 0]
     st.dataframe(resultado_finalaux)
-    numero_candidatos = len(resultado_finalaux['Nome do aluno(a)'])
+    numero_candidatos = len(resultado_finalaux['Nome do aluno(a)_x'])
 
     html_card_header1="""
     <div class="card">
