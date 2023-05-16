@@ -253,7 +253,7 @@ if login_aluno != '':
     
     
     resultados_gerais4 = resultados_gerais3[resultados_gerais3['Nota na questão'] > 0]
-    resultados_gerais4_aux = resultados_gerais4[['Turma','Nome do aluno(a)','Login do aluno(a)','Número da questão','Tempo na questão','Valor da questão','Unnamed: 10','Acerto','Nota na questão']]
+    resultados_gerais4_aux = resultados_gerais4[['Login do aluno(a)','Número da questão','Tempo na questão','Valor da questão','Unnamed: 10','Acerto','Nota na questão']]
     st.dataframe(resultados_gerais4_aux)
     resultados_gerais5 = resultados_gerais4.groupby('Login do aluno(a)').mean().reset_index()
     st.dataframe(resultados_gerais5)
