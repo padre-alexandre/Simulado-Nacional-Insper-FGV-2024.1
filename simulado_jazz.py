@@ -2004,11 +2004,11 @@ if login_aluno != '':
     base_redacao2 = base_redacao[base_redacao['Nota na questão'] >= 0]
     base_redacao_aux = base_redacao[base_redacao['Nota na questão'] > 0]
     st.dataframe(base_redacao_aux)
-    redacao_detalhes_media = base_redacao_aux.groupby('Competência').mean().reset_index()
+    redacao_detalhes_media = base_redacao_aux.groupby('Competência').mean(['Acerto']).reset_index()
     
     redacao_aluno = base_redacao2[base_redacao2['Login do aluno(a)'] == login_aluno]
     
-    redacao_aluno_media = redacao_aluno.groupby('Competência').mean().reset_index()
+    redacao_aluno_media = redacao_aluno.groupby('Competência').mean(['Acerto']).reset_index()
 
     redacao_aluno_media2 = redacao_aluno.groupby('Competência').count().reset_index()
 
