@@ -2171,7 +2171,7 @@ if login_aluno != '':
                 base_redacao3['Nota na questão'][i] = 200 + 0.8*base_redacao3['Nota na questão'][i]
         base_redacao4 = base_redacao3[base_redacao3['Login do aluno(a)'] == login_aluno]
         base_redacao3aux = base_redacao3[base_redacao3['Nota na questão'] > 0]
-        st.dataframe(base_redacao3aux)
+
         base_redacao5 = base_redacao3aux['Nota na questão'].mean()
 
         with st.container():
@@ -2404,6 +2404,7 @@ if login_aluno != '':
     tabela_detalhes_fizeram = tabela_detalhes[tabela_detalhes['Nome do aluno(a)'].isin(alunos_fizeram['Nome do aluno(a)'])].reset_index(drop = True)
     tabela_detalhes_aluno = tabela_detalhes[tabela_detalhes['Login do aluno(a)'] == login_aluno]
     tabela_detalhes_aluno2 = tabela_detalhes_aluno.drop(columns = ['Nota na questão','Valor da questão','Nome do aluno(a)','Login do aluno(a)','Certo ou errado'])
+    st.dataframe(tabela_detalhes_fizeram)
     tabela_detalhes_media = tabela_detalhes_fizeram.groupby('Número da questão').mean().reset_index()
     tabela_detalhes_media2 = tabela_detalhes_media.drop(columns = ['Nota na questão','Valor da questão'])
 
