@@ -2405,7 +2405,7 @@ if login_aluno != '':
     tabela_detalhes_aluno = tabela_detalhes[tabela_detalhes['Login do aluno(a)'] == login_aluno]
     tabela_detalhes_aluno2 = tabela_detalhes_aluno.drop(columns = ['Nota na questão','Valor da questão','Nome do aluno(a)','Login do aluno(a)','Certo ou errado'])
     st.dataframe(tabela_detalhes_fizeram)
-    tabela_detalhes_media = tabela_detalhes_fizeram.groupby('Número da questão').mean().reset_index()
+    tabela_detalhes_media = tabela_detalhes_fizeram.groupby('Número da questão').mean(['Acerto']).reset_index()
     tabela_detalhes_media2 = tabela_detalhes_media.drop(columns = ['Nota na questão','Valor da questão'])
 
     tabela_detalhes_aluno3 = pd.merge(tabela_detalhes_aluno2, tabela_detalhes_media2, on = 'Número da questão', how = 'inner')
