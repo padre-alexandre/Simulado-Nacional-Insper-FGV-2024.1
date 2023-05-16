@@ -472,8 +472,9 @@ if login_aluno != '':
     base_alunos_fizeram_aux = base_alunos_fizeram.drop(columns = ['Nome da avaliação','Resposta do aluno(a)','Gabarito','Certo ou errado','Assunto'])
     st.dataframe(base_alunos_fizeram_aux)
     resultados_gerais_disciplina = base_alunos_fizeram_aux.groupby(['Turma','Login do aluno(a)','Nome do aluno(a)','Disciplina']).sum().reset_index()
-    st.dataframe(resultados_gerais_disciplina)
+    
     resultados_gerais_disciplina2 = resultados_gerais_disciplina.drop(columns = ['Número da questão'])
+    st.dataframe(resultados_gerais_disciplina2)
     resultados_gerais_disciplina3 = resultados_gerais_disciplina2.sort_values(by = 'Nota na questão', ascending = False).reset_index(drop = True)
     resultados_gerais_disciplina3['Nota na questão'] = 1000*resultados_gerais_disciplina3['Nota na questão']/resultados_gerais_disciplina3['Valor da questão']
     
