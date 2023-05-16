@@ -472,6 +472,7 @@ if login_aluno != '':
     resultados_gerais_disciplina2 = resultados_gerais_disciplina.drop(columns = ['Número da questão'])
     resultados_gerais_disciplina3 = resultados_gerais_disciplina2.sort_values(by = 'Nota na questão', ascending = False).reset_index(drop = True)
     resultados_gerais_disciplina3['Nota na questão'] = 1000*resultados_gerais_disciplina3['Nota na questão']/resultados_gerais_disciplina3['Valor da questão']
+    st.dataframe(resultados_gerais_disciplina3)
     resultados_gerais_disciplina4 = resultados_gerais_disciplina3.groupby('Disciplina').mean().reset_index()
     resultados_gerais_disciplina5 = resultados_gerais_disciplina4.sort_values(by = 'Disciplina', ascending = False)
     
