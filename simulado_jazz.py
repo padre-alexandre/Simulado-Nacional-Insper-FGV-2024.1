@@ -659,7 +659,7 @@ if login_aluno != '':
 
     matematica_detalhes = base_alunos_fizeram[base_alunos_fizeram['Disciplina'] == 'Matemática']
     st.dataframe(matematica_detalhes)
-    matematica_detalhes_media = matematica_detalhes.groupby('Assunto').mean().reset_index()
+    matematica_detalhes_media = matematica_detalhes.groupby(['Assunto']).mean().reset_index()
     
     matematica_aluno = matematica_detalhes[matematica_detalhes['Login do aluno(a)'] == login_aluno]
     
