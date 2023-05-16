@@ -256,7 +256,7 @@ if login_aluno != '':
     resultados_gerais4_aux = resultados_gerais4[['Login do aluno(a)','Número da questão','Tempo na questão','Valor da questão','Unnamed: 10','Acerto','Nota na questão']]
     resultados_gerais5 = resultados_gerais4_aux.copy()
     #resultados_gerais5 = resultados_gerais4.groupby('Login do aluno(a)').mean().reset_index()
-    st.dataframe(resultados_gerais5)
+
     alunos_fizeram = pd.DataFrame()
     alunos_fizeram['Nome do aluno(a)'] = resultados_gerais4['Nome do aluno(a)']
 
