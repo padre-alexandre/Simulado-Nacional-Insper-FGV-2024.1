@@ -468,9 +468,9 @@ if login_aluno != '':
     #### Resultados gerais por disciplina
     
     base_alunos_fizeram = base[base['Nome do aluno(a)'].isin(alunos_fizeram['Nome do aluno(a)'])].reset_index(drop = True)
-    
+    st.dataframe(base_alunos_fizeram)
     resultados_gerais_disciplina = base_alunos_fizeram.groupby(['Turma','Login do aluno(a)','Nome do aluno(a)','Disciplina']).sum().reset_index()
-    st.dataframe(resultados_gerais_disciplina)
+    
     resultados_gerais_disciplina2 = resultados_gerais_disciplina.drop(columns = ['Número da questão'])
     resultados_gerais_disciplina3 = resultados_gerais_disciplina2.sort_values(by = 'Nota na questão', ascending = False).reset_index(drop = True)
     resultados_gerais_disciplina3['Nota na questão'] = 1000*resultados_gerais_disciplina3['Nota na questão']/resultados_gerais_disciplina3['Valor da questão']
