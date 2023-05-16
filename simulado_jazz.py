@@ -658,7 +658,6 @@ if login_aluno != '':
         """
 
     matematica_detalhes = base_alunos_fizeram[base_alunos_fizeram['Disciplina'] == 'Matemática']
-    st.dataframe(matematica_detalhes)
     matematica_detalhes_media = matematica_detalhes.groupby(['Assunto']).mean(['Acerto']).reset_index()
     
     matematica_aluno = matematica_detalhes[matematica_detalhes['Login do aluno(a)'] == login_aluno]
@@ -1049,11 +1048,11 @@ if login_aluno != '':
 
         linguagens_detalhes = base_alunos_fizeram[base_alunos_fizeram['Disciplina'] == 'Linguagens']
     
-        linguagens_detalhes_media = linguagens_detalhes.groupby('Assunto').mean().reset_index()
+        linguagens_detalhes_media = linguagens_detalhes.groupby('Assunto').mean(['Acerto']).reset_index()
 
         linguagens_aluno = linguagens_detalhes[linguagens_detalhes['Login do aluno(a)'] == login_aluno]
 
-        linguagens_aluno_media = linguagens_aluno.groupby('Assunto').mean().reset_index()
+        linguagens_aluno_media = linguagens_aluno.groupby('Assunto').mean(['Acerto']).reset_index()
         linguagens_aluno_media2 = linguagens_aluno.groupby('Assunto').count().reset_index()
         linguagens_aluno_media3 = pd.DataFrame()
         linguagens_aluno_media3['Assunto'] = linguagens_aluno_media2['Assunto']
