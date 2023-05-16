@@ -2193,7 +2193,7 @@ if login_aluno != '':
                                            x=0.01),
                                margin=dict(l=1, r=1, b=1, t=30))
                 fig.add_vline(x=int(base_redacao4['Nota na questão']), line_width=7, line_dash="dash", line_color="#9E089E", annotation_text="Você está aqui!", annotation_position="top right")
-                fig.add_vline(x=int(round(truncar(base_redacao5['Nota na questão'],-1),0)), line_width=7, line_dash="dash", line_color="#01ECEC", annotation_text="Média", annotation_position="top right")
+                fig.add_vline(x=int(round(truncar(base_redacao5,-1),0)), line_width=7, line_dash="dash", line_color="#01ECEC", annotation_text="Média", annotation_position="top right")
                 fig.update_xaxes(showline=True, linewidth=1, linecolor='#9E089E', mirror=False, nticks=6, rangemode="tozero",
                               showgrid=False, gridwidth=0.5, gridcolor='#f6f6f6')
                 fig.update_yaxes(showline=True, linewidth=1, linecolor='#9E089E', mirror=False, nticks=10, rangemode="tozero",
