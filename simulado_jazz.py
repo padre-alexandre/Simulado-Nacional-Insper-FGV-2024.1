@@ -663,7 +663,7 @@ if login_aluno != '':
     
     matematica_aluno = matematica_detalhes[matematica_detalhes['Login do aluno(a)'] == login_aluno]
     
-    matematica_aluno_media = matematica_aluno.groupby('Assunto').mean().reset_index()
+    matematica_aluno_media = matematica_aluno.groupby('Assunto').mean(['Acerto']).reset_index()
     matematica_aluno_media2 = matematica_aluno.groupby('Assunto').count().reset_index()
     matematica_aluno_media3 = pd.DataFrame()
     matematica_aluno_media3['Assunto'] = matematica_aluno_media2['Assunto']
