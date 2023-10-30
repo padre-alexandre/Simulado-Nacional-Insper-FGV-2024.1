@@ -47,6 +47,16 @@ local_css("style_nova_id.css")
 # Cor da fonte dos títulos: #9E089E
 # Cor da fonte dos texto: #C81F6D e #9E089E
 # Fonte: Arial
+# Título
+# Dicionário com números e caminhos das imagens
+# Caminho base para as imagens
+# Caminho base para as imagens
+# Caminho base para as imagens
+# Dicionário com números e caminhos das imagens
+
+
+
+
 
 ######################### Banco de Dados ########################
 import gspread
@@ -56,8 +66,8 @@ scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/aut
 creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
 client = gspread.authorize(creds)
 
-sheet = client.open('Banco de Dados - Relatório Simulado Nacional').sheet1          # Enquanto estiver rodando na nuvem
-#sheet = client.open('Banco de Dados - Relatório Simulado Nacional - Teste').sheet1   # Enquanto estiver rodando no local
+#sheet = client.open('Banco de Dados - Relatório Simulado Nacional').sheet1          # Enquanto estiver rodando na nuvem
+sheet = client.open('Banco de Dados - Relatório Simulado Nacional - Teste').sheet1   # Enquanto estiver rodando no local
 
 #### Colunas (id, Data e Hora, Nome, Rede, Grupo, Gestor, Produto, Faixa de licenças, Namespace, NPS, Feedback)
 row0 = ['Data e Hora', 'Turma','Nome','Login']
@@ -146,11 +156,11 @@ base_resultados_2fase = pd.read_csv('./resultado2fase.csv')
 
 ### Turmas
 
-turma_eng = 'Simulado Nacional Insper 2023.2 - Engenharia'
-turma_cien = 'Simulado Nacional Insper 2023.2 - Ciência da Computação'
-turma_adm = 'Simulado Nacional Insper 2023.2 - Administração'
-turma_eco = 'Simulado Nacional Insper 2023.2 - Economia'
-turma_dir = 'Simulado Nacional Insper 2023.2 - Direito'
+turma_eng = 'Simulado Nacional Insper 2024.1 - Engenharia'
+turma_cien = 'Simulado Nacional Insper 2024.1 - Ciência da Computação'
+turma_adm = 'Simulado Nacional Insper 2024.1 - Administração'
+turma_eco = 'Simulado Nacional Insper 2024.1 - Economia'
+turma_dir = 'Simulado Nacional Insper 2024.1 - Direito'
 
 ### Renomeando colunas e ajustando células vazias
 
@@ -206,7 +216,9 @@ for i in range(len(resultados_gerais2_aux['Login do aluno(a)'])):
 
 
 #resultados_gerais2 = resultados_gerais.drop(columns = ['Número da questão'])
-resultados_gerais3 = resultados_gerais2_aux.sort_values(by = 'Nota na questão', ascending = False).reset_index(drop = True)                
+
+resultados_gerais3 = resultados_gerais2_aux.sort_values(by = 'Nota na questão', ascending = False).reset_index(drop = True)  
+resultados_gerais3["Login do aluno(a)"] = resultados_gerais3["Login do aluno(a)"].apply(extract_login)              
 
 ### Selecionar o aluno
 login_aluno = st.text_input('Digite o seu login', '')
@@ -219,6 +231,7 @@ login_aluno = st.text_input('Digite o seu login', '')
 if len(login_aluno) > 0:
     nome_aluno3 = resultados_gerais3[resultados_gerais3['Login do aluno(a)'] == login_aluno]['Nome do aluno(a)'].reset_index()
     turma_aluno = resultados_gerais3[resultados_gerais3['Login do aluno(a)'] == login_aluno]['Turma'].reset_index() 
+
     row = [str(datetime.today()),turma_aluno['Turma'][0],nome_aluno3['Nome do aluno(a)'][0],login_aluno]
     index = 2
     sheet.insert_row(row, index)
@@ -253,7 +266,7 @@ if login_aluno != '':
     
     
     resultados_gerais4 = resultados_gerais3[resultados_gerais3['Nota na questão'] > 0]
-    resultados_gerais4_aux = resultados_gerais4[['Login do aluno(a)','Número da questão','Tempo na questão','Valor da questão','Unnamed: 10','Acerto','Nota na questão']]
+    resultados_gerais4_aux = resultados_gerais4[['Login do aluno(a)','Número da questão','Tempo na questão','Valor da questão','Acerto','Nota na questão']]
     resultados_gerais5 = resultados_gerais4_aux.copy()
     #resultados_gerais5 = resultados_gerais4.groupby('Login do aluno(a)').mean().reset_index()
 
@@ -478,14 +491,16 @@ if login_aluno != '':
     resultados_gerais_disciplina3 = resultados_gerais_disciplina2.sort_values(by = 'Nota na questão', ascending = False).reset_index(drop = True)
     
     resultados_gerais_disciplina3['Nota na questão'] = 1000*resultados_gerais_disciplina3['Nota na questão']/resultados_gerais_disciplina3['Valor da questão']
+    
     resultados_gerais_disciplina3_aux = resultados_gerais_disciplina3.drop(columns = ['Turma','Login do aluno(a)','Nome do aluno(a)'])
-
+    
     resultados_gerais_disciplina4 = resultados_gerais_disciplina3_aux.groupby('Disciplina').mean().reset_index()
     resultados_gerais_disciplina5 = resultados_gerais_disciplina4.sort_values(by = 'Disciplina', ascending = False)
     
     ### Resultados do aluno por disciplina
-    
+    resultados_gerais_disciplina3["Login do aluno(a)"] = resultados_gerais_disciplina3["Login do aluno(a)"].apply(extract_login)    
     resultados_disciplina_aluno = resultados_gerais_disciplina3[resultados_gerais_disciplina3['Login do aluno(a)'] == login_aluno].reset_index()
+
     resultados_disciplina_aluno2 = resultados_disciplina_aluno.sort_values(by = 'Disciplina', ascending = False)
     
     resultados_matematica = resultados_disciplina_aluno2[resultados_disciplina_aluno2['Disciplina'] == 'Matemática'].reset_index()
@@ -507,7 +522,7 @@ if login_aluno != '':
     resultados_gerais_disciplina_med_lin = resultados_gerais_disciplina5[resultados_gerais_disciplina5['Disciplina'] == 'Linguagens'].reset_index(drop = True)
     resultados_gerais_disciplina_med_hum = resultados_gerais_disciplina5[resultados_gerais_disciplina5['Disciplina'] == 'Ciências Humanas'].reset_index(drop = True)
     resultados_gerais_disciplina_med_nat = resultados_gerais_disciplina5[resultados_gerais_disciplina5['Disciplina'] == 'Ciências da Natureza'].reset_index(drop = True)
-    
+
     if len(resultados_ciencias_hum['Disciplina']) == 0:
         resultados_ciencias_fim = resultados_ciencias_nat.copy()
         resultados_gerais_disciplina3_fim = resultados_gerais_disciplina3_nat.copy()
@@ -659,7 +674,8 @@ if login_aluno != '':
 
     matematica_detalhes = base_alunos_fizeram[base_alunos_fizeram['Disciplina'] == 'Matemática']
     matematica_detalhes_media = matematica_detalhes.groupby(['Assunto']).mean(['Acerto']).reset_index()
-    
+
+    matematica_detalhes["Login do aluno(a)"] = matematica_detalhes["Login do aluno(a)"].apply(extract_login)    
     matematica_aluno = matematica_detalhes[matematica_detalhes['Login do aluno(a)'] == login_aluno]
     
     matematica_aluno_media = matematica_aluno.groupby('Assunto').mean(['Acerto']).reset_index()
@@ -1049,7 +1065,7 @@ if login_aluno != '':
         linguagens_detalhes = base_alunos_fizeram[base_alunos_fizeram['Disciplina'] == 'Linguagens']
     
         linguagens_detalhes_media = linguagens_detalhes.groupby('Assunto').mean(['Acerto']).reset_index()
-
+        linguagens_detalhes["Login do aluno(a)"] = linguagens_detalhes["Login do aluno(a)"].apply(extract_login) 
         linguagens_aluno = linguagens_detalhes[linguagens_detalhes['Login do aluno(a)'] == login_aluno]
 
         linguagens_aluno_media = linguagens_aluno.groupby('Assunto').mean(['Acerto']).reset_index()
@@ -1414,7 +1430,7 @@ if login_aluno != '':
             ciencias_detalhes = base_alunos_fizeram[base_alunos_fizeram['Disciplina'] == 'Ciências da Natureza']
     
         ciencias_detalhes_media = ciencias_detalhes.groupby('Assunto').mean(['Acerto']).reset_index()
-
+        ciencias_detalhes["Login do aluno(a)"] = ciencias_detalhes["Login do aluno(a)"].apply(extract_login) 
         ciencias_aluno = ciencias_detalhes[ciencias_detalhes['Login do aluno(a)'] == login_aluno]
 
         ciencias_aluno_media = ciencias_aluno.groupby('Assunto').mean(['Acerto']).reset_index()
@@ -2005,7 +2021,7 @@ if login_aluno != '':
     base_redacao_aux = base_redacao[base_redacao['Nota na questão'] > 0]
     
     redacao_detalhes_media = base_redacao_aux.groupby('Competência').mean(['Acerto']).reset_index()
-    
+    base_redacao2["Login do aluno(a)"] = base_redacao2["Login do aluno(a)"].apply(extract_login) 
     redacao_aluno = base_redacao2[base_redacao2['Login do aluno(a)'] == login_aluno]
     
     redacao_aluno_media = redacao_aluno.groupby('Competência').mean(['Acerto']).reset_index()
@@ -2080,7 +2096,7 @@ if login_aluno != '':
     #base_redacao_disciplina['Nota na questão'] = 200 + 0.8*base_redacao_disciplina['Nota na questão']
 
     base_redacao_disciplina2 = base_redacao_disciplina.sort_values(by = 'Nota na questão', ascending = False).reset_index()
-
+    base_redacao_disciplina2["Login do aluno(a)"] = base_redacao_disciplina2["Login do aluno(a)"].apply(extract_login) 
     classificacao_aluno_red = base_redacao_disciplina2[base_redacao_disciplina2['Login do aluno(a)'] == login_aluno].reset_index()
     #st.write(len(classificacao_aluno_red))
     #if classificacao_aluno_red['level_0'][0] > numero_candidatos and len(classificacao_aluno_red) > 0:
@@ -2169,6 +2185,7 @@ if login_aluno != '':
         for i in range(len(base_redacao3['Nota na questão'])):
             if base_redacao3['Nota na questão'][i] > 0:
                 base_redacao3['Nota na questão'][i] = 200 + 0.8*base_redacao3['Nota na questão'][i]
+ 
         base_redacao4 = base_redacao3[base_redacao3['Login do aluno(a)'] == login_aluno]
         base_redacao3aux = base_redacao3[base_redacao3['Nota na questão'] > 0]
 
@@ -2402,6 +2419,7 @@ if login_aluno != '':
         else:
             tabela_detalhes['Gabarito'][i] = ''
     tabela_detalhes_fizeram = tabela_detalhes[tabela_detalhes['Nome do aluno(a)'].isin(alunos_fizeram['Nome do aluno(a)'])].reset_index(drop = True)
+    tabela_detalhes["Login do aluno(a)"] = tabela_detalhes["Login do aluno(a)"].apply(extract_login) 
     tabela_detalhes_aluno = tabela_detalhes[tabela_detalhes['Login do aluno(a)'] == login_aluno]
     tabela_detalhes_aluno2 = tabela_detalhes_aluno.drop(columns = ['Nota na questão','Valor da questão','Nome do aluno(a)','Login do aluno(a)','Certo ou errado'])
     tabela_detalhes_media = tabela_detalhes_fizeram.groupby('Número da questão').mean(['Acerto']).reset_index()
@@ -3193,7 +3211,7 @@ if login_aluno != '':
                 st.write("")
     
     primeira_fase = resultados_gerais5
-    primeira_fase2 = primeira_fase.drop(columns = ['Número da questão','Tempo na questão','Valor da questão','Unnamed: 10','Acerto'])
+    primeira_fase2 = primeira_fase.drop(columns = ['Número da questão','Tempo na questão','Valor da questão','Acerto'])
     segunda_fase = base_resultados_2fase
     
     segunda_fase2 = segunda_fase.drop(columns = ['Tema 1 - Comunicação assertiva','Tema 2 - Comunicação assertiva','Tema 3 - Comunicação assertiva','Tema 4 - Comunicação assertiva', 'Tema 1 - Interação com pessoas', 'Tema 2 - Interação com pessoas', 'Tema 3 - Interação com pessoas', 'Tema 4 - Interação com pessoas', 'Tema 1 - Pensamento crítico', 'Tema 2 - Pensamento crítico', 'Tema 3 - Pensamento crítico', 'Tema 4 - Pensamento crítico', 'Tema 1 - Aprender a aprender', 'Tema 2 - Aprender a aprender']) 
@@ -3233,7 +3251,7 @@ if login_aluno != '':
     
     resultado_finalaux = resultado_final[resultado_final['Nota Final 2º fase'] > 0]
 
-    numero_candidatos = len(resultado_finalaux['Nome do aluno(a)_x'])
+    numero_candidatos = len(resultado_finalaux['Nome do aluno(a)'])
 
     html_card_header1="""
     <div class="card">
@@ -3406,4 +3424,19 @@ if login_aluno != '':
             st.markdown(html_final, unsafe_allow_html=True)
         with col3:
             st.write("")
+
+
+numeros_e_imagens = {i: f"questao{str(i).zfill(2)}.png" for i in range(1, 73)}
+
+# Inicializa a grade
+botoes_por_linha = 24
+num_linhas = len(numeros_e_imagens) // botoes_por_linha
+# Exibe os botões em colunas
+for numero in range(1, len(numeros_e_imagens) + 1, botoes_por_linha):
+    colunas = st.columns(botoes_por_linha)
+    for i in range(botoes_por_linha):
+        coluna = colunas[i]
+        if numero + i <= len(numeros_e_imagens):
+           if coluna.button(f"{str(numero + i).zfill(2)}"):
+               st.image(numeros_e_imagens[numero + i], caption=f"Questão {numero + i}", use_column_width=True)
         

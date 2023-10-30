@@ -1,199 +1,209 @@
-,Turma,Nome do aluno(a),Login do aluno(a),Número da questão,Tempo na questão,Valor da questão,Unnamed: 10,Acerto,Nota na questão
-0,Simulado Nacional Insper 2023.2 - Administração,Henrique Ataide,jazz.henrique86,2701,15713.0,1000.0025,5329,56.0,812.501675
-1,Simulado Nacional Insper 2023.2 - Economia,Gustavo Adolfo de Queiroz Filho,jazz.gustavo03,2701,16273.0,1000.0025,5329,55.0,791.6697999999999
-2,Simulado Nacional Insper 2023.2 - Administração,Miguel Trindade de Carvalho e Carneiro,jazz.miguel86,2701,13576.0,1000.0025,5329,54.0,770.834225
-3,Simulado Nacional Insper 2023.2 - Economia,Guilherme Santana,jazz.guilherme60,2701,11349.0,1000.0025,5329,52.0,739.5860749999999
-4,Simulado Nacional Insper 2023.2 - Ciência da Computação,Henrique Bucci,jazz.henrique41,4429,18896.0,1000.00256,5329,52.0,725.001456
-5,Simulado Nacional Insper 2023.2 - Engenharia,Daniel Dias,jazz.daniel60,4429,18590.0,1000.00256,5329,53.0,716.6680799999999
-6,Simulado Nacional Insper 2023.2 - Economia,Wilton Lopes Araujo,jazz.wilton35,2701,14416.0,1000.0025,5329,51.0,708.3352625
-7,Simulado Nacional Insper 2023.2 - Administração,João Vilela de Toledo,jazz.joao47,2701,9030.0,1000.0025,5329,52.0,687.5025625
-8,Simulado Nacional Insper 2023.2 - Engenharia,Gianlucca Severo de Melo,jazz.gianlucca68,4429,12795.0,1000.00256,5329,50.0,683.334624
-9,Simulado Nacional Insper 2023.2 - Direito,Lívia Mayumi,jazz.livia38,2701,12441.0,1000.0025,5329,47.0,656.2524125
-10,Simulado Nacional Insper 2023.2 - Engenharia,José Lucas Alves de Lima,jazz.jose57,4429,18907.0,1000.00256,5329,46.0,633.3343679999999
-11,Simulado Nacional Insper 2023.2 - Administração,João Pedro Costa,jazz.joao54,2701,17567.0,1000.0025,5329,45.0,625.00155
-12,Simulado Nacional Insper 2023.2 - Administração,Mateus Rosa Soares,jazz.mateus10,2701,18057.0,1000.0025,5329,41.0,604.1683125
-13,Simulado Nacional Insper 2023.2 - Administração,Francisco,jazz.francisco02,2701,10352.0,1000.0025,5329,41.0,604.1669625
-14,Simulado Nacional Insper 2023.2 - Direito,Francisco,jazz.francisco37,2701,17567.0,1000.0025,5329,47.0,593.7531624999999
-15,Simulado Nacional Insper 2023.2 - Administração,Alberto Coury,jazz.alberto12,2701,18439.0,1000.0025,5329,43.0,593.7522375
-16,Simulado Nacional Insper 2023.2 - Direito,Eduardo,jazz.eduardo05,2701,18886.0,1000.0025,5329,47.0,572.9210375
-17,Simulado Nacional Insper 2023.2 - Direito,Lavínia Neves,jazz.lavinia04,2701,14468.0,1000.0025,5329,45.0,572.9207125
-18,Simulado Nacional Insper 2023.2 - Administração,João Gabriel Weckerle Sobreira,jazz.joao07,2701,16363.0,1000.0025,5329,43.0,572.91935
-19,Simulado Nacional Insper 2023.2 - Administração,Guilherme Brandão,jazz.guilherme77,2701,16420.0,1000.0025,5329,43.0,572.9188750000001
-20,Simulado Nacional Insper 2023.2 - Administração,Enzo allage marins,jazz.enzo58,2701,18584.0,1000.0025,5329,40.0,552.0840625
-21,Simulado Nacional Insper 2023.2 - Engenharia,Mariana Villela Rosa,jazz.mariana67,4429,18790.0,1000.00256,5329,41.0,550.001688
-22,Simulado Nacional Insper 2023.2 - Direito,Gabriella Rosa,jazz.gabriella30,2701,18905.0,1000.0025,5329,43.0,541.6697750000001
-23,Simulado Nacional Insper 2023.2 - Ciência da Computação,Alex Chequer,jazz.alex93,4429,14274.0,1000.00256,5329,40.0,533.3347679999999
-24,Simulado Nacional Insper 2023.2 - Administração,Felipe Rosado Menezes,jazz.felipe300,2701,18424.0,1000.0025,5329,41.0,531.2523875
-25,Simulado Nacional Insper 2023.2 - Administração,Pedro Ferraz Brenner,jazz.pedro57,2701,15475.0,1000.0025,5329,39.0,531.2522624999999
-26,Simulado Nacional Insper 2023.2 - Economia,Heitor Crespo,jazz.heitor81,2701,13736.0,1000.0025,5329,39.0,520.83555
-27,Simulado Nacional Insper 2023.2 - Administração,Gabriela,jazz.gabriela35,2701,8662.0,1000.0025,5329,37.0,510.4191875
-28,Simulado Nacional Insper 2023.2 - Economia,Maria Beatriz Mota prudente de Moraes,jazz.maria05,2701,17882.0,1000.0025,5329,39.0,500.0028125
-29,Simulado Nacional Insper 2023.2 - Economia,Ian Dallamaria,jazz.ian80,2701,15787.0,1000.0025,5329,39.0,489.587
-30,Simulado Nacional Insper 2023.2 - Administração,João Pedro Gomes,jazz.joao01,2701,18830.0,1000.0025,5329,35.0,468.7514
-31,Simulado Nacional Insper 2023.2 - Administração,Joyce,jazz.joyce36,2701,18338.0,1000.0025,5329,33.0,458.3352875
-32,Simulado Nacional Insper 2023.2 - Administração,Maycon Bresolin Junior,jazz.maycon25,2701,17889.0,1000.0025,5329,33.0,458.33489999999995
-33,Simulado Nacional Insper 2023.2 - Economia,André Daud,jazz.andre09,2701,18523.0,1000.0025,5329,32.0,458.33473749999996
-34,Simulado Nacional Insper 2023.2 - Direito,Maria Luiza,jazz.maria42,2701,14898.0,1000.0025,5329,35.0,447.92015
-35,Simulado Nacional Insper 2023.2 - Administração,Júlia Ferraz,jazz.julia30,2701,14638.0,1000.0025,5329,28.0,447.91781249999997
-36,Simulado Nacional Insper 2023.2 - Engenharia,Nicholas Danyluk Novaes Ferreira,jazz.nicholas40,4429,13442.0,1000.00256,5329,32.0,441.668328
-37,Simulado Nacional Insper 2023.2 - Engenharia,Karyne Alencar Machado,jazz.karyne99,4429,18116.0,1000.00256,5329,34.0,441.66792
-38,Simulado Nacional Insper 2023.2 - Administração,João Pedro Loturco,jazz.joao94,2701,8280.0,1000.0025,5329,31.0,437.5015125
-39,Simulado Nacional Insper 2023.2 - Direito,Luis Barreto,jazz.luis53,2701,18124.0,1000.0025,5329,33.0,416.66949999999997
-40,Simulado Nacional Insper 2023.2 - Administração,Luiz Otavio de Camargo Cury,jazz.luiz06,2701,14994.0,1000.0025,5329,33.0,416.6694
-41,Simulado Nacional Insper 2023.2 - Administração,esther,jazz.esther24,2701,15372.0,1000.0025,5329,30.0,416.6694
-42,Simulado Nacional Insper 2023.2 - Administração,Antonio Unterstell Granzotto,jazz.antonio15,2701,18022.0,1000.0025,5329,31.0,416.6681625
-43,Simulado Nacional Insper 2023.2 - Engenharia,pietro bettega,jazz.pietro43,4429,21821.0,1000.00256,5329,30.0,408.334608
-44,Simulado Nacional Insper 2023.2 - Administração,Pedro Vitor Léda,jazz.pedro61,2701,5891.0,1000.0025,5329,30.0,406.2520999999999
-45,Simulado Nacional Insper 2023.2 - Administração,Marina Ferreira Cirillo,jazz.marina80,2701,18899.0,1000.0025,5329,29.0,385.41937500000006
-46,Simulado Nacional Insper 2023.2 - Economia,Hugo Avelar,jazz.hugo97,2701,18889.0,1000.0025,5329,27.0,375.0023375
-47,Simulado Nacional Insper 2023.2 - Administração,Davi Lopes,jazz.davi04,2701,14119.0,1000.0025,5329,24.0,354.167325
-48,Simulado Nacional Insper 2023.2 - Administração,Julia Costa e Silva Silveira,jazz.julia18,2701,11054.0,1000.0025,5329,21.0,343.75082499999996
-49,Simulado Nacional Insper 2023.2 - Economia,Amanda Vescovi,jazz.amanda37,2701,18696.0,1000.0025,5329,24.0,333.33541249999996
-50,Simulado Nacional Insper 2023.2 - Administração,Arthur del puppo,jazz.arthur24,2701,5999.0,1000.0025,5329,23.0,333.3339
-51,Simulado Nacional Insper 2023.2 - Engenharia,Brenno Lyrio,jazz.brenno05,4429,18870.0,1000.00256,5329,25.0,325.00108800000004
-52,Simulado Nacional Insper 2023.2 - Administração,rafaella,jazz.rafaella14,2701,10213.0,1000.0025,5329,24.0,322.9188
-53,Simulado Nacional Insper 2023.2 - Economia,Laura,jazz.laura26,2701,17307.0,1000.0025,5329,22.0,322.916625
-54,Simulado Nacional Insper 2023.2 - Administração,Milan carvalho ventura,jazz.milan13,2701,18839.0,1000.0025,5329,22.0,302.0846125
-55,Simulado Nacional Insper 2023.2 - Ciência da Computação,Otávio Lukaisus,jazz.otavio44,4429,4063.0,1000.00256,5329,22.0,291.666792
-56,Simulado Nacional Insper 2023.2 - Direito,Felipe Asprino,jazz.felipe00,2701,4542.0,1000.0025,5329,21.0,281.2502875
-57,Simulado Nacional Insper 2023.2 - Administração,Felipe ferraz,jazz.felipe03,2701,6294.0,1000.0025,5329,19.0,281.2501125
-58,Simulado Nacional Insper 2023.2 - Ciência da Computação,Rafael ken,jazz.rafael26,4429,12173.0,1000.00256,5329,18.0,258.33432
-59,Simulado Nacional Insper 2023.2 - Direito,Jaqueline,jazz.jaqueline05,2701,4144.0,1000.0025,5329,17.0,208.3347
-60,Simulado Nacional Insper 2023.2 - Economia,Matheus Gabriel,jazz.matheus32,2701,13845.0,1000.0025,5329,16.0,197.9183375
-61,Simulado Nacional Insper 2023.2 - Administração,Fernando,jazz.fernando01,2701,18929.0,1000.0025,5329,9.0,125.000775
-62,Simulado Nacional Insper 2023.2 - Administração,Laís Gonzalez,jazz.lais49,2701,2090.0,1000.0025,5329,7.0,104.166675
-63,Simulado Nacional Insper 2023.2 - Administração,Davi,jazz.davi46,2701,2090.0,1000.0025,5329,7.0,93.75018750000001
-64,Simulado Nacional Insper 2023.2 - Ciência da Computação,Gisele Rezende,jazz.gisele81,4429,1350.0,1000.00256,5329,1.0,16.6668
-65,Simulado Nacional Insper 2023.2 - Direito,Maria Carolina,jazz.maria13,2701,0.0,1000.0025,5329,0.0,0.0
-66,Simulado Nacional Insper 2023.2 - Direito,Geovanna,jazz.geovanna56,2701,0.0,1000.0025,5329,0.0,0.0
-67,Simulado Nacional Insper 2023.2 - Direito,Gessiane Carvalho da Silva,jazz.gessiane76,2701,0.0,1000.0025,5329,0.0,0.0
-68,Simulado Nacional Insper 2023.2 - Direito,Mariana,jazz.mariana87,2701,0.0,1000.0025,5329,0.0,0.0
-69,Simulado Nacional Insper 2023.2 - Direito,Guilherme dos Santos de Padilha,jazz.guilherme69,2701,0.0,1000.0025,5329,0.0,0.0
-70,Simulado Nacional Insper 2023.2 - Direito,Maria yanni lima de Souza,jazz.maria47,2701,0.0,1000.0025,5329,0.0,0.0
-71,Simulado Nacional Insper 2023.2 - Direito,Gustavo Henrique do Carmo,jazz.gustavo71,2701,0.0,1000.0025,5329,0.0,0.0
-72,Simulado Nacional Insper 2023.2 - Direito,Maria Heloisa Bezerra Da Silva,jazz.maria11,2701,0.0,1000.0025,5329,0.0,0.0
-73,Simulado Nacional Insper 2023.2 - Direito,Marcus Henrique,jazz.marcus94,2701,0.0,1000.0025,5329,0.0,0.0
-74,Simulado Nacional Insper 2023.2 - Direito,Letícia da Silva Lima,jazz.leticia55,2701,0.0,1000.0025,5329,0.0,0.0
-75,Simulado Nacional Insper 2023.2 - Direito,Izabel Silva de jesus,jazz.izabel34,2701,0.0,1000.0025,5329,0.0,0.0
-76,Simulado Nacional Insper 2023.2 - Direito,Julia Garcia Mota,jazz.julia34,2701,0.0,1000.0025,5329,0.0,0.0
-77,Simulado Nacional Insper 2023.2 - Direito,Kalliane,jazz.kalliane77,2701,0.0,1000.0025,5329,0.0,0.0
-78,Simulado Nacional Insper 2023.2 - Direito,Kamily,jazz.kamily74,2701,0.0,1000.0025,5329,0.0,0.0
-79,Simulado Nacional Insper 2023.2 - Direito,Kaylane Larissa dos Santos lima,jazz.kaylane49,2701,0.0,1000.0025,5329,0.0,0.0
-80,Simulado Nacional Insper 2023.2 - Direito,Laura,jazz.laura63,2701,0.0,1000.0025,5329,0.0,0.0
-81,Simulado Nacional Insper 2023.2 - Direito,NATALIA CLEMENTINO DA COSTA,jazz.natalia90,2701,0.0,1000.0025,5329,0.0,0.0
-82,Simulado Nacional Insper 2023.2 - Direito,Laís Andrade Laurindo Santos,jazz.lais61,2701,0.0,1000.0025,5329,0.0,0.0
-83,Simulado Nacional Insper 2023.2 - Direito,Laíssa Miranda de Oliveira Rocha,jazz.laissa50,2701,0.0,1000.0025,5329,0.0,0.0
-84,Simulado Nacional Insper 2023.2 - Direito,Mirian Nogueira Dos Santos,jazz.mirian39,2701,0.0,1000.0025,5329,0.0,0.0
-85,Simulado Nacional Insper 2023.2 - Economia,Guilherme,jazz.guilherme46,2701,0.0,1000.0025,5329,0.0,0.0
-86,Simulado Nacional Insper 2023.2 - Direito,Paulo Vitor Batista Gouveia,jazz.paulo34,2701,0.0,1000.0025,5329,0.0,0.0
-87,Simulado Nacional Insper 2023.2 - Economia,Miguel Prado,jazz.miguel27,2701,0.0,1000.0025,5329,0.0,0.0
-88,Simulado Nacional Insper 2023.2 - Engenharia,Yasmim,jazz.yasmim90,4429,0.0,1000.00256,5329,0.0,0.0
-89,Simulado Nacional Insper 2023.2 - Engenharia,Paulineia Mendes da Rocha,jazz.paulineia64,4429,0.0,1000.00256,5329,0.0,0.0
-90,Simulado Nacional Insper 2023.2 - Engenharia,Nathália Carolynne,jazz.nathalia78,4429,0.0,1000.00256,5329,0.0,0.0
-91,Simulado Nacional Insper 2023.2 - Engenharia,Maria Clara,jazz.maria03,4429,0.0,1000.00256,5329,0.0,0.0
-92,Simulado Nacional Insper 2023.2 - Engenharia,João Pedro,jazz.joao36,4429,0.0,1000.00256,5329,0.0,0.0
-93,Simulado Nacional Insper 2023.2 - Engenharia,Fernanda otaviano fernandes,jazz.fernanda48,4429,0.0,1000.00256,5329,0.0,0.0
-94,Simulado Nacional Insper 2023.2 - Engenharia,Diego da silva,jazz.diego75,4429,0.0,1000.00256,5329,0.0,0.0
-95,Simulado Nacional Insper 2023.2 - Engenharia,Damilles vitória vieira dos Santos,jazz.damilles40,4429,0.0,1000.00256,5329,0.0,0.0
-96,Simulado Nacional Insper 2023.2 - Engenharia,Carol,jazz.carol24,4429,385.0,1000.00256,5329,0.0,0.0
-97,Simulado Nacional Insper 2023.2 - Engenharia,Bianca Felix,jazz.bianca57,4429,0.0,1000.00256,5329,0.0,0.0
-98,Simulado Nacional Insper 2023.2 - Engenharia,Antônio Vitor Santos Alves de Lima,jazz.antonio21,4429,0.0,1000.00256,5329,0.0,0.0
-99,Simulado Nacional Insper 2023.2 - Engenharia,Ana Cristina,jazz.ana62,4429,0.0,1000.00256,5329,0.0,0.0
-100,Simulado Nacional Insper 2023.2 - Economia,Sabina Goldstein,jazz.sabina50,2701,0.0,1000.0025,5329,0.0,0.0
-101,Simulado Nacional Insper 2023.2 - Economia,Osvaldo,jazz.osvaldo41,2701,0.0,1000.0025,5329,0.0,0.0
-102,Simulado Nacional Insper 2023.2 - Economia,Leticia Duarte de França Magalhães Pereira,jazz.leticia75,2701,0.0,1000.0025,5329,0.0,0.0
-103,Simulado Nacional Insper 2023.2 - Direito,Rafaela Vitória Alves Soares Brasil,jazz.rafaela52,2701,0.0,1000.0025,5329,0.0,0.0
-104,Simulado Nacional Insper 2023.2 - Economia,José Lucas Carvalhaes Guinancio Coelho,jazz.jose37,2701,0.0,1000.0025,5329,0.0,0.0
-105,Simulado Nacional Insper 2023.2 - Economia,José Lucas Carvalhaes Guinancio Coelho,jazz.jose04,2701,0.0,1000.0025,5329,0.0,0.0
-106,Simulado Nacional Insper 2023.2 - Economia,Isabella Reis,jazz.isabella63,2701,0.0,1000.0025,5329,0.0,0.0
-107,Simulado Nacional Insper 2023.2 - Economia,Guilherme,jazz.guilherme45,2701,0.0,1000.0025,5329,0.0,0.0
-108,Simulado Nacional Insper 2023.2 - Economia,Cayo Novaes,jazz.cayo09,2701,0.0,1000.0025,5329,0.0,0.0
-109,Simulado Nacional Insper 2023.2 - Economia,Bernardo Dória,jazz.bernardo52,2701,0.0,1000.0025,5329,0.0,0.0
-110,Simulado Nacional Insper 2023.2 - Direito,flávia cristiane,jazz.flavia50,2701,0.0,1000.0025,5329,0.0,0.0
-111,Simulado Nacional Insper 2023.2 - Direito,ana beatriz,jazz.ana690,2701,0.0,1000.0025,5329,0.0,0.0
-112,Simulado Nacional Insper 2023.2 - Direito,Vanusa Souza da hora,jazz.vanusa41,2701,0.0,1000.0025,5329,0.0,0.0
-113,Simulado Nacional Insper 2023.2 - Direito,Stephanie Carine,jazz.stephanie54,2701,0.0,1000.0025,5329,0.0,0.0
-114,Simulado Nacional Insper 2023.2 - Direito,Sidney Emanuel dos Santos Gomes,jazz.sidney09,2701,0.0,1000.0025,5329,0.0,0.0
-115,Simulado Nacional Insper 2023.2 - Direito,Sabrina,jazz.sabrina31,2701,0.0,1000.0025,5329,0.0,0.0
-116,Simulado Nacional Insper 2023.2 - Direito,Roger Barbosa Medeiros,jazz.roger84,2701,0.0,1000.0025,5329,0.0,0.0
-117,Simulado Nacional Insper 2023.2 - Direito,Ravenielle Alves da Silva,jazz.ravenielle53,2701,0.0,1000.0025,5329,0.0,0.0
-118,Simulado Nacional Insper 2023.2 - Direito,Gabriella da Silva Chagas,jazz.gabriella19,2701,0.0,1000.0025,5329,0.0,0.0
-119,Simulado Nacional Insper 2023.2 - Administração,Adriann Rosendo Dos Santos,jazz.adriann33,2701,0.0,1000.0025,5329,0.0,0.0
-120,Simulado Nacional Insper 2023.2 - Direito,Gabriela,jazz.gabriela64,2701,0.0,1000.0025,5329,0.0,0.0
-121,Simulado Nacional Insper 2023.2 - Administração,Lara Dansiger de Araujo,jazz.lara61,2701,0.0,1000.0025,5329,0.0,0.0
-122,Simulado Nacional Insper 2023.2 - Administração,Jaine Santos das Graças,jazz.jaine35,2701,0.0,1000.0025,5329,0.0,0.0
-123,Simulado Nacional Insper 2023.2 - Administração,Jessica souza,jazz.jessica53,2701,0.0,1000.0025,5329,0.0,0.0
-124,Simulado Nacional Insper 2023.2 - Administração,Joyce,jazz.joyce05,2701,0.0,1000.0025,5329,0.0,0.0
-125,Simulado Nacional Insper 2023.2 - Administração,João Pedro Macedo,jazz.joao25,2701,0.0,1000.0025,5329,0.0,0.0
-126,Simulado Nacional Insper 2023.2 - Administração,Jucélia Nunes,jazz.jucelia35,2701,0.0,1000.0025,5329,0.0,0.0
-127,Simulado Nacional Insper 2023.2 - Administração,Kamille,jazz.kamille29,2701,0.0,1000.0025,5329,0.0,0.0
-128,Simulado Nacional Insper 2023.2 - Administração,Lais Ferreira,jazz.lais91,2701,0.0,1000.0025,5329,0.0,0.0
-129,Simulado Nacional Insper 2023.2 - Administração,Larissa Andrade de Almeida,jazz.larissa,2701,0.0,1000.0025,5329,0.0,0.0
-130,Simulado Nacional Insper 2023.2 - Administração,Geomar Bernardes da Silva Júnior,jazz.geomar34,2701,0.0,1000.0025,5329,0.0,0.0
-131,Simulado Nacional Insper 2023.2 - Administração,Leonardo,jazz.leonardo08,2701,0.0,1000.0025,5329,0.0,0.0
-132,Simulado Nacional Insper 2023.2 - Administração,Letícia,jazz.leticia51,2701,0.0,1000.0025,5329,0.0,0.0
-133,Simulado Nacional Insper 2023.2 - Administração,Luisa,jazz.luisa42,2701,0.0,1000.0025,5329,0.0,0.0
-134,Simulado Nacional Insper 2023.2 - Administração,Lívia Figueiredo,jazz.livia07,2701,0.0,1000.0025,5329,0.0,0.0
-135,Simulado Nacional Insper 2023.2 - Administração,Malu Neves de Souza,jazz.malu12,2701,0.0,1000.0025,5329,0.0,0.0
-136,Simulado Nacional Insper 2023.2 - Administração,Marcela Gomes,jazz.marcela67,2701,0.0,1000.0025,5329,0.0,0.0
-137,Simulado Nacional Insper 2023.2 - Administração,Marcela Valentim,jazz.marcela22,2701,0.0,1000.0025,5329,0.0,0.0
-138,Simulado Nacional Insper 2023.2 - Administração,Heleonora,jazz.heleonora29,2701,0.0,1000.0025,5329,0.0,0.0
-139,Simulado Nacional Insper 2023.2 - Administração,Gabriel,jazz.gabriel47,2701,0.0,1000.0025,5329,0.0,0.0
-140,Simulado Nacional Insper 2023.2 - Direito,Fernando Gobbo,jazz.fernando91,2701,0.0,1000.0025,5329,0.0,0.0
-141,Simulado Nacional Insper 2023.2 - Administração,Artur,jazz.artur32,2701,0.0,1000.0025,5329,0.0,0.0
-142,Simulado Nacional Insper 2023.2 - Administração,Ana Gabrielly Honório Gonçalves,jazz.ana,2701,0.0,1000.0025,5329,0.0,0.0
-143,Simulado Nacional Insper 2023.2 - Administração,Ana Letícia Morozowski dos Santos,jazz.ana52,2701,0.0,1000.0025,5329,0.0,0.0
-144,Simulado Nacional Insper 2023.2 - Administração,Ana Morais Garcia Leal,jazz.ana87,2701,0.0,1000.0025,5329,0.0,0.0
-145,Simulado Nacional Insper 2023.2 - Administração,Anabella Barros Tavares,jazz.anabella41,2701,0.0,1000.0025,5329,0.0,0.0
-146,Simulado Nacional Insper 2023.2 - Administração,André Krause,jazz.andre13,2701,0.0,1000.0025,5329,0.0,0.0
-147,Simulado Nacional Insper 2023.2 - Administração,Ane Silva,jazz.ane98,2701,0.0,1000.0025,5329,0.0,0.0
-148,Simulado Nacional Insper 2023.2 - Administração,Antônio Vilela de Toledo,jazz.antonio09,2701,0.0,1000.0025,5329,0.0,0.0
-149,Simulado Nacional Insper 2023.2 - Administração,Bruna Kayllane Gomes Soares,jazz.bruna64,2701,0.0,1000.0025,5329,0.0,0.0
-150,Simulado Nacional Insper 2023.2 - Administração,Francisco Vilela Rodrigues,jazz.francisco24,2701,0.0,1000.0025,5329,0.0,0.0
-151,Simulado Nacional Insper 2023.2 - Administração,Carlos Jovel,jazz.carlos77,2701,0.0,1000.0025,5329,0.0,0.0
-152,Simulado Nacional Insper 2023.2 - Administração,Christine Schreen,jazz.christine11,2701,0.0,1000.0025,5329,0.0,0.0
-153,Simulado Nacional Insper 2023.2 - Administração,Domenico Lozardo,jazz.domenico89,2701,0.0,1000.0025,5329,0.0,0.0
-154,Simulado Nacional Insper 2023.2 - Administração,Eduarda Ferreira passos dos Santos,jazz.eduarda17,2701,0.0,1000.0025,5329,0.0,0.0
-155,Simulado Nacional Insper 2023.2 - Administração,Elis De Araújo Melo,jazz.elis18,2701,0.0,1000.0025,5329,0.0,0.0
-156,Simulado Nacional Insper 2023.2 - Administração,Evelyn Vitória Martins da Costa,jazz.evelyn13,2701,0.0,1000.0025,5329,0.0,0.0
-157,Simulado Nacional Insper 2023.2 - Administração,Felipe,jazz.felipe55,2701,0.0,1000.0025,5329,0.0,0.0
-158,Simulado Nacional Insper 2023.2 - Administração,Marcela do Nascimento Oliveira de Sousa,jazz.marcela88,2701,0.0,1000.0025,5329,0.0,0.0
-159,Simulado Nacional Insper 2023.2 - Administração,Maria Eloisa dos Santos Souza,jazz.maria53,2701,0.0,1000.0025,5329,0.0,0.0
-160,Simulado Nacional Insper 2023.2 - Administração,Marilia Silva,jazz.marilia888,2701,0.0,1000.0025,5329,0.0,0.0
-161,Simulado Nacional Insper 2023.2 - Direito,Ana Gavet,jazz.ana98,2701,0.0,1000.0025,5329,0.0,0.0
-162,Simulado Nacional Insper 2023.2 - Ciência da Computação,Milena Mota,jazz.milena64,4429,0.0,1000.00256,5329,0.0,0.0
-163,Simulado Nacional Insper 2023.2 - Ciência da Computação,Ramily,jazz.ramily55,4429,0.0,1000.00256,5329,0.0,0.0
-164,Simulado Nacional Insper 2023.2 - Ciência da Computação,Thais da Silva Rodrigue,jazz.thais98,4429,0.0,1000.00256,5329,0.0,0.0
-165,Simulado Nacional Insper 2023.2 - Ciência da Computação,Vitor Dias Barreto,jazz.vitor61,4429,0.0,1000.00256,5329,0.0,0.0
-166,Simulado Nacional Insper 2023.2 - Ciência da Computação,Ygor Henrique Pasquetto,jazz.ygor94,4429,0.0,1000.00256,5329,0.0,0.0
-167,Simulado Nacional Insper 2023.2 - Direito,Aline Vitória da Silva Araújo Gonçalves,jazz.aline13,2701,0.0,1000.0025,5329,0.0,0.0
-168,Simulado Nacional Insper 2023.2 - Direito,Ana,jazz.ana49,2701,0.0,1000.0025,5329,0.0,0.0
-169,Simulado Nacional Insper 2023.2 - Direito,Anna Clara Peixoto Lopes,jazz.anna88,2701,0.0,1000.0025,5329,0.0,0.0
-170,Simulado Nacional Insper 2023.2 - Administração,Mayane,jazz.mayane59,2701,0.0,1000.0025,5329,0.0,0.0
-171,Simulado Nacional Insper 2023.2 - Direito,Augusto Rocha,jazz.augusto66,2701,0.0,1000.0025,5329,0.0,0.0
-172,Simulado Nacional Insper 2023.2 - Direito,Beatriz,jazz.beatriz79,2701,0.0,1000.0025,5329,0.0,0.0
-173,Simulado Nacional Insper 2023.2 - Direito,Beatriz Silva Neves,jazz.beatriz66,2701,0.0,1000.0025,5329,0.0,0.0
-174,Simulado Nacional Insper 2023.2 - Direito,Dan,jazz.dan43,2701,0.0,1000.0025,5329,0.0,0.0
-175,Simulado Nacional Insper 2023.2 - Direito,Danielly Conceição do Nascimento,jazz.danielly43,2701,0.0,1000.0025,5329,0.0,0.0
-176,Simulado Nacional Insper 2023.2 - Direito,David Willian Liberato gomes,jazz.david18,2701,0.0,1000.0025,5329,0.0,0.0
-177,Simulado Nacional Insper 2023.2 - Direito,Diogo Fernandes Lima,jazz.diogo66,2701,0.0,1000.0025,5329,0.0,0.0
-178,Simulado Nacional Insper 2023.2 - Ciência da Computação,Marina Karoliny dos Santos Nogueira,jazz.marina64,4429,0.0,1000.00256,5329,0.0,0.0
-179,Simulado Nacional Insper 2023.2 - Ciência da Computação,Maria Eduarda Costa Souza Trindade,jazz.maria34,4429,0.0,1000.00256,5329,0.0,0.0
-180,Simulado Nacional Insper 2023.2 - Ciência da Computação,Letícia,jazz.leticia37,4429,0.0,1000.00256,5329,0.0,0.0
-181,Simulado Nacional Insper 2023.2 - Ciência da Computação,Guilherme Soares Moreno,jazz.guilherme39,4429,0.0,1000.00256,5329,0.0,0.0
-182,Simulado Nacional Insper 2023.2 - Administração,Missias Brandão da silva,jazz.missias09,2701,0.0,1000.0025,5329,0.0,0.0
-183,Simulado Nacional Insper 2023.2 - Administração,Pedro Guerra,jazz.pedro16,2701,0.0,1000.0025,5329,0.0,0.0
-184,Simulado Nacional Insper 2023.2 - Administração,Raissa Silva Peixoto,jazz.raissa15,2701,0.0,1000.0025,5329,0.0,0.0
-185,Simulado Nacional Insper 2023.2 - Administração,Rian Araujo de Sousa,jazz.rian76,2701,0.0,1000.0025,5329,0.0,0.0
-186,Simulado Nacional Insper 2023.2 - Administração,Rodrigo Baggio Polido,jazz.rodrigo90,2701,0.0,1000.0025,5329,0.0,0.0
-187,Simulado Nacional Insper 2023.2 - Administração,Sara Crespo da Silva,jazz.sara27,2701,0.0,1000.0025,5329,0.0,0.0
-188,Simulado Nacional Insper 2023.2 - Administração,Thalita Zainna,jazz.thalita49,2701,0.0,1000.0025,5329,0.0,0.0
-189,Simulado Nacional Insper 2023.2 - Administração,Vitória,jazz.vitoria21,2701,0.0,1000.0025,5329,0.0,0.0
-190,Simulado Nacional Insper 2023.2 - Administração,ana beatriz chaguri,jazz.ana09,2701,0.0,1000.0025,5329,0.0,0.0
-191,Simulado Nacional Insper 2023.2 - Administração,luan,jazz.luan61,2701,0.0,1000.0025,5329,0.0,0.0
-192,Simulado Nacional Insper 2023.2 - Ciência da Computação,Amanda dos Santos Oliveira,jazz.amanda76,4429,0.0,1000.00256,5329,0.0,0.0
-193,Simulado Nacional Insper 2023.2 - Ciência da Computação,Ana,jazz.ana72,4429,0.0,1000.00256,5329,0.0,0.0
-194,Simulado Nacional Insper 2023.2 - Ciência da Computação,Ana Vitória,jazz.ana90,4429,0.0,1000.00256,5329,0.0,0.0
-195,Simulado Nacional Insper 2023.2 - Ciência da Computação,Cleidiomar Gomes de Sousa,jazz.cleidiomar54,4429,0.0,1000.00256,5329,0.0,0.0
-196,Simulado Nacional Insper 2023.2 - Ciência da Computação,Fernanda Feitosa Dorico,jazz.fernanda30,4429,0.0,1000.00256,5329,0.0,0.0
-197,Simulado Nacional Insper 2023.2 - Ciência da Computação,Samara,jazz.samara91,4429,0.0,1000.00256,5329,0.0,0.0
+,Turma,Nome do aluno(a),Login do aluno(a),Unnamed: 0,Número da questão,Tempo na questão,Valor da questão,nota_professores,Acerto,Nota na questão
+0,Simulado Nacional Insper 2024.1 - Economia,João Dutra,jazz.joao08,5621,2701,13948.0,1000.0024999999999,176.0,59.0,854.1683125
+1,Simulado Nacional Insper 2024.1 - Engenharia,FELIPE RODRIGUES LAMBAK,jazz.felipe03,1168,4453,15424.0,1000.0101,128.0,60.0,833.3443750000001
+2,Simulado Nacional Insper 2024.1 - Economia,Gustavo Barroso,jazz.gustavo67,5183,2701,16774.0,1000.0024999999999,0.0,60.0,833.3356125
+3,Simulado Nacional Insper 2024.1 - Economia,Daniel Kroeff,jazz.daniel35,3869,2701,15629.0,1000.0024999999999,136.0,57.0,791.6681749999999
+4,Simulado Nacional Insper 2024.1 - Economia,João,jazz.joao07,5548,2701,13452.0,1000.0024999999999,152.0,59.0,781.2529499999999
+5,Simulado Nacional Insper 2024.1 - Economia,Clara Risolia,jazz.clara00,3723,2701,17816.0,1000.0024999999999,200.0,57.0,770.8367499999999
+6,Simulado Nacional Insper 2024.1 - Economia,Vinicius Gomes,jazz.vinicius50,7665,2701,18200.0,1000.0024999999999,0.0,53.0,770.8352624999999
+7,Simulado Nacional Insper 2024.1 - Economia,Pedro Ferreira Cunha Melo,jazz.pedro06,6789,2701,15785.0,1000.0024999999999,184.0,55.0,729.1698250000001
+8,Simulado Nacional Insper 2024.1 - Economia,Enzo,jazz.enzo96,4234,2701,13856.0,1000.0024999999999,120.0,54.0,729.1696125
+9,Simulado Nacional Insper 2024.1 - Economia,Henrique Raguza,jazz.henrique69,5256,2701,18457.0,1000.0024999999999,136.0,53.0,729.1696000000001
+10,Simulado Nacional Insper 2024.1 - Economia,João Henrique Teixeira,jazz.joao61,5694,2701,16626.0,1000.0024999999999,144.0,55.0,729.1694625
+11,Simulado Nacional Insper 2024.1 - Economia,André parente Alves Cavalcanti Filho,jazz.andre78,2847,2701,16418.0,1000.0024999999999,160.0,51.0,729.168975
+12,Simulado Nacional Insper 2024.1 - Economia,Clara Postiga,jazz.clara01,3796,2701,16265.0,1000.0024999999999,144.0,52.0,729.1678875
+13,Simulado Nacional Insper 2024.1 - Administração,Guilherme Brandão,jazz.guilherme77,9490,2701,18717.0,1000.0024999999999,120.0,55.0,718.753375
+14,Simulado Nacional Insper 2024.1 - Economia,Maria Júlia Silva,jazz.maria16,6205,2701,11514.0,1000.0024999999999,184.0,55.0,718.7532874999999
+15,Simulado Nacional Insper 2024.1 - Economia,Fernando Lopes Tajiki,jazz.fernando39,4526,2701,18063.0,1000.0024999999999,0.0,50.0,718.7523
+16,Simulado Nacional Insper 2024.1 - Economia,Danilo Azzem João De Lima,jazz.danilo87,4015,2701,7843.0,1000.0024999999999,120.0,51.0,718.7510500000001
+17,Simulado Nacional Insper 2024.1 - Economia,Arthur Campos Cunha,jazz.arthur29,3066,2701,12212.0,1000.0024999999999,184.0,52.0,697.9197999999999
+18,Simulado Nacional Insper 2024.1 - Direito,Eduardo intatilo,jazz.eduardo07,13359,2701,8188.0,1000.0024999999999,136.0,48.0,697.9182374999999
+19,Simulado Nacional Insper 2024.1 - Economia,Pedro Guerra,jazz.pedro16,6862,2701,18889.0,1000.0024999999999,120.0,51.0,687.5023625
+20,Simulado Nacional Insper 2024.1 - Administração,João Pedro Gomes,jazz.joao01,10074,2701,18743.0,1000.0024999999999,184.0,49.0,687.5015125
+21,Simulado Nacional Insper 2024.1 - Ciência da Computação,Wesley Alves,jazz.wesley32,511,4453,18459.0,1000.0101,0.0,49.0,680.563125
+22,Simulado Nacional Insper 2024.1 - Economia,Bruno Ferrentini,jazz.bruno20,3285,2701,17369.0,1000.0024999999999,184.0,50.0,677.0862124999999
+23,Simulado Nacional Insper 2024.1 - Economia,Gabriel Leon Lima Costa,jazz.gabriel52,4745,2701,18170.0,1000.0024999999999,120.0,46.0,677.0860875
+24,Simulado Nacional Insper 2024.1 - Direito,João Pedro Martins Nogueira,jazz.joao10,14089,2701,17701.0,1000.0024999999999,160.0,50.0,677.0860875
+25,Simulado Nacional Insper 2024.1 - Administração,Renato Hirota Patah,jazz.renato53,11534,2701,16568.0,1000.0024999999999,160.0,53.0,666.6706
+26,Simulado Nacional Insper 2024.1 - Economia,Maria Beatriz Mota prudente de moraes,jazz.maria05,6059,2701,18866.0,1000.0024999999999,160.0,48.0,666.6692875
+27,Simulado Nacional Insper 2024.1 - Economia,Bruno Torres Amim Nunes,jazz.bruno93,3431,2701,11667.0,1000.0024999999999,152.0,46.0,666.6685375
+28,Simulado Nacional Insper 2024.1 - Economia,Bernardo Dória Souto Galvão,jazz.bernardo52,3212,2701,16395.0,1000.0024999999999,184.0,48.0,656.251925
+29,Simulado Nacional Insper 2024.1 - Engenharia,Gianlucca Severo de Melo,Gianlucca,584,4453,17336.0,1000.0101,136.0,47.0,652.7856250000001
+30,Simulado Nacional Insper 2024.1 - Economia,Catarine Pinter Marcos,jazz.catarine05,3577,2701,15182.0,1000.0024999999999,136.0,51.0,645.8369375
+31,Simulado Nacional Insper 2024.1 - Administração,Victor,jazz.victor10,12483,2701,15811.0,1000.0024999999999,0.0,44.0,645.8345625
+32,Simulado Nacional Insper 2024.1 - Administração,Antonio Unterstell Granzotto,jazz.antonio15,8030,2701,17955.0,1000.0024999999999,136.0,47.0,645.8343625
+33,Simulado Nacional Insper 2024.1 - Ciência da Computação,Luis Fernando Astorga Bueno,jazz.luis27,146,4453,11442.0,1000.0101,120.0,46.0,638.897375
+34,Simulado Nacional Insper 2024.1 - Administração,Rafaela Antunes Rodrigues,jazz.rafaela40,11461,2701,12159.0,1000.0024999999999,168.0,48.0,635.41985
+35,Simulado Nacional Insper 2024.1 - Direito,Chiara Nardinelli,jazz.chiara20,13286,2701,16274.0,1000.0024999999999,0.0,48.0,635.419025
+36,Simulado Nacional Insper 2024.1 - Engenharia,Hector,jazz.hector41,1533,4453,15336.0,1000.0101,0.0,45.0,625.0095
+37,Simulado Nacional Insper 2024.1 - Engenharia,Karyne Alencar Machado,karyneam13,2409,4453,15294.0,1000.0101,184.0,45.0,625.008625
+38,Simulado Nacional Insper 2024.1 - Economia,Paulo,jazz.paulo06,6643,2701,14759.0,1000.0024999999999,168.0,47.0,614.58575
+39,Simulado Nacional Insper 2024.1 - Ciência da Computação,Maria,jazz.maria91,219,4453,18438.0,1000.0101,128.0,44.0,611.1195
+40,Simulado Nacional Insper 2024.1 - Engenharia,Matheus Augusto Braido,jazz.matheus20,2117,4453,17834.0,1000.0101,144.0,44.0,611.11775
+41,Simulado Nacional Insper 2024.1 - Direito,Bárbara Paráboli de Oliveira,jazz.barbara44,13140,2701,16477.0,1000.0024999999999,200.0,48.0,604.1703125
+42,Simulado Nacional Insper 2024.1 - Economia,Ághata Christie Medeiros Martins,jazz.aghata07,2555,2701,16827.0,1000.0024999999999,0.0,47.0,604.169925
+43,Simulado Nacional Insper 2024.1 - Economia,Joao Pedro Menegazzo,jazz.joao00,5475,2701,13968.0,1000.0024999999999,176.0,44.0,604.1691125
+44,Simulado Nacional Insper 2024.1 - Economia,Miguel Botós Carello,jazz.miguel05,6497,2701,12148.0,1000.0024999999999,176.0,44.0,604.1682125
+45,Simulado Nacional Insper 2024.1 - Direito,Marieli Medeiros,jazz.marieli20,14600,2701,12843.0,1000.0024999999999,184.0,48.0,593.7523
+46,Simulado Nacional Insper 2024.1 - Engenharia,Guilherme Leal,jazz.guilherme05,1460,4453,16436.0,1000.0101,136.0,42.0,583.340875
+47,Simulado Nacional Insper 2024.1 - Administração,Luana Lemos,jazz.luana27,10439,2701,11423.0,1000.0024999999999,0.0,44.0,583.3364375
+48,Simulado Nacional Insper 2024.1 - Administração,Guilherme Santos,jazz.guilherme95,9563,2701,17839.0,1000.0024999999999,120.0,45.0,583.3361125
+49,Simulado Nacional Insper 2024.1 - Economia,Pedro Machado,jazz.pedro37,6935,2701,18484.0,1000.0024999999999,168.0,46.0,583.3360875
+50,Simulado Nacional Insper 2024.1 - Economia,Ian Dallamaria,jazz.ian80,5329,2701,17432.0,1000.0024999999999,0.0,45.0,583.3356625
+51,Simulado Nacional Insper 2024.1 - Administração,Isabela Cubas de Almeida Melo,jazz.isabela12,9855,2701,11743.0,1000.0024999999999,0.0,42.0,572.9187125
+52,Simulado Nacional Insper 2024.1 - Economia,Guilherme de Mello,jazz.guilherme76,4964,2701,13970.0,1000.0024999999999,144.0,42.0,562.503275
+53,Simulado Nacional Insper 2024.1 - Economia,Filippe Fontana,jazz.felipe20,4380,2701,16780.0,1000.0024999999999,160.0,42.0,562.502625
+54,Simulado Nacional Insper 2024.1 - Economia,Rodrigo Ichinoseki Tai,jazz.rodrigo21,7373,2701,12942.0,1000.0024999999999,120.0,41.0,562.501675
+55,Simulado Nacional Insper 2024.1 - Administração,Arthur del puppo,jazz.arthur24,8176,2701,18896.0,1000.0024999999999,0.0,39.0,562.5005125
+56,Simulado Nacional Insper 2024.1 - Administração,Marina Dall'Oglio,jazz.marina03,11242,2701,18408.0,1000.0024999999999,120.0,42.0,552.0862125
+57,Simulado Nacional Insper 2024.1 - Economia,Enzo Ryu,jazz.enzo12,4088,2701,14723.0,1000.0024999999999,120.0,43.0,552.0857
+58,Simulado Nacional Insper 2024.1 - Direito,Isabella de Oliveira Casoria,jazz.isabella48,13870,2701,15075.0,1000.0024999999999,160.0,40.0,531.252375
+59,Simulado Nacional Insper 2024.1 - Direito,helena moraes bispo,jazz.helena25,13797,2701,14210.0,1000.0024999999999,144.0,42.0,531.25205
+60,Simulado Nacional Insper 2024.1 - Administração,Marcello Gabriel Ponte Viera,jazz.marcello78,10950,2701,9820.0,1000.0024999999999,136.0,40.0,531.25125
+61,Simulado Nacional Insper 2024.1 - Engenharia,Camila Vitória de Assis Mendes,jazz.camila91,1022,4453,18211.0,1000.0101,120.0,38.0,527.786875
+62,Simulado Nacional Insper 2024.1 - Economia,Felipe Campos Nader,jazz.felipe06,4307,2701,14149.0,1000.0024999999999,176.0,41.0,520.8362000000001
+63,Simulado Nacional Insper 2024.1 - Administração,Andre Guarita,jazz.andre77,7811,2701,17902.0,1000.0024999999999,0.0,37.0,520.83385
+64,Simulado Nacional Insper 2024.1 - Engenharia,Henrique Colin Ramalho,HenriqueCR,657,4453,17529.0,1000.0101,120.0,37.0,513.8976250000001
+65,Simulado Nacional Insper 2024.1 - Administração,Rosa Maria da Silva Braga,jazz.rosa46,11899,2701,16697.0,1000.0024999999999,0.0,40.0,510.41983749999997
+66,Simulado Nacional Insper 2024.1 - Economia,Gustavo de Barros Viana,jazz.gustavo09,5037,2701,16742.0,1000.0024999999999,136.0,40.0,510.41837499999997
+67,Simulado Nacional Insper 2024.1 - Administração,Antonio Augusto Mendes de Oliveira,jazz.antonio81,8103,2701,16624.0,1000.0024999999999,0.0,40.0,500.0041125
+68,Simulado Nacional Insper 2024.1 - Direito,weverson,jazz.weverson80,15111,2701,6100.0,1000.0024999999999,112.0,38.0,500.003325
+69,Simulado Nacional Insper 2024.1 - Economia,Micael Barbosa Ortiz Lourenço,jazz.micael38,6424,2701,17030.0,1000.0024999999999,184.0,37.0,500.0025
+70,Simulado Nacional Insper 2024.1 - Administração,Enzo allage marins,jazz.enzo58,8760,2701,13981.0,1000.0024999999999,120.0,36.0,500.001975
+71,Simulado Nacional Insper 2024.1 - Economia,Cauã,jazz.caua53,3650,2701,18418.0,1000.0024999999999,136.0,38.0,500.00147499999997
+72,Simulado Nacional Insper 2024.1 - Economia,Rafael Beltrami Sogayar,jazz.rafael14,7081,2701,21424.0,1000.0024999999999,0.0,36.0,500.0014375
+73,Simulado Nacional Insper 2024.1 - Economia,Giovana,jazz.giovana08,4891,2701,16668.0,1000.0024999999999,0.0,36.0,489.58605
+74,Simulado Nacional Insper 2024.1 - Economia,Geovana de Campos Mattos,jazz.geovana38,4818,2701,12197.0,1000.0024999999999,136.0,36.0,489.58552499999996
+75,Simulado Nacional Insper 2024.1 - Economia,Camila,jazz.camila17,3504,2701,10548.0,1000.0024999999999,120.0,37.0,489.58464999999995
+76,Simulado Nacional Insper 2024.1 - Engenharia,Livia,jazz.livia22,1898,4453,18249.0,1000.0101,105.0,35.0,486.1185
+77,Simulado Nacional Insper 2024.1 - Engenharia,pietro bettega,jazz.pietro43,2263,4453,17956.0,1000.0101,0.0,35.0,486.11800000000005
+78,Simulado Nacional Insper 2024.1 - Economia,Matheus Sales Palazzini,jazz.matheus23,6351,2701,15756.0,1000.0024999999999,144.0,34.0,479.1684625
+79,Simulado Nacional Insper 2024.1 - Economia,Anthony Avedissian Silva,jazz.anthony07,2920,2701,14803.0,1000.0024999999999,120.0,34.0,479.1675
+80,Simulado Nacional Insper 2024.1 - Engenharia,Maira Gentil,jazz.maira93,1971,4453,11962.0,1000.0101,0.0,34.0,472.230375
+81,Simulado Nacional Insper 2024.1 - Administração,Lara Lanfranchi,jazz.lara96,10293,2701,12894.0,1000.0024999999999,144.0,36.0,468.7532125
+82,Simulado Nacional Insper 2024.1 - Economia,Nicollas Escorel,jazz.nicollas77,6570,2701,16848.0,1000.0024999999999,160.0,37.0,468.7521375
+83,Simulado Nacional Insper 2024.1 - Economia,Victor Ricardo Lopes,jazz.victor40,7592,2701,15204.0,1000.0024999999999,120.0,36.0,468.7517125
+84,Simulado Nacional Insper 2024.1 - Engenharia,Jose Luis Salas De Medeiros,jazz.jose06,1752,4453,16528.0,1000.0101,184.0,33.0,458.3425
+85,Simulado Nacional Insper 2024.1 - Administração,Ricardo Keunecke,jazz.ricardo51,11680,2701,14959.0,1000.0024999999999,144.0,37.0,458.33647499999995
+86,Simulado Nacional Insper 2024.1 - Administração,Gabriel Henrique de Oliveira Silva,jazz.gabriel24,9198,2701,13735.0,1000.0024999999999,136.0,37.0,458.33546249999995
+87,Simulado Nacional Insper 2024.1 - Administração,Luigi Sabio,jazz.luigi35,10585,2701,5258.0,1000.0024999999999,0.0,34.0,458.3353875
+88,Simulado Nacional Insper 2024.1 - Administração,Sofia Serrano Pires Procopio,jazz.sofia94,12118,2701,13364.0,1000.0024999999999,144.0,37.0,447.919575
+89,Simulado Nacional Insper 2024.1 - Economia,Rodrigo Goldman,jazz.rodrigo45,7446,2701,17641.0,1000.0024999999999,104.0,34.0,447.9185375
+90,Simulado Nacional Insper 2024.1 - Engenharia,João Pedro Fogaça,jazz.joao37,1606,4453,13510.0,1000.0101,112.0,32.0,444.451125
+91,Simulado Nacional Insper 2024.1 - Economia,Danielle Santos Araújo,jazz.danielle23,3942,2701,11150.0,1000.0024999999999,0.0,34.0,437.5012125
+92,Simulado Nacional Insper 2024.1 - Economia,Matheus Hollo Fedlallah,jazz.matheus06,6278,2701,12219.0,1000.0024999999999,152.0,31.0,427.08611249999996
+93,Simulado Nacional Insper 2024.1 - Ciência da Computação,Thalyta da Silva Viana,jazz.thalyta21,365,4453,8023.0,1000.0101,0.0,30.0,416.674625
+94,Simulado Nacional Insper 2024.1 - Economia,Tiago Copit,jazz.tiago08,7519,2701,18163.0,1000.0024999999999,104.0,36.0,416.6702
+95,Simulado Nacional Insper 2024.1 - Administração,Isadora Mendonça,jazz.isadora31,9928,2701,17225.0,1000.0024999999999,192.0,34.0,416.6701375
+96,Simulado Nacional Insper 2024.1 - Administração,Giovanna Karoline de Oliveira Albuquerque,jazz.giovanna60,9417,2701,18904.0,1000.0024999999999,120.0,34.0,416.6694625
+97,Simulado Nacional Insper 2024.1 - Direito,Lara Benevides,jazz.lara73,14308,2701,12930.0,1000.0024999999999,0.0,33.0,416.668675
+98,Simulado Nacional Insper 2024.1 - Administração,Vicenzo Lopes Guedes,jazz.vicenzo78,12410,2701,17840.0,1000.0024999999999,120.0,30.0,406.25181249999997
+99,Simulado Nacional Insper 2024.1 - Economia,Maria Clara,jazz.maria10,6132,2701,17760.0,1000.0024999999999,120.0,35.0,395.83669999999995
+100,Simulado Nacional Insper 2024.1 - Economia,marcos,jazz.marcos72,5986,2701,14227.0,1000.0024999999999,0.0,33.0,395.8362875
+101,Simulado Nacional Insper 2024.1 - Administração,laís Gonzalez,jazz.lais49,10220,2701,11142.0,1000.0024999999999,120.0,32.0,395.8361
+102,Simulado Nacional Insper 2024.1 - Economia,Gustavo Alencar,jazz.gustavo11,5110,2701,18256.0,1000.0024999999999,0.0,30.0,395.83603750000003
+103,Simulado Nacional Insper 2024.1 - Economia,Bruno Marrey,jazz.bruno81,3358,2701,14524.0,1000.0024999999999,120.0,30.0,395.835275
+104,Simulado Nacional Insper 2024.1 - Administração,Jaqueline Polak,jazz.jaqueline27,10001,2701,14079.0,1000.0024999999999,144.0,32.0,395.8348375
+105,Simulado Nacional Insper 2024.1 - Administração,Humberto Bogossian,jazz.humberto27,9782,2701,13165.0,1000.0024999999999,144.0,30.0,395.83473749999996
+106,Simulado Nacional Insper 2024.1 - Administração,Maria Carolina Moura Pigini,jazz.maria24,11096,2701,18705.0,1000.0024999999999,184.0,29.0,385.41845
+107,Simulado Nacional Insper 2024.1 - Economia,Laura,jazz.laura26,5840,2701,13649.0,1000.0024999999999,160.0,30.0,375.00266250000004
+108,Simulado Nacional Insper 2024.1 - Administração,sofia sena,jazz.sofia77,12045,2701,15143.0,1000.0024999999999,0.0,29.0,364.586175
+109,Simulado Nacional Insper 2024.1 - Economia,Renata Quintaes,jazz.renata05,7300,2701,16523.0,1000.0024999999999,176.0,30.0,364.58585
+110,Simulado Nacional Insper 2024.1 - Economia,Franciele Souza Gonçalves,jazz.franciele28,4599,2701,18772.0,1000.0024999999999,136.0,30.0,343.752875
+111,Simulado Nacional Insper 2024.1 - Administração,Maria Fernanda Toledo,jazz.maria75,11169,2701,17271.0,1000.0024999999999,168.0,25.0,312.5026875
+112,Simulado Nacional Insper 2024.1 - Administração,Lucas,jazz.lucas12,10512,2701,18745.0,1000.0024999999999,128.0,22.0,302.08482499999997
+113,Simulado Nacional Insper 2024.1 - Administração,Henrique Guimaraes,jazz.henrique17,9636,2701,18938.0,1000.0024999999999,144.0,21.0,302.084425
+114,Simulado Nacional Insper 2024.1 - Engenharia,Mário Antônio Pereira,jazz.mario38,2044,4453,10733.0,1000.0101,120.0,20.0,277.783375
+115,Simulado Nacional Insper 2024.1 - Engenharia,Aline Pereira Soares,jazz.aline95,803,4453,11636.0,1000.0101,0.0,19.0,263.89375
+116,Simulado Nacional Insper 2024.1 - Direito,JOANA DARC OLIVEIRA HORAS,jazz.joana05,14016,2701,15408.0,1000.0024999999999,104.0,16.0,218.751825
+117,Simulado Nacional Insper 2024.1 - Administração,Thiago,jazz.thiago26,12264,2701,4704.0,1000.0024999999999,0.0,17.0,208.33480000000003
+118,Simulado Nacional Insper 2024.1 - Economia,Ana Clara Storck,jazz.ana58,2701,2701,2501.0,1000.0024999999999,0.0,8.0,93.75007500000001
+119,Simulado Nacional Insper 2024.1 - Direito,Gustavo Salibi Weinmann,jazz.gustavo06,13724,2701,6662.0,1000.0024999999999,0.0,7.0,83.334075
+120,Simulado Nacional Insper 2024.1 - Direito,Andressa,jazz.andressa25,12994,2701,3447.0,1000.0024999999999,0.0,3.0,41.6668125
+121,Simulado Nacional Insper 2024.1 - Economia,Paulo Guilherme Rodrigues Bastos Coelho,jazz.paulo60,6716,2701,4811.0,1000.0024999999999,0.0,3.0,31.25005
+122,Simulado Nacional Insper 2024.1 - Direito,Thais,jazz.thais87,14965,2701,1229.0,1000.0024999999999,0.0,2.0,20.8334625
+123,Simulado Nacional Insper 2024.1 - Economia,Bernardo Alvim de Paula,jazz.bernardo20,3139,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+124,Simulado Nacional Insper 2024.1 - Administração,Juliana da maia,jazz.juliana32,10147,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+125,Simulado Nacional Insper 2024.1 - Engenharia,Antonio Felipe Floriano Ribeiro,jazz.antonio88,949,4453,0.0,1000.0101,0.0,0.0,0.0
+126,Simulado Nacional Insper 2024.1 - Engenharia,Ana Julia Gomes,jazz.ana56,876,4453,0.0,1000.0101,0.0,0.0,0.0
+127,Simulado Nacional Insper 2024.1 - Administração,Flavio Ramos Caseres,jazz.flavio59,9125,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+128,Simulado Nacional Insper 2024.1 - Engenharia,Ailton Lucas Schiavi de Araújo,jazz.ailton51,730,4453,0.0,1000.0101,0.0,0.0,0.0
+129,Simulado Nacional Insper 2024.1 - Administração,Gabriel,jazz.gabriel47,9271,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+130,Simulado Nacional Insper 2024.1 - Administração,Geovanna Vitoria de Souza,jazz.geovanna20,9344,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+131,Simulado Nacional Insper 2024.1 - Economia,enzo fukuya hara,jazz.enzo90,4161,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+132,Simulado Nacional Insper 2024.1 - Administração,Henrique Rocha Lima,jazz.henrique30,9709,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+133,Simulado Nacional Insper 2024.1 - Administração,Leonardo Derviche,jazz.leonardo62,10366,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+134,Simulado Nacional Insper 2024.1 - Economia,Pedro Castro e Silva,jazz.pedro39,7008,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+135,Simulado Nacional Insper 2024.1 - Administração,Luis Fellipe Razuck,jazz.luis09,10658,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+136,Simulado Nacional Insper 2024.1 - Administração,Luis guilherme Ivo,jazz.luis25,10731,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+137,Simulado Nacional Insper 2024.1 - Administração,Luiz Otavio de Camargo Cury,jazz.luiz06,10804,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+138,Simulado Nacional Insper 2024.1 - Economia,Rafael de Oliveira Horta Pereira,jazz.rafael70,7227,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+139,Simulado Nacional Insper 2024.1 - Administração,Luiza Melo Alves de Souza,jazz.luiza11,10877,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+140,Simulado Nacional Insper 2024.1 - Economia,Rafael,jazz.rafael39,7154,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+141,Simulado Nacional Insper 2024.1 - Administração,Maria Clara Gotardo,jazz.maria04,11023,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+142,Simulado Nacional Insper 2024.1 - Administração,Matheus Andrade Lordello de Mattos,jazz.matheus26,11315,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+143,Simulado Nacional Insper 2024.1 - Administração,Fernanda Moraes marchesin Silva,jazz.fernanda99,9052,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+144,Simulado Nacional Insper 2024.1 - Engenharia,Enzo Badi,jazz.enzo04,1095,4453,0.0,1000.0101,0.0,0.0,0.0
+145,Simulado Nacional Insper 2024.1 - Administração,Felippe de Vicq,jazz.felippe68,8979,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+146,Simulado Nacional Insper 2024.1 - Engenharia,Felipe,jazz.felipe48,1241,4453,0.0,1000.0101,0.0,0.0,0.0
+147,Simulado Nacional Insper 2024.1 - Engenharia,pietra macedo de souza,jazz.pietra36,2190,4453,0.0,1000.0101,0.0,0.0,0.0
+148,Simulado Nacional Insper 2024.1 - Engenharia,Vítor Hugo Oliveira da Silva,jazz.vitor81,2336,4453,0.0,1000.0101,0.0,0.0,0.0
+149,Simulado Nacional Insper 2024.1 - Administração,Andreia Oliveira Vieira,jazz.andreia08,7884,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+150,Simulado Nacional Insper 2024.1 - Administração,Anna Clara Alves dos Santos,jazz.anna76,7957,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+151,Simulado Nacional Insper 2024.1 - Administração,Brenda Paiano Graciano,jazz.brenda57,8249,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+152,Simulado Nacional Insper 2024.1 - Administração,Bruna Espanha Guerra,jazz.bruna05,8322,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+153,Simulado Nacional Insper 2024.1 - Administração,Carlos,jazz.carlos44,8395,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+154,Simulado Nacional Insper 2024.1 - Engenharia,Juliana Medeiros Figueiredo,jazz.juliana13,1825,4453,0.0,1000.0101,0.0,0.0,0.0
+155,Simulado Nacional Insper 2024.1 - Administração,Celina,jazz.celina05,8468,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+156,Simulado Nacional Insper 2024.1 - Engenharia,João Pedro Fleury,jazz.joao75,1679,4453,0.0,1000.0101,0.0,0.0,0.0
+157,Simulado Nacional Insper 2024.1 - Administração,Danilo Augusto Feitosa,jazz.danilo55,8541,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+158,Simulado Nacional Insper 2024.1 - Administração,Elias Tomé de Rezende Neto,jazz.elias73,8614,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+159,Simulado Nacional Insper 2024.1 - Administração,Elisabeth Buchweitz,jazz.elisabeth98,8687,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+160,Simulado Nacional Insper 2024.1 - Administração,Enzo Velloso Borges,jazz.enzo61,8833,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+161,Simulado Nacional Insper 2024.1 - Administração,Felipe Schwambach Lins,jazz.felipe98,8906,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+162,Simulado Nacional Insper 2024.1 - Engenharia,Gabriela Gomes Soares,jazz.gabriela66,1387,4453,0.0,1000.0101,0.0,0.0,0.0
+163,Simulado Nacional Insper 2024.1 - Engenharia,Gabriel,jazz.gabriel17,1314,4453,0.0,1000.0101,0.0,0.0,0.0
+164,Simulado Nacional Insper 2024.1 - Administração,Pedro Godou Borghi,jazz.pedro26,11388,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+165,Simulado Nacional Insper 2024.1 - Administração,Ricardo,jazz.ricardo10,11607,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+166,Simulado Nacional Insper 2024.1 - Economia,Arthur Domingos,jazz.arthur11,2993,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+167,Simulado Nacional Insper 2024.1 - Economia,Fernanda Luiza Sampaio Mota,jazz.fernanda61,4453,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+168,Simulado Nacional Insper 2024.1 - Direito,Isabelli Ramalho de Lima,jazz.isabelli47,13943,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+169,Simulado Nacional Insper 2024.1 - Direito,Kemili Perini festinalli,jazz.kemili90,14162,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+170,Simulado Nacional Insper 2024.1 - Direito,Lais Guerreiro Fistarol,jazz.lais07,14235,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+171,Simulado Nacional Insper 2024.1 - Direito,Lidia,jazz.lidia37,14381,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+172,Simulado Nacional Insper 2024.1 - Economia,Francisco Silveira Stein,jazz.francisco29,4672,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+173,Simulado Nacional Insper 2024.1 - Direito,Luiza Biondillo,jazz.luiza77,14454,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+174,Simulado Nacional Insper 2024.1 - Direito,Mariana Bezerra Freitas,jazz.mariana09,14527,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+175,Simulado Nacional Insper 2024.1 - Direito,Marina pontes,jazz.marina01,14673,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+176,Simulado Nacional Insper 2024.1 - Direito,Natali Elias Silva de Carvalho,jazz.natali43,14746,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+177,Simulado Nacional Insper 2024.1 - Administração,Ricardo Bessa,jazz.ricardo89,11753,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+178,Simulado Nacional Insper 2024.1 - Direito,Sabrina vitoria da Silva braz,jazz.sabrina06,14819,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+179,Simulado Nacional Insper 2024.1 - Direito,Sara Rocha Cerqueira,jazz.sara61,14892,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+180,Simulado Nacional Insper 2024.1 - Direito,Vitória,jazz.vitoria20,15038,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+181,Simulado Nacional Insper 2024.1 - Direito,ana beatriz rodrigues ferraresi,jazz.ana68,12848,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+182,Simulado Nacional Insper 2024.1 - Direito,gabriel,jazz.gabriel02,13505,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+183,Simulado Nacional Insper 2024.1 - Economia,Affonso,jazz.affonso77,2482,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+184,Simulado Nacional Insper 2024.1 - Economia,Alberto Kolanian Neto,jazz.alberto99,2628,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+185,Simulado Nacional Insper 2024.1 - Economia,Ana Beatriz Nottingham Nibon da Silva,jazz.ana74,2774,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+186,Simulado Nacional Insper 2024.1 - Direito,Grazielly De Souza Cardoso,jazz.grazielly80,13651,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+187,Simulado Nacional Insper 2024.1 - Direito,Gabriela Fernandes Domingos,jazz.gabriela68,13578,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+188,Simulado Nacional Insper 2024.1 - Direito,Elyssa Anahy Marques dos Santos,jazz.elyssa79,13432,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+189,Simulado Nacional Insper 2024.1 - Direito,Bianca brito,jazz.bianca82,13213,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+190,Simulado Nacional Insper 2024.1 - Administração,Rita Tainara dos Santos Machado,jazz.rita46,11826,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+191,Simulado Nacional Insper 2024.1 - Administração,Samuel,jazz.samuel84,11972,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+192,Simulado Nacional Insper 2024.1 - Administração,Sophia Miki Koga,jazz.sophia17,12191,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+193,Simulado Nacional Insper 2024.1 - Administração,Valentina Mantesso,jazz.valentina95,12337,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+194,Simulado Nacional Insper 2024.1 - Ciência da Computação,Felipe,jazz.felipe54,0,4453,0.0,1000.0101,0.0,0.0,0.0
+195,Simulado Nacional Insper 2024.1 - Ciência da Computação,Karine Victoria Rosa da Paixão,jazz.karine90,73,4453,0.0,1000.0101,0.0,0.0,0.0
+196,Simulado Nacional Insper 2024.1 - Ciência da Computação,Sophia Prando,jazz.sophia08,292,4453,0.0,1000.0101,0.0,0.0,0.0
+197,Simulado Nacional Insper 2024.1 - Ciência da Computação,Theo Kelner,jazz.theo69,438,4453,0.0,1000.0101,0.0,0.0,0.0
+198,Simulado Nacional Insper 2024.1 - Economia,Laura,jazz.laura95,5913,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+199,Simulado Nacional Insper 2024.1 - Direito,Agda,jazz.agda11,12556,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+200,Simulado Nacional Insper 2024.1 - Economia,João Pedro Silveira Ferreira,jazz.joao85,5767,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+201,Simulado Nacional Insper 2024.1 - Direito,Aisha,jazz.aisha08,12629,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+202,Simulado Nacional Insper 2024.1 - Direito,Ana Beatriz,jazz.ana99,12921,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+203,Simulado Nacional Insper 2024.1 - Direito,Ana Beatriz Fernandes dos Santos,jazz.ana04,12702,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+204,Simulado Nacional Insper 2024.1 - Direito,Ana Carolina Santana Rodrigues,jazz.ana06,12775,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+205,Simulado Nacional Insper 2024.1 - Economia,Iohnas Cássio de Oliveira Pimentel Leandro,jazz.iohnas17,5402,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+206,Simulado Nacional Insper 2024.1 - Direito,Anne Gabrielly Oliveira Marcelino,jazz.anne93,13067,2701,0.0,1000.0024999999999,0.0,0.0,0.0
+207,Simulado Nacional Insper 2024.1 - Administração,Amanda Oliveira Calicchio,jazz.amanda55,7738,2701,0.0,1000.0024999999999,0.0,0.0,0.0

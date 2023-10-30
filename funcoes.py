@@ -969,3 +969,9 @@ def fun_tabela_temas_arguicao(dataframe,coluna1,cor_texto,cor_back):
        </table>
     """
     return html_table_temas_arguicao
+
+def extract_login(login):
+    if login.startswith("jazzvestibular_"):
+        return login[len("jazzvestibular_"):]
+    else:
+        return login
