@@ -3047,7 +3047,7 @@ if login_aluno != '':
 
     tabela_temas_debate = pd.DataFrame()
 
-    tabela_temas_debate['Temas'] = ['Tema 1 -  Empresas devem contratar pessoas que tiveram comportamentos racistas no passado?', 'Tema 2 -  A solução para a crise econômica do sistema público de saúde no Brasil é a parceria privada?', 'Tema 3 - Incentivos fiscais, como a Lei Rouanet, são boas medidas para melhorar a cultura no Brasil?', 'Tema 4 - É correto ter a mesma quantidade de vagas pra mulheres e homens nas faculdades?']
+    tabela_temas_debate['Temas'] = ['Tema 1 -  A privatização da SABESP traria benefícios para os projetos de infraestrutura e saneamento?', 'Tema 2 -  Caso ocorra acidentes em carros automáticos ou semiautomáticos, as empresas devem ser responsabilizadas?', 'Tema 3 - Pode-se dizer que a inteligência artificial proporciona benefícios sociais, mas por outro lado ajuda a agravar problemas como o desemprego?', 'Tema 4 - Votações abertas na internet para toda a população poderiam substituir o papel do Congresso para aprovar as novas leis no Brasil?']
 
     cor_back_debate = []
     cor_texto_debate = []
@@ -3280,7 +3280,7 @@ if login_aluno != '':
 
     tabela_temas_arguicao = pd.DataFrame()
 
-    tabela_temas_arguicao['Temas'] = ['Tema 1 - Deveria ser instalada inteligência artificial mas casas da população para evitar violência contra mulheres e crianças?','Tema 2 - Assim como o IPVA, as multas de trânsito deveriam ser proporcionais ao valor do veículo?']
+    tabela_temas_arguicao['Temas'] = ['Tema 1 - Deveria haver regulamentação para motoristas de aplicativos?','Tema 2 -  ⁠Se o estado não garante a segurança, a população pode se armar?']
 
     cor_back_arguicao = []
     cor_texto_arguicao = []
