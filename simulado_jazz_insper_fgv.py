@@ -1655,10 +1655,15 @@ if login_aluno != '':
           border-style: inset;
           border-width: 1.5px;"></h2>
         """
-        if len(resultados_ciencias_hum['Disciplina']) == 0:
-            st.markdown(html_header_nat, unsafe_allow_html=True)
-        else:
+        #st.write(turma)
+        if resultados_gerais_aluno['Turma'][0] != turma_eng and resultados_gerais_aluno['Turma'][0] != turma_cien:
             st.markdown(html_header_hum, unsafe_allow_html=True)
+        else:
+            st.markdown(html_header_nat, unsafe_allow_html=True)
+        #if len(resultados_ciencias_hum['Disciplina']) == 0:
+        #    st.markdown(html_header_nat, unsafe_allow_html=True)
+        #else:
+        #    st.markdown(html_header_hum, unsafe_allow_html=True)
 
         ### Block 1#########################################################################################
         with st.container():
