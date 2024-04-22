@@ -1,0 +1,98 @@
+num_exercicio,disciplina,assunto,Simulado,num_exercicio_eng,Frente
+1,Matemática,Equação do 1º grau,5º simulado,1,Matemática A
+2,Matemática,Logaritmos,5º simulado,2,Matemática A
+3,Matemática,Razão e Proporção,5º simulado,3,Matemática C
+4,Linguagens,Funções da Linguagem,5º simulado,4,Linguagens
+5,Ciências Humanas,Geografia - DIT,5º simulado,,Geografia Humana
+6,Matemática,Regra de 3,5º simulado,6,Matemática C
+7,Linguagens,Figuras de Linguagem,5º simulado,7,Linguagens
+8,Linguagens,Figuras de Linguagem,5º simulado,8,Linguagens
+9,Linguagens,Funções da Linguagem,5º simulado,9,Linguagens
+10,Ciências Humanas,Geografia - Neoliberalismo,5º simulado,,Geografia Humana
+11,Matemática,Triângulo Retângulo,5º simulado,11,Matemática B
+12,Ciências Humanas,Geografia - Estados-Nação,5º simulado,,Geografia Humana
+13,Ciências Humanas,Geografia - Rochas,5º simulado,,Geografia Física
+14,Matemática,Porcentagem,5º simulado,14,Matemática C
+15,Linguagens,Tipos Textuais,5º simulado,15,Linguagens
+16,Linguagens,Tipos Textuais,5º simulado,16,Linguagens
+17,Ciências Humanas,História - Guerra Fria,5º simulado,,História Geral
+18,Ciências Humanas,História - Primeiro Reinado,5º simulado,,História do Brasil
+19,Linguagens,Tipos Textuais,5º simulado,19,Linguagens
+20,Linguagens,Interpretação de Texto,5º simulado,20,Linguagens
+21,Linguagens,Interpretação de Texto,5º simulado,21,Linguagens
+22,Matemática,Regra de 3,5º simulado,22,Matemática C
+23,Matemática,Função do 2º grau,5º simulado,23,Matemática A
+24,Ciências Humanas,Atualidades - Migração,5º simulado,,Atualidades
+25,Ciências Humanas,História - Reforma Protestante,5º simulado,,História Geral
+26,Matemática,Porcentagem,5º simulado,26,Matemática C
+27,Matemática,Probabilidade,5º simulado,27,Matemática A
+28,Linguagens,Interpretação de Texto,5º simulado,28,Linguagens
+29,Linguagens,Variantes Linguísticas,5º simulado,29,Linguagens
+30,Matemática,Função Exponencial,5º simulado,30,Matemática A
+31,Linguagens,Interpretação de Texto,5º simulado,31,Linguagens
+32,Ciências Humanas,Geografia - Industrialização,5º simulado,,Geografia Humana
+33,Ciências Humanas,Geografia - Industrialização,5º simulado,,Geografia Humana
+34,Ciências Humanas,História - Nacionalismo,5º simulado,,História Geral
+35,Matemática,Regra de 3,5º simulado,35,Matemática C
+36,Linguagens,Figuras de Linguagem,5º simulado,36,Linguagens
+37,Ciências Humanas,Geografia - Industrialização,5º simulado,,Geografia Humana
+38,Matemática,Circunferência,5º simulado,38,Matemática B
+39,Linguagens,Funções da Linguagem,5º simulado,39,Linguagens
+40,Matemática,Razão e Proporção,5º simulado,40,Matemática C
+41,Ciências Humanas,Geografia - Solo,5º simulado,,Geografia Física
+42,Linguagens,Interpretação de Texto,5º simulado,42,Linguagens
+43,Linguagens,Interpretação de Texto,5º simulado,43,Linguagens
+44,Matemática,Probabilidade,5º simulado,44,Matemática A
+45,Matemática,Prisma,5º simulado,45,Matemática B
+46,Linguagens,Figuras de Linguagem,5º simulado,46,Linguagens
+47,Matemática,Área,5º simulado,47,Matemática B
+48,Matemática,Trigonometria,5º simulado,48,Matemática C
+49,Linguagens,Interpretação de Texto,5º simulado,49,Linguagens
+50,Ciências Humanas,História - Primeiro Reinado,5º simulado,,História do Brasil
+51,Ciências Humanas,História - Guerra Fria,5º simulado,,História Geral
+52,Linguagens,Funções da Linguagem,5º simulado,52,Linguagens
+53,Linguagens,Interpretação de Texto,5º simulado,53,Linguagens
+54,Ciências Humanas,Atualidades - Direitos Humanos,5º simulado,,Atualidades
+55,Ciências Humanas,Geografia - Cartografia,5º simulado,,Geografia Física
+56,Matemática,Ângulos,5º simulado,56,Matemática B
+57,Linguagens,Interpretação de Texto,5º simulado,57,Linguagens
+58,Ciências Humanas,História - Cultura,5º simulado,,História do Brasil
+59,Ciências Humanas,Atualidades - Direitos Humanos,5º simulado,,Atualidades
+60,Matemática,Análise Combinatória,5º simulado,60,Matemática A
+61,Ciências Humanas,História - Idade Média,5º simulado,,História Geral
+62,Linguagens,Interpretação de Texto,5º simulado,62,Linguagens
+63,Ciências Humanas,História - Escravidão,5º simulado,,História do Brasil
+64,Matemática,Reta,5º simulado,64,Matemática B
+65,Matemática,Circunferência,5º simulado,65,Matemática B
+66,Matemática,Regra de 3,5º simulado,66,Matemática C
+67,Linguagens,Interpretação de Texto,5º simulado,67,Linguagens
+68,Ciências Humanas,Geografia - Rochas,5º simulado,,Geografia Física
+69,Matemática,Circunferência,5º simulado,69,Matemática B
+70,Linguagens,Interpretação de Texto,5º simulado,70,Linguagens
+71,Ciências Humanas,Geografia - Demografia,5º simulado,,Geografia Humana
+72,Ciências Humanas,História - Idade Moderna,5º simulado,,História Geral
+73,Redação,,5º simulado,73,Redação
+74,Ciências da Natureza,Física - Cinemática,5º simulado,5,Física
+75,Ciências da Natureza,Física - Termodinâmica,5º simulado,10,Física
+76,Ciências da Natureza,Física - Dinâmica,5º simulado,12,Física
+77,Ciências da Natureza,Física - Dinâmica,5º simulado,13,Física
+78,Ciências da Natureza,Química - Radioatividade,5º simulado,17,Química
+79,Ciências da Natureza,Química - Soluções,5º simulado,18,Química
+80,Ciências da Natureza,Biologia - Genética,5º simulado,24,Biologia
+81,Ciências da Natureza,Biologia - Células,5º simulado,25,Biologia
+82,Ciências da Natureza,Física - Cinemática,5º simulado,32,Física
+83,Ciências da Natureza,Física - Colisão,5º simulado,33,Física
+84,Ciências da Natureza,Biologia - Seres Vivos,5º simulado,34,Biologia
+85,Ciências da Natureza,Química - Entalpia,5º simulado,37,Química
+86,Ciências da Natureza,Física - Eletrodinâmica,5º simulado,41,Física
+87,Ciências da Natureza,Biologia - Botânica,5º simulado,50,Biologia
+88,Ciências da Natureza,Química - Inorgânica,5º simulado,51,Química
+89,Ciências da Natureza,Biologia - Genética,5º simulado,54,Biologia
+90,Ciências da Natureza,Física - Empuxo,5º simulado,55,Física
+91,Ciências da Natureza,Química - Estequiometria,5º simulado,58,Química
+92,Ciências da Natureza,Biologia - Genética,5º simulado,59,Biologia
+93,Ciências da Natureza,Biologia - Células,5º simulado,61,Biologia
+94,Ciências da Natureza,Química - Soluções,5º simulado,63,Química
+95,Ciências da Natureza,Física - Energia,5º simulado,68,Física
+96,Ciências da Natureza,Biologia - Células,5º simulado,71,Biologia
+97,Ciências da Natureza,Química - Soluções,5º simulado,72,Química
