@@ -66,8 +66,8 @@ scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/aut
 creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
 client = gspread.authorize(creds)
 
-#sheet = client.open('Banco de Dados - Relatório Simulado Nacional').sheet1          # Enquanto estiver rodando na nuvem
-sheet = client.open('Banco de Dados - Relatório Simulado Nacional - Teste').sheet1   # Enquanto estiver rodando no local
+sheet = client.open('Banco de Dados - Relatório Simulado Nacional').sheet1          # Enquanto estiver rodando na nuvem
+#sheet = client.open('Banco de Dados - Relatório Simulado Nacional - Teste').sheet1   # Enquanto estiver rodando no local
 
 #### Colunas (id, Data e Hora, Nome, Rede, Grupo, Gestor, Produto, Faixa de licenças, Namespace, NPS, Feedback)
 row0 = ['Data e Hora', 'Turma','Nome','Login']
@@ -736,7 +736,7 @@ if login_aluno != '':
     </div>
     """
 
-  
+    
     if resultados_gerais_aluno['Turma'][0] != turma_eng and resultados_gerais_aluno['Turma'][0] != turma_cien:
         html_card_footer2_disc_med_cie="""
     <div class="card">
@@ -789,7 +789,7 @@ if login_aluno != '':
           </div>
         </div>
         """
-
+    
     matematica_detalhes = base_alunos_fizeram[base_alunos_fizeram['Disciplina'] == 'Matemática']
     matematica_detalhes_media = matematica_detalhes.groupby(['Assunto']).mean(['Acerto']).reset_index()
 
@@ -802,7 +802,7 @@ if login_aluno != '':
     matematica_aluno_media3['Assunto'] = matematica_aluno_media2['Assunto']
     matematica_aluno_media3['Número da questão'] = matematica_aluno_media2['Número da questão']
 
-    matematica_tabela = pd.merge(matematica_aluno_media,matematica_detalhes_media, on = 'Assunto', how = 'inner')
+    matematica_tabela = pd.merge(matematica_aluno_media,matematica_detalhes_media, on = 'Assunto', how = 'right')
     matematica_tabela2 = matematica_tabela.drop(columns = ['Número da questão_x','Número da questão_y','Valor da questão_x','Valor da questão_y','Nota na questão_x','Nota na questão_y','Tempo na questão_x','Tempo na questão_y'])
     matematica_tabela2.rename(columns = {'Acerto_x':'Resultado Individual decimal','Acerto_y':'Resultado Geral decimal'}, inplace = True)
     matematica_tabela2['Resultado Geral'] = ''
@@ -810,7 +810,7 @@ if login_aluno != '':
     for i in range(len(matematica_tabela2['Assunto'])):
         matematica_tabela2['Resultado Geral'][i] = "{0:.0%}".format(matematica_tabela2['Resultado Geral decimal'][i])
         matematica_tabela2['Resultado Individual'][i] = "{0:.0%}".format(matematica_tabela2['Resultado Individual decimal'][i])
-    matematica_tabela3 = pd.merge(matematica_tabela2,matematica_aluno_media3, on = 'Assunto', how = 'inner')
+    matematica_tabela3 = pd.merge(matematica_tabela2,matematica_aluno_media3, on = 'Assunto', how = 'left')
     matematica_tabela3.rename(columns = {'Número da questão':'Quantidade de questões'}, inplace = True)
     matematica_tabela3 = matematica_tabela3[['Assunto','Quantidade de questões','Resultado Individual', 'Resultado Geral','Resultado Individual decimal', 'Resultado Geral decimal']]
     matematica_tabela3['Status'] = ''
@@ -827,6 +827,7 @@ if login_aluno != '':
     for i in range(len(matematica_tabela3['Assunto'])):
         matematica_tabela3['Diferença'][i] = matematica_tabela3['Resultado Individual decimal'][i] - matematica_tabela3['Resultado Geral decimal'][i]
     
+    matematica_tabela3['Resultado Individual'].fillna('0%', inplace=True)
     matematica_tabela_ordenado = matematica_tabela3.sort_values(by = 'Diferença')
 
     matematica_tabela_verde = matematica_tabela_ordenado[matematica_tabela_ordenado['Status'] == '🟢']
@@ -845,7 +846,8 @@ if login_aluno != '':
       border-style: inset;
       border-width: 1.5px;"></h2>
     """
-    if len(resultados_matematica['Nome do aluno(a)']) != 0:
+    #if len(resultados_matematica['Nome do aluno(a)']) != 0:
+    if len(resultados_matematica['Nome do aluno(a)']) >= 0:
 
         ### MATEMÁTICA
 
@@ -858,12 +860,20 @@ if login_aluno != '':
                 st.write("")
             with col2:
                 st.markdown(html_card_header1_disc, unsafe_allow_html=True)
-                fig_c1 = go.Figure(go.Indicator(
-                    mode="number+delta",
-                    value=round(resultados_matematica['Nota na questão'][0],1),
-                    number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
-                    delta={'position': "bottom", 'reference': int(round(truncar(resultados_gerais_disciplina_med_mat['Nota na questão'][0],-1),0)), 'relative': False},
-                    domain={'x': [0, 1], 'y': [0, 1]}))
+                if len(resultados_matematica['Nome do aluno(a)']) == 0:
+                    fig_c1 = go.Figure(go.Indicator(
+                        mode="number+delta",
+                        value=round(0,1),
+                        number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                        delta={'position': "bottom", 'reference': int(round(0,0)), 'relative': False},
+                        domain={'x': [0, 1], 'y': [0, 1]}))
+                else:
+                    fig_c1 = go.Figure(go.Indicator(
+                        mode="number+delta",
+                        value=round(resultados_matematica['Nota na questão'][0],1),
+                        number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                        delta={'position': "bottom", 'reference': int(round(truncar(resultados_gerais_disciplina_med_mat['Nota na questão'][0],-1),0)), 'relative': False},
+                        domain={'x': [0, 1], 'y': [0, 1]}))
                 fig_c1.update_layout(autosize=False,
                                      width=350, height=90, margin=dict(l=20, r=20, b=20, t=50),
                                      paper_bgcolor="#FFF0FC", font={'size': 20})
@@ -875,12 +885,20 @@ if login_aluno != '':
                 st.write("")
             with col4:
                 st.markdown(html_card_header2_disc, unsafe_allow_html=True)
-                fig_c2 = go.Figure(go.Indicator(
-                    mode="number+delta",
-                    value=resultados_matematica['Acerto'][0],
-                    number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
-                    delta={'position': "bottom", 'reference': int(round(truncar(resultados_gerais_disciplina_med_mat['Acerto'][0],-1),0))},
-                    domain={'x': [0, 1], 'y': [0, 1]}))
+                if len(resultados_matematica['Nome do aluno(a)']) == 0:
+                    fig_c2 = go.Figure(go.Indicator(
+                        mode="number+delta",
+                        value=0,
+                        number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                        delta={'position': "bottom", 'reference': int(round(0,0))},
+                        domain={'x': [0, 1], 'y': [0, 1]}))
+                else:
+                    fig_c2 = go.Figure(go.Indicator(
+                        mode="number+delta",
+                        value=resultados_matematica['Acerto'][0],
+                        number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                        delta={'position': "bottom", 'reference': int(round(truncar(resultados_gerais_disciplina_med_mat['Acerto'][0],-1),0))},
+                        domain={'x': [0, 1], 'y': [0, 1]}))
                 fig_c2.update_layout(autosize=False,
                                      width=350, height=90, margin=dict(l=20, r=20, b=20, t=50),
                                      paper_bgcolor="#FFF0FC", font={'size': 20})
@@ -896,12 +914,20 @@ if login_aluno != '':
                 st.write("")
             with col6:
                 st.markdown(html_card_header3_disc, unsafe_allow_html=True)
-                fig_c3 = go.Figure(go.Indicator(
-                    mode="number",
-                    value=classificacao_aluno_mat['index'][0]+1,
-                    number={'suffix': "º", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
-                    delta={'position': "bottom", 'reference': 1, 'relative': False},
-                    domain={'x': [0, 1], 'y': [0, 1]}))
+                if len(resultados_matematica['Nome do aluno(a)']) == 0:
+                    fig_c3 = go.Figure(go.Indicator(
+                        mode="number",
+                        value=0,
+                        number={'suffix': "º", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                        delta={'position': "bottom", 'reference': 1, 'relative': False},
+                        domain={'x': [0, 1], 'y': [0, 1]}))
+                else:
+                    fig_c3 = go.Figure(go.Indicator(
+                        mode="number",
+                        value=classificacao_aluno_mat['index'][0]+1,
+                        number={'suffix': "º", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                        delta={'position': "bottom", 'reference': 1, 'relative': False},
+                        domain={'x': [0, 1], 'y': [0, 1]}))
                 fig_c3.update_layout(autosize=False,
                                      width=350, height=90, margin=dict(l=20, r=20, b=20, t=50),
                                      paper_bgcolor="#FFF0FC", font={'size': 20})
@@ -916,8 +942,9 @@ if login_aluno != '':
         html_br="""
         <br>
         """
-        ponto = str(round(100*(numero_candidatos-(classificacao_aluno_mat['index'][0]))/numero_candidatos,0)).find('.')
-        texto = str(round(100*(numero_candidatos-(classificacao_aluno_mat['index'][0]))/numero_candidatos,0))[0:ponto]
+        if len(resultados_matematica['Nome do aluno(a)']) > 0:
+            ponto = str(round(100*(numero_candidatos-(classificacao_aluno_mat['index'][0]))/numero_candidatos,0)).find('.')
+            texto = str(round(100*(numero_candidatos-(classificacao_aluno_mat['index'][0]))/numero_candidatos,0))[0:ponto]
         html_card_header_destaques_mat="""
         <div class="card">
           <div class="card-body" style="border-radius: 10px 10px 0px 0px; background: #0010B3; padding-top: 60px; width: 495px;
@@ -948,7 +975,10 @@ if login_aluno != '':
                                            xanchor="left",
                                            x=0.01),
                                margin=dict(l=1, r=1, b=1, t=30))
-                fig.add_vline(x=int(resultados_matematica['Nota na questão']), line_width=7, line_dash="dash", line_color="#9E089E", annotation_text="Você está aqui!", annotation_position="top right")
+                if len(resultados_matematica['Nome do aluno(a)']) == 0:
+                    fig.add_vline(x=int(0), line_width=7, line_dash="dash", line_color="#9E089E", annotation_text="Você está aqui!", annotation_position="top right")
+                else:
+                    fig.add_vline(x=int(resultados_matematica['Nota na questão']), line_width=7, line_dash="dash", line_color="#9E089E", annotation_text="Você está aqui!", annotation_position="top right")
                 fig.add_vline(x=int(round(truncar(resultados_gerais_disciplina_med_mat['Nota na questão'][0],-1),0)), line_width=7, line_dash="dash", line_color="#01ECEC", annotation_text="Média", annotation_position="top right")
                 fig.update_xaxes(showline=True, linewidth=1, linecolor='#9E089E', mirror=False, nticks=6, rangemode="tozero",
                               showgrid=False, gridwidth=0.5, gridcolor='#f6f6f6')
@@ -1213,7 +1243,7 @@ if login_aluno != '':
         linguagens_aluno_media3['Assunto'] = linguagens_aluno_media2['Assunto']
         linguagens_aluno_media3['Número da questão'] = linguagens_aluno_media2['Número da questão']
 
-        linguagens_tabela = pd.merge(linguagens_aluno_media,linguagens_detalhes_media, on = 'Assunto', how = 'inner')
+        linguagens_tabela = pd.merge(linguagens_aluno_media,linguagens_detalhes_media, on = 'Assunto', how = 'right')
         linguagens_tabela2 = linguagens_tabela.drop(columns = ['Número da questão_x','Número da questão_y','Valor da questão_x','Valor da questão_y','Nota na questão_x','Nota na questão_y','Tempo na questão_x','Tempo na questão_y'])
         linguagens_tabela2.rename(columns = {'Acerto_x':'Resultado Individual decimal','Acerto_y':'Resultado Geral decimal'}, inplace = True)
         linguagens_tabela2['Resultado Geral'] = ''
@@ -1221,7 +1251,7 @@ if login_aluno != '':
         for i in range(len(linguagens_tabela2['Assunto'])):
             linguagens_tabela2['Resultado Geral'][i] = "{0:.0%}".format(linguagens_tabela2['Resultado Geral decimal'][i])
             linguagens_tabela2['Resultado Individual'][i] = "{0:.0%}".format(linguagens_tabela2['Resultado Individual decimal'][i])
-        linguagens_tabela3 = pd.merge(linguagens_tabela2,linguagens_aluno_media3, on = 'Assunto', how = 'inner')
+        linguagens_tabela3 = pd.merge(linguagens_tabela2,linguagens_aluno_media3, on = 'Assunto', how = 'left')
         linguagens_tabela3.rename(columns = {'Número da questão':'Quantidade de questões'}, inplace = True)
         linguagens_tabela3 = linguagens_tabela3[['Assunto','Quantidade de questões','Resultado Individual', 'Resultado Geral','Resultado Individual decimal', 'Resultado Geral decimal']]
         linguagens_tabela3['Status'] = ''
@@ -1264,12 +1294,20 @@ if login_aluno != '':
                 st.write("")
             with col2:
                 st.markdown(html_card_header1_disc, unsafe_allow_html=True)
-                fig_c1 = go.Figure(go.Indicator(
-                    mode="number+delta",
-                    value=round(resultados_linguagens['Nota na questão'][0],1),
-                    number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
-                    delta={'position': "bottom", 'reference': int(round(truncar(resultados_gerais_disciplina_med_lin['Nota na questão'][0],-1),0)), 'relative': False},
-                    domain={'x': [0, 1], 'y': [0, 1]}))
+                if len(resultados_linguagens['Nome do aluno(a)']) == 0:
+                    fig_c1 = go.Figure(go.Indicator(
+                        mode="number+delta",
+                        value=round(0,1),
+                        number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                        delta={'position': "bottom", 'reference': int(round(0,0)), 'relative': False},
+                        domain={'x': [0, 1], 'y': [0, 1]}))
+                else:
+                    fig_c1 = go.Figure(go.Indicator(
+                        mode="number+delta",
+                        value=round(resultados_linguagens['Nota na questão'][0],1),
+                        number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                        delta={'position': "bottom", 'reference': int(round(truncar(resultados_gerais_disciplina_med_lin['Nota na questão'][0],-1),0)), 'relative': False},
+                        domain={'x': [0, 1], 'y': [0, 1]}))
                 fig_c1.update_layout(autosize=False,
                                      width=350, height=90, margin=dict(l=20, r=20, b=20, t=50),
                                      paper_bgcolor="#FFF0FC", font={'size': 20})
@@ -1281,12 +1319,20 @@ if login_aluno != '':
                 st.write("")
             with col4:
                 st.markdown(html_card_header2_disc, unsafe_allow_html=True)
-                fig_c2 = go.Figure(go.Indicator(
-                    mode="number+delta",
-                    value=resultados_linguagens['Acerto'][0],
-                    number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
-                    delta={'position': "bottom", 'reference': int(round(truncar(resultados_gerais_disciplina_med_lin['Acerto'][0],-1),0))},
-                    domain={'x': [0, 1], 'y': [0, 1]}))
+                if len(resultados_linguagens['Nome do aluno(a)']) == 0:
+                    fig_c2 = go.Figure(go.Indicator(
+                        mode="number+delta",
+                        value=0,
+                        number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                        delta={'position': "bottom", 'reference': int(round(0,0))},
+                        domain={'x': [0, 1], 'y': [0, 1]}))
+                else:
+                    fig_c2 = go.Figure(go.Indicator(
+                        mode="number+delta",
+                        value=resultados_linguagens['Acerto'][0],
+                        number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                        delta={'position': "bottom", 'reference': int(round(truncar(resultados_gerais_disciplina_med_lin['Acerto'][0],-1),0))},
+                        domain={'x': [0, 1], 'y': [0, 1]}))
                 fig_c2.update_layout(autosize=False,
                                      width=350, height=90, margin=dict(l=20, r=20, b=20, t=50),
                                      paper_bgcolor="#FFF0FC", font={'size': 20})
@@ -1302,12 +1348,20 @@ if login_aluno != '':
                 st.write("")
             with col6:
                 st.markdown(html_card_header3_disc, unsafe_allow_html=True)
-                fig_c3 = go.Figure(go.Indicator(
-                    mode="number",
-                    value=classificacao_aluno_lin['index'][0]+1,
-                    number={'suffix': "º", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
-                    delta={'position': "bottom", 'reference': 1, 'relative': False},
-                    domain={'x': [0, 1], 'y': [0, 1]}))
+                if len(resultados_linguagens['Nome do aluno(a)']) == 0:
+                    fig_c3 = go.Figure(go.Indicator(
+                        mode="number",
+                        value=0,
+                        number={'suffix': "º", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                        delta={'position': "bottom", 'reference': 1, 'relative': False},
+                        domain={'x': [0, 1], 'y': [0, 1]}))
+                else:
+                    fig_c3 = go.Figure(go.Indicator(
+                        mode="number",
+                        value=classificacao_aluno_lin['index'][0]+1,
+                        number={'suffix': "º", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                        delta={'position': "bottom", 'reference': 1, 'relative': False},
+                        domain={'x': [0, 1], 'y': [0, 1]}))
                 fig_c3.update_layout(autosize=False,
                                      width=350, height=90, margin=dict(l=20, r=20, b=20, t=50),
                                      paper_bgcolor="#FFF0FC", font={'size': 20})
@@ -1323,9 +1377,9 @@ if login_aluno != '':
         <br>
         """
         st.markdown(html_br, unsafe_allow_html=True)
-
-        ponto = str(round(100*(numero_candidatos-(classificacao_aluno_lin['index'][0]))/numero_candidatos,0)).find('.')
-        texto = str(round(100*(numero_candidatos-(classificacao_aluno_lin['index'][0]))/numero_candidatos,0))[0:ponto]
+        if len(resultados_linguagens['Nome do aluno(a)']) > 0:
+            ponto = str(round(100*(numero_candidatos-(classificacao_aluno_lin['index'][0]))/numero_candidatos,0)).find('.')
+            texto = str(round(100*(numero_candidatos-(classificacao_aluno_lin['index'][0]))/numero_candidatos,0))[0:ponto]
         html_card_header_destaques_lin="""
         <div class="card">
           <div class="card-body" style="border-radius: 10px 10px 0px 0px; background: #0010B3; padding-top: 60px; width: 495px;
@@ -1355,7 +1409,10 @@ if login_aluno != '':
                                            xanchor="left",
                                            x=0.01),
                                margin=dict(l=1, r=1, b=1, t=30))
-                fig.add_vline(x=int(resultados_linguagens['Nota na questão']), line_width=7, line_dash="dash", line_color="#9E089E", annotation_text="Você está aqui!", annotation_position="top right")
+                if len(resultados_linguagens['Nome do aluno(a)']) == 0:
+                    fig.add_vline(x=int(0), line_width=7, line_dash="dash", line_color="#9E089E", annotation_text="Você está aqui!", annotation_position="top right")
+                else:
+                    fig.add_vline(x=int(resultados_linguagens['Nota na questão']), line_width=7, line_dash="dash", line_color="#9E089E", annotation_text="Você está aqui!", annotation_position="top right")
                 fig.add_vline(x=int(round(truncar(resultados_gerais_disciplina_med_lin['Nota na questão'][0],-1),0)), line_width=7, line_dash="dash", line_color="#01ECEC", annotation_text="Média", annotation_position="top right")
                 fig.update_xaxes(showline=True, linewidth=1, linecolor='#9E089E', mirror=False, nticks=6, rangemode="tozero",
                               showgrid=False, gridwidth=0.5, gridcolor='#f6f6f6')
@@ -1543,7 +1600,7 @@ if login_aluno != '':
         ciencias_aluno_media3['Assunto'] = ciencias_aluno_media2['Assunto']
         ciencias_aluno_media3['Número da questão'] = ciencias_aluno_media2['Número da questão']
 
-        ciencias_tabela = pd.merge(ciencias_aluno_media,ciencias_detalhes_media, on = 'Assunto', how = 'inner')
+        ciencias_tabela = pd.merge(ciencias_aluno_media,ciencias_detalhes_media, on = 'Assunto', how = 'right')
         ciencias_tabela2 = ciencias_tabela.drop(columns = ['Número da questão_x','Número da questão_y','Valor da questão_x','Valor da questão_y','Nota na questão_x','Nota na questão_y','Tempo na questão_x','Tempo na questão_y'])
         ciencias_tabela2.rename(columns = {'Acerto_x':'Resultado Individual decimal','Acerto_y':'Resultado Geral decimal'}, inplace = True)
         ciencias_tabela2['Resultado Geral'] = ''
@@ -1551,7 +1608,7 @@ if login_aluno != '':
         for i in range(len(ciencias_tabela2['Assunto'])):
             ciencias_tabela2['Resultado Geral'][i] = "{0:.0%}".format(ciencias_tabela2['Resultado Geral decimal'][i])
             ciencias_tabela2['Resultado Individual'][i] = "{0:.0%}".format(ciencias_tabela2['Resultado Individual decimal'][i])
-        ciencias_tabela3 = pd.merge(ciencias_tabela2,ciencias_aluno_media3, on = 'Assunto', how = 'inner')
+        ciencias_tabela3 = pd.merge(ciencias_tabela2,ciencias_aluno_media3, on = 'Assunto', how = 'left')
         
         ciencias_tabela3.rename(columns = {'Número da questão':'Quantidade de questões'}, inplace = True)
         ciencias_tabela3 = ciencias_tabela3[['Assunto','Quantidade de questões','Resultado Individual', 'Resultado Geral','Resultado Individual decimal', 'Resultado Geral decimal']]
@@ -1610,12 +1667,20 @@ if login_aluno != '':
                 st.write("")
             with col2:
                 st.markdown(html_card_header1_disc, unsafe_allow_html=True)
-                fig_c1 = go.Figure(go.Indicator(
-                    mode="number+delta",
-                    value=round(resultados_ciencias_fim['Nota na questão'][0],1),
-                    number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
-                    delta={'position': "bottom", 'reference': int(round(truncar(resultados_gerais_disciplina_med_cie['Nota na questão'][0],-1),0)), 'relative': False},
-                    domain={'x': [0, 1], 'y': [0, 1]}))
+                if len(resultados_ciencias_fim['Nome do aluno(a)']) == 0:
+                    fig_c1 = go.Figure(go.Indicator(
+                        mode="number+delta",
+                        value=round(0,1),
+                        number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                        delta={'position': "bottom", 'reference': int(round(0,0)), 'relative': False},
+                        domain={'x': [0, 1], 'y': [0, 1]}))
+                else:
+                    fig_c1 = go.Figure(go.Indicator(
+                        mode="number+delta",
+                        value=round(resultados_ciencias_fim['Nota na questão'][0],1),
+                        number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                        delta={'position': "bottom", 'reference': int(round(truncar(resultados_gerais_disciplina_med_cie['Nota na questão'][0],-1),0)), 'relative': False},
+                        domain={'x': [0, 1], 'y': [0, 1]}))
                 fig_c1.update_layout(autosize=False,
                                      width=350, height=90, margin=dict(l=20, r=20, b=20, t=50),
                                      paper_bgcolor="#FFF0FC", font={'size': 20})
@@ -1627,12 +1692,20 @@ if login_aluno != '':
                 st.write("")
             with col4:
                 st.markdown(html_card_header2_disc, unsafe_allow_html=True)
-                fig_c2 = go.Figure(go.Indicator(
-                    mode="number+delta",
-                    value=resultados_ciencias_fim['Acerto'][0],
-                    number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
-                    delta={'position': "bottom", 'reference': int(round(truncar(resultados_gerais_disciplina_med_cie['Acerto'][0],-1),0))},
-                    domain={'x': [0, 1], 'y': [0, 1]}))
+                if len(resultados_ciencias_fim['Nome do aluno(a)']) == 0:
+                    fig_c2 = go.Figure(go.Indicator(
+                        mode="number+delta",
+                        value=0,
+                        number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                        delta={'position': "bottom", 'reference': int(round(0,0))},
+                        domain={'x': [0, 1], 'y': [0, 1]}))
+                else:
+                    fig_c2 = go.Figure(go.Indicator(
+                        mode="number+delta",
+                        value=resultados_ciencias_fim['Acerto'][0],
+                        number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                        delta={'position': "bottom", 'reference': int(round(truncar(resultados_gerais_disciplina_med_cie['Acerto'][0],-1),0))},
+                        domain={'x': [0, 1], 'y': [0, 1]}))
                 fig_c2.update_layout(autosize=False,
                                      width=350, height=90, margin=dict(l=20, r=20, b=20, t=50),
                                      paper_bgcolor="#FFF0FC", font={'size': 20})
@@ -1648,12 +1721,20 @@ if login_aluno != '':
                 st.write("")
             with col6:
                 st.markdown(html_card_header3_disc, unsafe_allow_html=True)
-                fig_c3 = go.Figure(go.Indicator(
-                    mode="number",
-                    value=classificacao_aluno_fim['index'][0]+1,
-                    number={'suffix': "º", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
-                    delta={'position': "bottom", 'reference': 1, 'relative': False},
-                    domain={'x': [0, 1], 'y': [0, 1]}))
+                if len(resultados_ciencias_fim['Nome do aluno(a)']) == 0:
+                    fig_c3 = go.Figure(go.Indicator(
+                        mode="number",
+                        value=0,
+                        number={'suffix': "º", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                        delta={'position': "bottom", 'reference': 1, 'relative': False},
+                        domain={'x': [0, 1], 'y': [0, 1]}))
+                else:
+                    fig_c3 = go.Figure(go.Indicator(
+                        mode="number",
+                        value=classificacao_aluno_fim['index'][0]+1,
+                        number={'suffix': "º", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                        delta={'position': "bottom", 'reference': 1, 'relative': False},
+                        domain={'x': [0, 1], 'y': [0, 1]}))
                 fig_c3.update_layout(autosize=False,
                                      width=350, height=90, margin=dict(l=20, r=20, b=20, t=50),
                                      paper_bgcolor="#FFF0FC", font={'size': 20})
@@ -1670,11 +1751,13 @@ if login_aluno != '':
         """
         st.markdown(html_br, unsafe_allow_html=True)
         if resultados_gerais_aluno['Turma'][0] != turma_eng and resultados_gerais_aluno['Turma'][0] != turma_cien:
-            ponto = str(round(100*((numero_candidatos-numero_eng_cien)-(classificacao_aluno_fim['index'][0]))/(numero_candidatos-numero_eng_cien),0)).find('.')
-            texto = str(round(100*((numero_candidatos-numero_eng_cien)-(classificacao_aluno_fim['index'][0]))/(numero_candidatos-numero_eng_cien),0))[0:ponto]
+            if len(resultados_ciencias_fim['Nome do aluno(a)']) > 0:
+                ponto = str(round(100*((numero_candidatos-numero_eng_cien)-(classificacao_aluno_fim['index'][0]))/(numero_candidatos-numero_eng_cien),0)).find('.')
+                texto = str(round(100*((numero_candidatos-numero_eng_cien)-(classificacao_aluno_fim['index'][0]))/(numero_candidatos-numero_eng_cien),0))[0:ponto]
         else:
-            ponto = str(round(100*((numero_eng_cien)-(classificacao_aluno_fim['index'][0]))/(numero_eng_cien),0)).find('.')
-            texto = str(round(100*((numero_eng_cien)-(classificacao_aluno_fim['index'][0]))/(numero_eng_cien),0))[0:ponto]
+            if len(resultados_ciencias_fim['Nome do aluno(a)']) > 0:
+                ponto = str(round(100*((numero_eng_cien)-(classificacao_aluno_fim['index'][0]))/(numero_eng_cien),0)).find('.')
+                texto = str(round(100*((numero_eng_cien)-(classificacao_aluno_fim['index'][0]))/(numero_eng_cien),0))[0:ponto]
        
         html_card_header_destaques_cie="""
         <div class="card">
@@ -1705,7 +1788,10 @@ if login_aluno != '':
                                            xanchor="left",
                                            x=0.01),
                                margin=dict(l=1, r=1, b=1, t=30))
-                fig.add_vline(x=int(resultados_ciencias_fim['Nota na questão']), line_width=7, line_dash="dash", line_color="#9E089E", annotation_text="Você está aqui!", annotation_position="top right")
+                if len(resultados_ciencias_fim['Nome do aluno(a)']) == 0:
+                    fig.add_vline(x=int(0), line_width=7, line_dash="dash", line_color="#9E089E", annotation_text="Você está aqui!", annotation_position="top right")
+                else: 
+                    fig.add_vline(x=int(resultados_ciencias_fim['Nota na questão']), line_width=7, line_dash="dash", line_color="#9E089E", annotation_text="Você está aqui!", annotation_position="top right")
                 fig.add_vline(x=int(round(truncar(resultados_gerais_disciplina_med_cie['Nota na questão'][0],-1),0)), line_width=7, line_dash="dash", line_color="#01ECEC", annotation_text="Média", annotation_position="top right")
                 fig.update_xaxes(showline=True, linewidth=1, linecolor='#9E089E', mirror=False, nticks=6, rangemode="tozero",
                               showgrid=False, gridwidth=0.5, gridcolor='#f6f6f6')
@@ -2120,7 +2206,7 @@ if login_aluno != '':
     redacao_aluno_media3['Competência'] = redacao_aluno_media2['Competência']
     redacao_aluno_media3['Nota na questão'] = redacao_aluno_media2['Nota na questão']
     
-    redacao_tabela = pd.merge(redacao_aluno_media,redacao_detalhes_media, on = 'Competência', how = 'inner')
+    redacao_tabela = pd.merge(redacao_aluno_media,redacao_detalhes_media, on = 'Competência', how = 'right')
 
     redacao_tabela2 = redacao_tabela.drop(columns = ['Valor da questão_x','Valor da questão_y','Nota na questão_x','Nota na questão_y'])
     redacao_tabela2.rename(columns = {'Acerto_x':'Resultado Individual decimal','Acerto_y':'Resultado Geral decimal'}, inplace = True)
@@ -2130,7 +2216,7 @@ if login_aluno != '':
     for i in range(len(redacao_tabela2['Competência'])):
         redacao_tabela2['Resultado Geral'][i] = "{0:.0%}".format(redacao_tabela2['Resultado Geral decimal'][i])
         redacao_tabela2['Resultado Individual'][i] = "{0:.0%}".format(redacao_tabela2['Resultado Individual decimal'][i])
-    redacao_tabela3 = pd.merge(redacao_tabela2,redacao_aluno_media3, on = 'Competência', how = 'inner')
+    redacao_tabela3 = pd.merge(redacao_tabela2,redacao_aluno_media3, on = 'Competência', how = 'left')
     
     redacao_tabela3 = redacao_tabela3[['Competência','Resultado Individual', 'Resultado Geral','Resultado Individual decimal', 'Resultado Geral decimal']]
     redacao_tabela3['Status'] = ''
@@ -2224,12 +2310,20 @@ if login_aluno != '':
                 st.write("")
             with col2:
                 st.markdown(html_card_header1_disc, unsafe_allow_html=True)
-                fig_c1 = go.Figure(go.Indicator(
-                    mode="number+delta",
-                    value=round(200+0.8*redacao_aluno_media['Nota na questão'].sum(),1),
-                    number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
-                    delta={'position': "bottom", 'reference': int(round(200+0.8*200*redacao_tabela3['Resultado Geral decimal'].sum(),0)), 'relative': False},
-                    domain={'x': [0, 1], 'y': [0, 1]}))
+                if len(redacao_aluno_media['Nota na questão']) == 0:
+                    fig_c1 = go.Figure(go.Indicator(
+                        mode="number+delta",
+                        value=round(0,1),
+                        number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                        delta={'position': "bottom", 'reference': int(round(0,0)), 'relative': False},
+                        domain={'x': [0, 1], 'y': [0, 1]}))
+                else:
+                    fig_c1 = go.Figure(go.Indicator(
+                        mode="number+delta",
+                        value=round(200+0.8*redacao_aluno_media['Nota na questão'].sum(),1),
+                        number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                        delta={'position': "bottom", 'reference': int(round(200+0.8*200*redacao_tabela3['Resultado Geral decimal'].sum(),0)), 'relative': False},
+                        domain={'x': [0, 1], 'y': [0, 1]}))
                 fig_c1.update_layout(autosize=False,
                                      width=350, height=90, margin=dict(l=20, r=20, b=20, t=50),
                                      paper_bgcolor="#FFF0FC", font={'size': 20})
@@ -2241,12 +2335,20 @@ if login_aluno != '':
                 st.write("")
             with col4:
                 st.markdown(html_card_header3_disc, unsafe_allow_html=True)
-                fig_c3 = go.Figure(go.Indicator(
-                    mode="number",
-                    value=classificacao_aluno_red['level_0'][0]+1,
-                    number={'suffix': "º", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
-                    delta={'position': "bottom", 'reference': 1, 'relative': False},
-                    domain={'x': [0, 1], 'y': [0, 1]}))
+                if len(redacao_aluno_media['Nota na questão']) == 0:
+                    fig_c3 = go.Figure(go.Indicator(
+                        mode="number",
+                        value=0,
+                        number={'suffix': "º", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                        delta={'position': "bottom", 'reference': 1, 'relative': False},
+                        domain={'x': [0, 1], 'y': [0, 1]}))
+                else:
+                    fig_c3 = go.Figure(go.Indicator(
+                        mode="number",
+                        value=classificacao_aluno_red['level_0'][0]+1,
+                        number={'suffix': "º", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                        delta={'position': "bottom", 'reference': 1, 'relative': False},
+                        domain={'x': [0, 1], 'y': [0, 1]}))
                 fig_c3.update_layout(autosize=False,
                                      width=350, height=90, margin=dict(l=20, r=20, b=20, t=50),
                                      paper_bgcolor="#FFF0FC", font={'size': 20})
@@ -2297,7 +2399,10 @@ if login_aluno != '':
                                            xanchor="left",
                                            x=0.01),
                                margin=dict(l=1, r=1, b=1, t=30))
-                fig.add_vline(x=int(base_redacao4['Nota na questão']), line_width=7, line_dash="dash", line_color="#9E089E", annotation_text="Você está aqui!", annotation_position="top right")
+                if len(redacao_aluno_media['Nota na questão']) == 0:
+                    fig.add_vline(x=int(0), line_width=7, line_dash="dash", line_color="#9E089E", annotation_text="Você está aqui!", annotation_position="top right")
+                else:
+                    fig.add_vline(x=int(base_redacao4['Nota na questão']), line_width=7, line_dash="dash", line_color="#9E089E", annotation_text="Você está aqui!", annotation_position="top right")
                 fig.add_vline(x=int(round(truncar(base_redacao5,-1),0)), line_width=7, line_dash="dash", line_color="#01ECEC", annotation_text="Média", annotation_position="top right")
                 fig.update_xaxes(showline=True, linewidth=1, linecolor='#9E089E', mirror=False, nticks=6, rangemode="tozero",
                               showgrid=False, gridwidth=0.5, gridcolor='#f6f6f6')
@@ -2748,12 +2853,20 @@ if login_aluno != '':
             st.write("")
         with col2:
             st.markdown(html_card_header1, unsafe_allow_html=True)
-            fig_c1 = go.Figure(go.Indicator(
-                mode="number+delta",
-                value=round(base_resultados_2fase_aluno2['Nota 2º fase'].mean(),1),
-                number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
-                delta={'position': "bottom", 'reference': int(round(truncar(base_resultados_2faseaux['Nota 2º fase'].mean(),-1),0)), 'relative': False},
-                domain={'x': [0, 1], 'y': [0, 1]}))
+            if len(base_resultados_2fase_aluno2) == 0:
+                fig_c1 = go.Figure(go.Indicator(
+                    mode="number+delta",
+                    value=round(0,1),
+                    number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                    delta={'position': "bottom", 'reference': int(round(0,0)), 'relative': False},
+                    domain={'x': [0, 1], 'y': [0, 1]}))
+            else:
+                fig_c1 = go.Figure(go.Indicator(
+                    mode="number+delta",
+                    value=round(base_resultados_2fase_aluno2['Nota 2º fase'].mean(),1),
+                    number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                    delta={'position': "bottom", 'reference': int(round(truncar(base_resultados_2faseaux['Nota 2º fase'].mean(),-1),0)), 'relative': False},
+                    domain={'x': [0, 1], 'y': [0, 1]}))
             fig_c1.update_layout(autosize=False,
                                  width=350, height=90, margin=dict(l=20, r=20, b=20, t=50),
                                  paper_bgcolor="#FFF0FC", font={'size': 20})
@@ -2769,12 +2882,20 @@ if login_aluno != '':
             st.write("")
         with col4:
             st.markdown(html_card_header3, unsafe_allow_html=True)
-            fig_c3 = go.Figure(go.Indicator(
-                mode="number",
-                value=base_resultados_2fase_aluno2['Classificação'][0],
-                number={'suffix': "º", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
-                delta={'position': "bottom", 'reference': 1, 'relative': False},
-                domain={'x': [0, 1], 'y': [0, 1]}))
+            if len(base_resultados_2fase_aluno2) == 0:
+                fig_c3 = go.Figure(go.Indicator(
+                    mode="number",
+                    value=0,
+                    number={'suffix': "º", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                    delta={'position': "bottom", 'reference': 1, 'relative': False},
+                    domain={'x': [0, 1], 'y': [0, 1]}))
+            else:
+                fig_c3 = go.Figure(go.Indicator(
+                    mode="number",
+                    value=base_resultados_2fase_aluno2['Classificação'][0],
+                    number={'suffix': "º", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                    delta={'position': "bottom", 'reference': 1, 'relative': False},
+                    domain={'x': [0, 1], 'y': [0, 1]}))
             fig_c3.update_layout(autosize=False,
                                  width=350, height=90, margin=dict(l=20, r=20, b=20, t=50),
                                  paper_bgcolor="#FFF0FC", font={'size': 20})
@@ -2793,9 +2914,9 @@ if login_aluno != '':
     
     st.markdown(html_br, unsafe_allow_html=True)
     st.markdown(html_br, unsafe_allow_html=True)
-
-    ponto = str(round(100*(numero_candidatos-(base_resultados_2fase_aluno2['Classificação'][0]-1))/numero_candidatos,0)).find('.')
-    texto = str(round(100*(numero_candidatos-(base_resultados_2fase_aluno2['Classificação'][0]-1))/numero_candidatos,0))[0:ponto]
+    if len(base_resultados_2fase_aluno2) > 0:
+        ponto = str(round(100*(numero_candidatos-(base_resultados_2fase_aluno2['Classificação'][0]-1))/numero_candidatos,0)).find('.')
+        texto = str(round(100*(numero_candidatos-(base_resultados_2fase_aluno2['Classificação'][0]-1))/numero_candidatos,0))[0:ponto]
     html_card_header_destaques_gerais="""
     <div class="card">
       <div class="card-body" style="border-radius: 10px 10px 0px 0px; background: #0010B3; padding-top: 60px; width: 495px;
@@ -2823,7 +2944,10 @@ if login_aluno != '':
                                        xanchor="left",
                                        x=0.01),
                            margin=dict(l=1, r=1, b=1, t=30))
-            fig.add_vline(x=int(round(base_resultados_2fase_aluno2['Nota 2º fase'].mean(),1)), line_width=7, line_dash="dash", line_color="#9E089E", annotation_text="Você está aqui!", annotation_position="top right")
+            if len(base_resultados_2fase_aluno2) == 0:
+                fig.add_vline(x=int(round(0,1)), line_width=7, line_dash="dash", line_color="#9E089E", annotation_text="Você está aqui!", annotation_position="top right")
+            else:
+                fig.add_vline(x=int(round(base_resultados_2fase_aluno2['Nota 2º fase'].mean(),1)), line_width=7, line_dash="dash", line_color="#9E089E", annotation_text="Você está aqui!", annotation_position="top right")
             fig.add_vline(x=int(round(truncar(base_resultados_2faseaux['Nota 2º fase'].mean(),-1),0)), line_width=7, line_dash="dash", line_color="#01ECEC", annotation_text="Média", annotation_position="top right")
             fig.update_xaxes(showline=True, linewidth=1, linecolor='#9E089E', mirror=False, nticks=6, rangemode="tozero",
                           showgrid=False, gridwidth=0.5, gridcolor='#f6f6f6')
@@ -2906,10 +3030,11 @@ if login_aluno != '':
     base_resultados_2fase_aluno_debate = base_resultados_2fase_debate2.sort_values(by = 'Nota 2º fase', ascending = False).reset_index(drop = True).reset_index()
     base_resultados_2fase_aluno_debate.rename(columns = {'index':'Classificação'}, inplace = True)
     base_resultados_2fase_aluno_debate2 = base_resultados_2fase_aluno_debate[base_resultados_2fase_aluno_debate['Login do aluno(a)'] == login_aluno].reset_index()
-    if base_resultados_2fase_aluno_debate2['Nota 2º fase'][0] == 0:
-        base_resultados_2fase_aluno_debate2['Classificação'][0] = numero_candidatos + 1
-    else:
-        base_resultados_2fase_aluno_debate2['Classificação'][0] = base_resultados_2fase_aluno_debate2['Classificação'][0] + 1
+    if len(base_resultados_2fase_aluno_debate2) > 0:
+        if base_resultados_2fase_aluno_debate2['Nota 2º fase'][0] == 0:
+            base_resultados_2fase_aluno_debate2['Classificação'][0] = numero_candidatos + 1
+        else:
+            base_resultados_2fase_aluno_debate2['Classificação'][0] = base_resultados_2fase_aluno_debate2['Classificação'][0] + 1
     
     ### Block 1#########################################################################################
     with st.container():
@@ -2918,7 +3043,15 @@ if login_aluno != '':
             st.write("")
         with col2:
             st.markdown(html_card_header1, unsafe_allow_html=True)
-            fig_c1 = go.Figure(go.Indicator(
+            if len(base_resultados_2fase_aluno_debate2) == 0:
+                fig_c1 = go.Figure(go.Indicator(
+                    mode="number+delta",
+                    value=round(0,1),
+                    number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                    delta={'position': "bottom", 'reference': int(round(0,0)), 'relative': False},
+                    domain={'x': [0, 1], 'y': [0, 1]}))
+            else:
+                fig_c1 = go.Figure(go.Indicator(
                 mode="number+delta",
                 value=round(base_resultados_2fase_aluno_debate2['Nota 2º fase'].mean(),1),
                 number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
@@ -2939,7 +3072,15 @@ if login_aluno != '':
             st.write("")
         with col4:
             st.markdown(html_card_header3, unsafe_allow_html=True)
-            fig_c3 = go.Figure(go.Indicator(
+            if len(base_resultados_2fase_aluno_debate2) == 0:
+                fig_c3 = go.Figure(go.Indicator(
+                    mode="number",
+                    value=0,
+                    number={'suffix': "º", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                    delta={'position': "bottom", 'reference': 1, 'relative': False},
+                    domain={'x': [0, 1], 'y': [0, 1]}))
+            else:
+                fig_c3 = go.Figure(go.Indicator(
                 mode="number",
                 value=base_resultados_2fase_aluno_debate2['Classificação'][0],
                 number={'suffix': "º", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
@@ -2963,9 +3104,9 @@ if login_aluno != '':
     
     st.markdown(html_br, unsafe_allow_html=True)
     st.markdown(html_br, unsafe_allow_html=True)
-
-    ponto = str(round(100*(numero_candidatos-(base_resultados_2fase_aluno_debate2['Classificação'][0]-1))/numero_candidatos,0)).find('.')
-    texto = str(round(100*(numero_candidatos-(base_resultados_2fase_aluno_debate2['Classificação'][0]-1))/numero_candidatos,0))[0:ponto]
+    if len(base_resultados_2fase_aluno_debate2) > 0:
+        ponto = str(round(100*(numero_candidatos-(base_resultados_2fase_aluno_debate2['Classificação'][0]-1))/numero_candidatos,0)).find('.')
+        texto = str(round(100*(numero_candidatos-(base_resultados_2fase_aluno_debate2['Classificação'][0]-1))/numero_candidatos,0))[0:ponto]
     html_card_header_destaques_gerais="""
     <div class="card">
       <div class="card-body" style="border-radius: 10px 10px 0px 0px; background: #0010B3; padding-top: 60px; width: 495px;
@@ -2993,7 +3134,10 @@ if login_aluno != '':
                                        xanchor="left",
                                        x=0.01),
                            margin=dict(l=1, r=1, b=1, t=30))
-            fig.add_vline(x=int(round(base_resultados_2fase_aluno_debate2['Nota 2º fase'].mean(),1)), line_width=7, line_dash="dash", line_color="#9E089E", annotation_text="Você está aqui!", annotation_position="top right")
+            if len(base_resultados_2fase_aluno_debate2) == 0:
+                fig.add_vline(x=int(round(0,1)), line_width=7, line_dash="dash", line_color="#9E089E", annotation_text="Você está aqui!", annotation_position="top right")
+            else:
+                fig.add_vline(x=int(round(base_resultados_2fase_aluno_debate2['Nota 2º fase'].mean(),1)), line_width=7, line_dash="dash", line_color="#9E089E", annotation_text="Você está aqui!", annotation_position="top right")
             fig.add_vline(x=int(round(truncar(base_resultados_2fase_debate2aux['Nota 2º fase'].mean(),-1),0)), line_width=7, line_dash="dash", line_color="#01ECEC", annotation_text="Média", annotation_position="top right")
             fig.update_xaxes(showline=True, linewidth=1, linecolor='#9E089E', mirror=False, nticks=6, rangemode="tozero",
                           showgrid=False, gridwidth=0.5, gridcolor='#f6f6f6')
@@ -3014,21 +3158,41 @@ if login_aluno != '':
 
     base_resultados_2fase_debate3 = base_resultados_2fase_debate2[base_resultados_2fase_debate2['Login do aluno(a)'] == login_aluno].reset_index()
 
-    data = [
-    {'Temas': 'Tema 1',  'Comunicação Assertiva - Resultado Individual': base_resultados_2fase_debate3['Tema 1 - Comunicação assertiva'][0], 'Comunicação Assertiva - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 1 - Comunicação assertiva'].mean(),1), 'Interação com pessoas - Resultado Individual':base_resultados_2fase_debate3['Tema 1 - Interação com pessoas'][0], 'Interação com pessoas - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 1 - Interação com pessoas'].mean(),1), 'Pensamento crítico - Resultado Individual': base_resultados_2fase_debate3['Tema 1 - Pensamento crítico'][0], 'Pensamento crítico - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 1 - Pensamento crítico'].mean(),1)},
+    if len(base_resultados_2fase_debate3) == 0:
+
+        data = [
+        {'Temas': 'Tema 1',  'Comunicação Assertiva - Resultado Individual': 0, 'Comunicação Assertiva - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 1 - Comunicação assertiva'].mean(),1), 'Interação com pessoas - Resultado Individual':0, 'Interação com pessoas - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 1 - Interação com pessoas'].mean(),1), 'Pensamento crítico - Resultado Individual': 0, 'Pensamento crítico - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 1 - Pensamento crítico'].mean(),1)},
 
 
-    {'Temas': 'Tema 2', 'Comunicação Assertiva - Resultado Individual': base_resultados_2fase_debate3['Tema 2 - Comunicação assertiva'][0], 'Comunicação Assertiva - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 2 - Comunicação assertiva'].mean(),1), 'Interação com pessoas - Resultado Individual':base_resultados_2fase_debate3['Tema 2 - Interação com pessoas'][0], 'Interação com pessoas - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 2 - Interação com pessoas'].mean(),1), 'Pensamento crítico - Resultado Individual': base_resultados_2fase_debate3['Tema 2 - Pensamento crítico'][0], 'Pensamento crítico - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 2 - Pensamento crítico'].mean(),1)}, 
+        {'Temas': 'Tema 2', 'Comunicação Assertiva - Resultado Individual': 0, 'Comunicação Assertiva - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 2 - Comunicação assertiva'].mean(),1), 'Interação com pessoas - Resultado Individual':0, 'Interação com pessoas - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 2 - Interação com pessoas'].mean(),1), 'Pensamento crítico - Resultado Individual': 0, 'Pensamento crítico - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 2 - Pensamento crítico'].mean(),1)}, 
 
 
-    {'Temas': 'Tema 3', 'Comunicação Assertiva - Resultado Individual': base_resultados_2fase_debate3['Tema 3 - Comunicação assertiva'][0], 'Comunicação Assertiva - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 3 - Comunicação assertiva'].mean(),1), 'Interação com pessoas - Resultado Individual':base_resultados_2fase_debate3['Tema 3 - Interação com pessoas'][0], 'Interação com pessoas - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 3 - Interação com pessoas'].mean(),1), 'Pensamento crítico - Resultado Individual': base_resultados_2fase_debate3['Tema 3 - Pensamento crítico'][0], 'Pensamento crítico - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 3 - Pensamento crítico'].mean(),1)},
+        {'Temas': 'Tema 3', 'Comunicação Assertiva - Resultado Individual': 0, 'Comunicação Assertiva - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 3 - Comunicação assertiva'].mean(),1), 'Interação com pessoas - Resultado Individual':0, 'Interação com pessoas - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 3 - Interação com pessoas'].mean(),1), 'Pensamento crítico - Resultado Individual': 0, 'Pensamento crítico - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 3 - Pensamento crítico'].mean(),1)},
 
 
-    {'Temas': 'Tema 4', 'Comunicação Assertiva - Resultado Individual': base_resultados_2fase_debate3['Tema 4 - Comunicação assertiva'][0], 'Comunicação Assertiva - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 4 - Comunicação assertiva'].mean(),1), 'Interação com pessoas - Resultado Individual':base_resultados_2fase_debate3['Tema 4 - Interação com pessoas'][0], 'Interação com pessoas - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 4 - Interação com pessoas'].mean(),1), 'Pensamento crítico - Resultado Individual': base_resultados_2fase_debate3['Tema 4 - Pensamento crítico'][0], 'Pensamento crítico - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 4 - Pensamento crítico'].mean(),1)},
+        {'Temas': 'Tema 4', 'Comunicação Assertiva - Resultado Individual': 0, 'Comunicação Assertiva - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 4 - Comunicação assertiva'].mean(),1), 'Interação com pessoas - Resultado Individual':0, 'Interação com pessoas - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 4 - Interação com pessoas'].mean(),1), 'Pensamento crítico - Resultado Individual': 0, 'Pensamento crítico - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 4 - Pensamento crítico'].mean(),1)},
 
 
-    {'Temas': 'Total', 'Comunicação Assertiva - Resultado Individual': round((base_resultados_2fase_debate3['Tema 1 - Comunicação assertiva'][0]+base_resultados_2fase_debate3['Tema 2 - Comunicação assertiva'][0]+base_resultados_2fase_debate3['Tema 3 - Comunicação assertiva'][0]+base_resultados_2fase_debate3['Tema 4 - Comunicação assertiva'][0])/4,1), 'Comunicação Assertiva - Resultado Geral': round((base_resultados_2fase_debate2aux['Tema 1 - Comunicação assertiva'].mean() + base_resultados_2fase_debate2aux['Tema 2 - Comunicação assertiva'].mean() + base_resultados_2fase_debate2aux['Tema 3 - Comunicação assertiva'].mean() + base_resultados_2fase_debate2aux['Tema 4 - Comunicação assertiva'].mean())/4,1), 'Interação com pessoas - Resultado Individual': round((base_resultados_2fase_debate3['Tema 1 - Interação com pessoas'][0]+base_resultados_2fase_debate3['Tema 2 - Interação com pessoas'][0]+base_resultados_2fase_debate3['Tema 3 - Interação com pessoas'][0]+base_resultados_2fase_debate3['Tema 4 - Interação com pessoas'][0])/4,1), 'Interação com pessoas - Resultado Geral': round(((base_resultados_2fase_debate2aux['Tema 1 - Interação com pessoas'].mean() + base_resultados_2fase_debate2aux['Tema 2 - Interação com pessoas'].mean() + base_resultados_2fase_debate2aux['Tema 3 - Interação com pessoas'].mean() + base_resultados_2fase_debate2aux['Tema 4 - Interação com pessoas'].mean())/4),1), 'Pensamento crítico - Resultado Individual': round((base_resultados_2fase_debate3['Tema 1 - Pensamento crítico'][0]+base_resultados_2fase_debate3['Tema 2 - Pensamento crítico'][0]+base_resultados_2fase_debate3['Tema 3 - Pensamento crítico'][0]+base_resultados_2fase_debate3['Tema 4 - Pensamento crítico'][0])/4,1), 'Pensamento crítico - Resultado Geral': round((base_resultados_2fase_debate2aux['Tema 1 - Pensamento crítico'].mean() + base_resultados_2fase_debate2aux['Tema 2 - Pensamento crítico'].mean() + base_resultados_2fase_debate2aux['Tema 3 - Pensamento crítico'].mean() + base_resultados_2fase_debate2aux['Tema 4 - Pensamento crítico'].mean())/4,1)}
-    ]
+        {'Temas': 'Total', 'Comunicação Assertiva - Resultado Individual': 0, 'Comunicação Assertiva - Resultado Geral': round((base_resultados_2fase_debate2aux['Tema 1 - Comunicação assertiva'].mean() + base_resultados_2fase_debate2aux['Tema 2 - Comunicação assertiva'].mean() + base_resultados_2fase_debate2aux['Tema 3 - Comunicação assertiva'].mean() + base_resultados_2fase_debate2aux['Tema 4 - Comunicação assertiva'].mean())/4,1), 'Interação com pessoas - Resultado Individual': 0, 'Interação com pessoas - Resultado Geral': round(((base_resultados_2fase_debate2aux['Tema 1 - Interação com pessoas'].mean() + base_resultados_2fase_debate2aux['Tema 2 - Interação com pessoas'].mean() + base_resultados_2fase_debate2aux['Tema 3 - Interação com pessoas'].mean() + base_resultados_2fase_debate2aux['Tema 4 - Interação com pessoas'].mean())/4),1), 'Pensamento crítico - Resultado Individual': 0, 'Pensamento crítico - Resultado Geral': round((base_resultados_2fase_debate2aux['Tema 1 - Pensamento crítico'].mean() + base_resultados_2fase_debate2aux['Tema 2 - Pensamento crítico'].mean() + base_resultados_2fase_debate2aux['Tema 3 - Pensamento crítico'].mean() + base_resultados_2fase_debate2aux['Tema 4 - Pensamento crítico'].mean())/4,1)}
+        ]
+
+    else:
+
+        data = [
+        {'Temas': 'Tema 1',  'Comunicação Assertiva - Resultado Individual': base_resultados_2fase_debate3['Tema 1 - Comunicação assertiva'][0], 'Comunicação Assertiva - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 1 - Comunicação assertiva'].mean(),1), 'Interação com pessoas - Resultado Individual':base_resultados_2fase_debate3['Tema 1 - Interação com pessoas'][0], 'Interação com pessoas - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 1 - Interação com pessoas'].mean(),1), 'Pensamento crítico - Resultado Individual': base_resultados_2fase_debate3['Tema 1 - Pensamento crítico'][0], 'Pensamento crítico - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 1 - Pensamento crítico'].mean(),1)},
+
+
+        {'Temas': 'Tema 2', 'Comunicação Assertiva - Resultado Individual': base_resultados_2fase_debate3['Tema 2 - Comunicação assertiva'][0], 'Comunicação Assertiva - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 2 - Comunicação assertiva'].mean(),1), 'Interação com pessoas - Resultado Individual':base_resultados_2fase_debate3['Tema 2 - Interação com pessoas'][0], 'Interação com pessoas - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 2 - Interação com pessoas'].mean(),1), 'Pensamento crítico - Resultado Individual': base_resultados_2fase_debate3['Tema 2 - Pensamento crítico'][0], 'Pensamento crítico - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 2 - Pensamento crítico'].mean(),1)}, 
+
+
+        {'Temas': 'Tema 3', 'Comunicação Assertiva - Resultado Individual': base_resultados_2fase_debate3['Tema 3 - Comunicação assertiva'][0], 'Comunicação Assertiva - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 3 - Comunicação assertiva'].mean(),1), 'Interação com pessoas - Resultado Individual':base_resultados_2fase_debate3['Tema 3 - Interação com pessoas'][0], 'Interação com pessoas - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 3 - Interação com pessoas'].mean(),1), 'Pensamento crítico - Resultado Individual': base_resultados_2fase_debate3['Tema 3 - Pensamento crítico'][0], 'Pensamento crítico - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 3 - Pensamento crítico'].mean(),1)},
+
+
+        {'Temas': 'Tema 4', 'Comunicação Assertiva - Resultado Individual': base_resultados_2fase_debate3['Tema 4 - Comunicação assertiva'][0], 'Comunicação Assertiva - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 4 - Comunicação assertiva'].mean(),1), 'Interação com pessoas - Resultado Individual':base_resultados_2fase_debate3['Tema 4 - Interação com pessoas'][0], 'Interação com pessoas - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 4 - Interação com pessoas'].mean(),1), 'Pensamento crítico - Resultado Individual': base_resultados_2fase_debate3['Tema 4 - Pensamento crítico'][0], 'Pensamento crítico - Resultado Geral': round(base_resultados_2fase_debate2aux['Tema 4 - Pensamento crítico'].mean(),1)},
+
+
+        {'Temas': 'Total', 'Comunicação Assertiva - Resultado Individual': round((base_resultados_2fase_debate3['Tema 1 - Comunicação assertiva'][0]+base_resultados_2fase_debate3['Tema 2 - Comunicação assertiva'][0]+base_resultados_2fase_debate3['Tema 3 - Comunicação assertiva'][0]+base_resultados_2fase_debate3['Tema 4 - Comunicação assertiva'][0])/4,1), 'Comunicação Assertiva - Resultado Geral': round((base_resultados_2fase_debate2aux['Tema 1 - Comunicação assertiva'].mean() + base_resultados_2fase_debate2aux['Tema 2 - Comunicação assertiva'].mean() + base_resultados_2fase_debate2aux['Tema 3 - Comunicação assertiva'].mean() + base_resultados_2fase_debate2aux['Tema 4 - Comunicação assertiva'].mean())/4,1), 'Interação com pessoas - Resultado Individual': round((base_resultados_2fase_debate3['Tema 1 - Interação com pessoas'][0]+base_resultados_2fase_debate3['Tema 2 - Interação com pessoas'][0]+base_resultados_2fase_debate3['Tema 3 - Interação com pessoas'][0]+base_resultados_2fase_debate3['Tema 4 - Interação com pessoas'][0])/4,1), 'Interação com pessoas - Resultado Geral': round(((base_resultados_2fase_debate2aux['Tema 1 - Interação com pessoas'].mean() + base_resultados_2fase_debate2aux['Tema 2 - Interação com pessoas'].mean() + base_resultados_2fase_debate2aux['Tema 3 - Interação com pessoas'].mean() + base_resultados_2fase_debate2aux['Tema 4 - Interação com pessoas'].mean())/4),1), 'Pensamento crítico - Resultado Individual': round((base_resultados_2fase_debate3['Tema 1 - Pensamento crítico'][0]+base_resultados_2fase_debate3['Tema 2 - Pensamento crítico'][0]+base_resultados_2fase_debate3['Tema 3 - Pensamento crítico'][0]+base_resultados_2fase_debate3['Tema 4 - Pensamento crítico'][0])/4,1), 'Pensamento crítico - Resultado Geral': round((base_resultados_2fase_debate2aux['Tema 1 - Pensamento crítico'].mean() + base_resultados_2fase_debate2aux['Tema 2 - Pensamento crítico'].mean() + base_resultados_2fase_debate2aux['Tema 3 - Pensamento crítico'].mean() + base_resultados_2fase_debate2aux['Tema 4 - Pensamento crítico'].mean())/4,1)}
+        ]
 
     tabela_debate = pd.DataFrame(data)
     cor_back = []
@@ -3146,12 +3310,12 @@ if login_aluno != '':
     base_resultados_2fase_aluno_arguicao.rename(columns = {'index':'Classificação'}, inplace = True)
 
     base_resultados_2fase_aluno_arguicao2 = base_resultados_2fase_aluno_arguicao[base_resultados_2fase_aluno_arguicao['Login do aluno(a)'] == login_aluno].reset_index()
-
-    if base_resultados_2fase_aluno_arguicao2['Nota 2º fase'][0] == 0:
-        base_resultados_2fase_aluno_arguicao2['Classificação'][0] = numero_candidatos + 1
-    else:
-        base_resultados_2fase_aluno_arguicao2['Classificação'][0] = base_resultados_2fase_aluno_arguicao2['Classificação'][0] + 1
-    
+    if len(base_resultados_2fase_aluno_arguicao2) > 0:
+        if base_resultados_2fase_aluno_arguicao2['Nota 2º fase'][0] == 0:
+            base_resultados_2fase_aluno_arguicao2['Classificação'][0] = numero_candidatos + 1
+        else:
+            base_resultados_2fase_aluno_arguicao2['Classificação'][0] = base_resultados_2fase_aluno_arguicao2['Classificação'][0] + 1
+        
 
     ### Block 1#########################################################################################
     with st.container():
@@ -3160,12 +3324,20 @@ if login_aluno != '':
             st.write("")
         with col2:
             st.markdown(html_card_header1, unsafe_allow_html=True)
-            fig_c1 = go.Figure(go.Indicator(
-                mode="number+delta",
-                value=round(base_resultados_2fase_aluno_arguicao2['Nota 2º fase'].mean(),1),
-                number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
-                delta={'position': "bottom", 'reference': int(round(truncar(base_resultados_2fase_arguicao2aux['Nota 2º fase'].mean(),-1),0)), 'relative': False},
-                domain={'x': [0, 1], 'y': [0, 1]}))
+            if len(base_resultados_2fase_aluno_arguicao2) == 0:
+                fig_c1 = go.Figure(go.Indicator(
+                    mode="number+delta",
+                    value=round(0,1),
+                    number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                    delta={'position': "bottom", 'reference': int(round(0,0)), 'relative': False},
+                    domain={'x': [0, 1], 'y': [0, 1]}))
+            else: 
+                fig_c1 = go.Figure(go.Indicator(
+                    mode="number+delta",
+                    value=round(base_resultados_2fase_aluno_arguicao2['Nota 2º fase'].mean(),1),
+                    number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                    delta={'position': "bottom", 'reference': int(round(truncar(base_resultados_2fase_arguicao2aux['Nota 2º fase'].mean(),-1),0)), 'relative': False},
+                    domain={'x': [0, 1], 'y': [0, 1]}))
             fig_c1.update_layout(autosize=False,
                                  width=350, height=90, margin=dict(l=20, r=20, b=20, t=50),
                                  paper_bgcolor="#FFF0FC", font={'size': 20})
@@ -3181,12 +3353,20 @@ if login_aluno != '':
             st.write("")
         with col4:
             st.markdown(html_card_header3, unsafe_allow_html=True)
-            fig_c3 = go.Figure(go.Indicator(
-                mode="number",
-                value=base_resultados_2fase_aluno_arguicao2['Classificação'][0],
-                number={'suffix': "º", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
-                delta={'position': "bottom", 'reference': 1, 'relative': False},
-                domain={'x': [0, 1], 'y': [0, 1]}))
+            if len(base_resultados_2fase_aluno_arguicao2) == 0:
+                fig_c3 = go.Figure(go.Indicator(
+                    mode="number",
+                    value=0,
+                    number={'suffix': "º", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                    delta={'position': "bottom", 'reference': 1, 'relative': False},
+                    domain={'x': [0, 1], 'y': [0, 1]}))
+            else:
+                fig_c3 = go.Figure(go.Indicator(
+                    mode="number",
+                    value=base_resultados_2fase_aluno_arguicao2['Classificação'][0],
+                    number={'suffix': "º", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                    delta={'position': "bottom", 'reference': 1, 'relative': False},
+                    domain={'x': [0, 1], 'y': [0, 1]}))
             fig_c3.update_layout(autosize=False,
                                  width=350, height=90, margin=dict(l=20, r=20, b=20, t=50),
                                  paper_bgcolor="#FFF0FC", font={'size': 20})
@@ -3205,9 +3385,9 @@ if login_aluno != '':
     
     st.markdown(html_br, unsafe_allow_html=True)
     st.markdown(html_br, unsafe_allow_html=True)
-
-    ponto = str(round(100*(numero_candidatos-(base_resultados_2fase_aluno_arguicao2['Classificação'][0]-1))/numero_candidatos,0)).find('.')
-    texto = str(round(100*(numero_candidatos-(base_resultados_2fase_aluno_arguicao2['Classificação'][0]-1))/numero_candidatos,0))[0:ponto]
+    if len(base_resultados_2fase_aluno_arguicao2) > 0:
+        ponto = str(round(100*(numero_candidatos-(base_resultados_2fase_aluno_arguicao2['Classificação'][0]-1))/numero_candidatos,0)).find('.')
+        texto = str(round(100*(numero_candidatos-(base_resultados_2fase_aluno_arguicao2['Classificação'][0]-1))/numero_candidatos,0))[0:ponto]
     html_card_header_destaques_gerais="""
     <div class="card">
       <div class="card-body" style="border-radius: 10px 10px 0px 0px; background: #0010B3; padding-top: 60px; width: 495px;
@@ -3235,7 +3415,10 @@ if login_aluno != '':
                                        xanchor="left",
                                        x=0.01),
                            margin=dict(l=1, r=1, b=1, t=30))
-            fig.add_vline(x=int(round(base_resultados_2fase_aluno_arguicao2['Nota 2º fase'].mean(),1)), line_width=7, line_dash="dash", line_color="#9E089E", annotation_text="Você está aqui!", annotation_position="top right")
+            if len(base_resultados_2fase_aluno_arguicao2) == 0:
+                fig.add_vline(x=int(round(0,1)), line_width=7, line_dash="dash", line_color="#9E089E", annotation_text="Você está aqui!", annotation_position="top right")
+            else:
+                fig.add_vline(x=int(round(base_resultados_2fase_aluno_arguicao2['Nota 2º fase'].mean(),1)), line_width=7, line_dash="dash", line_color="#9E089E", annotation_text="Você está aqui!", annotation_position="top right")
             fig.add_vline(x=int(round(truncar(base_resultados_2fase_arguicao2aux['Nota 2º fase'].mean(),-1),0)), line_width=7, line_dash="dash", line_color="#01ECEC", annotation_text="Média", annotation_position="top right")
             fig.update_xaxes(showline=True, linewidth=1, linecolor='#9E089E', mirror=False, nticks=6, rangemode="tozero",
                           showgrid=False, gridwidth=0.5, gridcolor='#f6f6f6')
@@ -3256,13 +3439,25 @@ if login_aluno != '':
 
     base_resultados_2fase_arguicao3 = base_resultados_2fase_arguicao2[base_resultados_2fase_arguicao2['Login do aluno(a)'] == login_aluno].reset_index()
 
-    data2 = [
-    {'Temas': 'Tema 1',  'Aprender a aprender - Resultado Individual': base_resultados_2fase_arguicao3['Tema 1 - Aprender a aprender'][0], 'Aprender a aprender - Resultado Geral': round(base_resultados_2fase_arguicao2aux['Tema 1 - Aprender a aprender'].mean(),1)},
+    if len(base_resultados_2fase_arguicao3) == 0:
 
-    {'Temas': 'Tema 2', 'Aprender a aprender - Resultado Individual': base_resultados_2fase_arguicao3['Tema 2 - Aprender a aprender'][0], 'Aprender a aprender - Resultado Geral': round(base_resultados_2fase_arguicao2aux['Tema 2 - Aprender a aprender'].mean(),1)},
+        data2 = [
+        {'Temas': 'Tema 1',  'Aprender a aprender - Resultado Individual': 0, 'Aprender a aprender - Resultado Geral': round(base_resultados_2fase_arguicao2aux['Tema 1 - Aprender a aprender'].mean(),1)},
 
-    {'Temas': 'Total', 'Aprender a aprender - Resultado Individual': round((base_resultados_2fase_arguicao3['Tema 1 - Aprender a aprender'][0]+base_resultados_2fase_arguicao3['Tema 2 - Aprender a aprender'][0])/2,1), 'Aprender a aprender - Resultado Geral': round((base_resultados_2fase_arguicao2aux['Tema 1 - Aprender a aprender'].mean() + base_resultados_2fase_arguicao2aux['Tema 2 - Aprender a aprender'].mean())/2,1)}
-    ]
+        {'Temas': 'Tema 2', 'Aprender a aprender - Resultado Individual': 0, 'Aprender a aprender - Resultado Geral': round(base_resultados_2fase_arguicao2aux['Tema 2 - Aprender a aprender'].mean(),1)},
+
+        {'Temas': 'Total', 'Aprender a aprender - Resultado Individual': 0, 'Aprender a aprender - Resultado Geral': round((base_resultados_2fase_arguicao2aux['Tema 1 - Aprender a aprender'].mean() + base_resultados_2fase_arguicao2aux['Tema 2 - Aprender a aprender'].mean())/2,1)}
+        ]
+    
+    else:
+
+        data2 = [
+        {'Temas': 'Tema 1',  'Aprender a aprender - Resultado Individual': base_resultados_2fase_arguicao3['Tema 1 - Aprender a aprender'][0], 'Aprender a aprender - Resultado Geral': round(base_resultados_2fase_arguicao2aux['Tema 1 - Aprender a aprender'].mean(),1)},
+
+        {'Temas': 'Tema 2', 'Aprender a aprender - Resultado Individual': base_resultados_2fase_arguicao3['Tema 2 - Aprender a aprender'][0], 'Aprender a aprender - Resultado Geral': round(base_resultados_2fase_arguicao2aux['Tema 2 - Aprender a aprender'].mean(),1)},
+
+        {'Temas': 'Total', 'Aprender a aprender - Resultado Individual': round((base_resultados_2fase_arguicao3['Tema 1 - Aprender a aprender'][0]+base_resultados_2fase_arguicao3['Tema 2 - Aprender a aprender'][0])/2,1), 'Aprender a aprender - Resultado Geral': round((base_resultados_2fase_arguicao2aux['Tema 1 - Aprender a aprender'].mean() + base_resultados_2fase_arguicao2aux['Tema 2 - Aprender a aprender'].mean())/2,1)}
+        ]
     tabela_arguicao = pd.DataFrame(data2)
     cor_back = []
     cor_texto = []
@@ -3415,12 +3610,20 @@ if login_aluno != '':
             st.write("")
         with col2:
             st.markdown(html_card_header1, unsafe_allow_html=True)
-            fig_c1 = go.Figure(go.Indicator(
-                mode="number+delta",
-                value=round(resultado_final_aluno2['Nota Final'].mean(),1),
-                number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
-                delta={'position': "bottom", 'reference': int(round(truncar(resultado_finalaux['Nota Final'].mean(),-1),0)), 'relative': False},
-                domain={'x': [0, 1], 'y': [0, 1]}))
+            if len(resultado_final_aluno2) == 0:
+                fig_c1 = go.Figure(go.Indicator(
+                    mode="number+delta",
+                    value=round(0,1),
+                    number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                    delta={'position': "bottom", 'reference': int(round(0,0)), 'relative': False},
+                    domain={'x': [0, 1], 'y': [0, 1]}))
+            else:
+                fig_c1 = go.Figure(go.Indicator(
+                    mode="number+delta",
+                    value=round(resultado_final_aluno2['Nota Final'].mean(),1),
+                    number={'suffix': "", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                    delta={'position': "bottom", 'reference': int(round(truncar(resultado_finalaux['Nota Final'].mean(),-1),0)), 'relative': False},
+                    domain={'x': [0, 1], 'y': [0, 1]}))
             fig_c1.update_layout(autosize=False,
                                  width=350, height=90, margin=dict(l=20, r=20, b=20, t=50),
                                  paper_bgcolor="#FFF0FC", font={'size': 20})
@@ -3436,12 +3639,20 @@ if login_aluno != '':
             st.write("")
         with col4:
             st.markdown(html_card_header3, unsafe_allow_html=True)
-            fig_c3 = go.Figure(go.Indicator(
-                mode="number",
-                value=resultado_final_aluno2['Classificação'][0],
-                number={'suffix': "º", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
-                delta={'position': "bottom", 'reference': 1, 'relative': False},
-                domain={'x': [0, 1], 'y': [0, 1]}))
+            if len(resultado_final_aluno2) == 0:
+                fig_c3 = go.Figure(go.Indicator(
+                    mode="number",
+                    value=0,
+                    number={'suffix': "º", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                    delta={'position': "bottom", 'reference': 1, 'relative': False},
+                    domain={'x': [0, 1], 'y': [0, 1]}))
+            else:
+                fig_c3 = go.Figure(go.Indicator(
+                    mode="number",
+                    value=resultado_final_aluno2['Classificação'][0],
+                    number={'suffix': "º", "font": {"size": 40, 'color': "#9E089E", 'family': "Arial"}},
+                    delta={'position': "bottom", 'reference': 1, 'relative': False},
+                    domain={'x': [0, 1], 'y': [0, 1]}))
             fig_c3.update_layout(autosize=False,
                                  width=350, height=90, margin=dict(l=20, r=20, b=20, t=50),
                                  paper_bgcolor="#FFF0FC", font={'size': 20})
@@ -3460,9 +3671,9 @@ if login_aluno != '':
     
     st.markdown(html_br, unsafe_allow_html=True)
     st.markdown(html_br, unsafe_allow_html=True)
-
-    ponto = str(round(100*(numero_candidatos-(resultado_final_aluno2['Classificação'][0]-1))/numero_candidatos,0)).find('.')
-    texto = str(round(100*(numero_candidatos-(resultado_final_aluno2['Classificação'][0]-1))/numero_candidatos,0))[0:ponto]
+    if len(resultado_final_aluno2) > 0:
+        ponto = str(round(100*(numero_candidatos-(resultado_final_aluno2['Classificação'][0]-1))/numero_candidatos,0)).find('.')
+        texto = str(round(100*(numero_candidatos-(resultado_final_aluno2['Classificação'][0]-1))/numero_candidatos,0))[0:ponto]
     html_card_header_destaques_gerais="""
     <div class="card">
       <div class="card-body" style="border-radius: 10px 10px 0px 0px; background: #0010B3; padding-top: 60px; width: 495px;
@@ -3490,7 +3701,10 @@ if login_aluno != '':
                                        xanchor="left",
                                        x=0.01),
                            margin=dict(l=1, r=1, b=1, t=30))
-            if resultado_final_aluno2['Classificação'][0] <= numero_candidatos:
+            #if resultado_final_aluno2['Classificação'][0] <= numero_candidatos:
+            if len(resultado_final_aluno2) == 0:
+                fig.add_vline(x=int(0), line_width=7, line_dash="dash", line_color="#9E089E", annotation_text="Você está aqui!", annotation_position="top right")
+            else:
                 fig.add_vline(x=int(round(resultado_final_aluno2['Nota Final'].mean(),1)), line_width=7, line_dash="dash", line_color="#9E089E", annotation_text="Você está aqui!", annotation_position="top right")
             fig.add_vline(x=int(round(truncar(resultado_finalaux['Nota Final'].mean(),-1),0)), line_width=7, line_dash="dash", line_color="#01ECEC", annotation_text="Média", annotation_position="top right")
             fig.update_xaxes(showline=True, linewidth=1, linecolor='#9E089E', mirror=False, nticks=6, rangemode="tozero",
@@ -3506,8 +3720,8 @@ if login_aluno != '':
             st.markdown(html_br, unsafe_allow_html=True)
             st.markdown(html_br, unsafe_allow_html=True)
             st.markdown(html_br, unsafe_allow_html=True)
-            if resultado_final_aluno2['Classificação'][0] <= numero_candidatos:
-                st.markdown(html_card_header_destaques_gerais, unsafe_allow_html=True)
+            #if resultado_final_aluno2['Classificação'][0] <= numero_candidatos:
+            st.markdown(html_card_header_destaques_gerais, unsafe_allow_html=True)
         with col5:
             st.write("")
     html_final="""
