@@ -66,8 +66,8 @@ scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/aut
 creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
 client = gspread.authorize(creds)
 
-#sheet = client.open('Banco de Dados - Relatório Simulado Nacional').sheet1          # Enquanto estiver rodando na nuvem
-sheet = client.open('Banco de Dados - Relatório Simulado Nacional - Teste').sheet1   # Enquanto estiver rodando no local
+sheet = client.open('Banco de Dados - Relatório Simulado Nacional').sheet1          # Enquanto estiver rodando na nuvem
+#sheet = client.open('Banco de Dados - Relatório Simulado Nacional - Teste').sheet1   # Enquanto estiver rodando no local
 
 #### Colunas (id, Data e Hora, Nome, Rede, Grupo, Gestor, Produto, Faixa de licenças, Namespace, NPS, Feedback)
 row0 = ['Data e Hora', 'Turma','Nome','Login']
@@ -3883,7 +3883,7 @@ elif simulado_selecionado == 'FGV':
         <div class="card">
         <div class="card-body" style="border-radius: 0px 0px 10px 10px; background: #9E089E; padding-top: 12px; width: 350px;
         height: 50px;">
-            <p class="card-title" style="background-color:#9E089E; color:#FFFFFF; font-family:Georgia; text-align: center; padding: 0px 0;">Total de questões: 72</p>
+            <p class="card-title" style="background-color:#9E089E; color:#FFFFFF; font-family:Georgia; text-align: center; padding: 0px 0;">Total de questões: 60</p>
         </div>
         </div>
         """
@@ -4033,11 +4033,16 @@ elif simulado_selecionado == 'FGV':
 
         #### Resultados gerais por disciplina
         
-        base_alunos_fizeram_fgv = base_fgv[base_fgv['Nome do aluno(a)'].isin(alunos_fizeram_fgv['Nome do aluno(a)'])].reset_index(drop = True)
+        base_alunos_fizeram_fgv_aux = base_fgv[base_fgv['Nome do aluno(a)'].isin(alunos_fizeram_fgv['Nome do aluno(a)'])].reset_index(drop = True)
+        base_alunos_fizeram_fgv = base_alunos_fizeram_fgv_aux[base_alunos_fizeram_fgv_aux['Nome do aluno(a)'].str.strip() != '']
+        #base_alunos_fizeram_fgv = base_alunos_fizeram_fgv_aux[base_alunos_fizeram_fgv_aux['Nome do aluno(a)'].notna()]
 
         base_alunos_fizeram_fgv_aux = base_alunos_fizeram_fgv.drop(columns = ['Nome da avaliação','Resposta do aluno(a)','Gabarito','Certo ou errado','Assunto'])
 
         resultados_gerais_disciplina_fgv = base_alunos_fizeram_fgv_aux.groupby(['Turma','Login do aluno(a)','Nome do aluno(a)','Disciplina']).sum().reset_index()
+        
+        #resultados_gerais_disciplina_fgv_aux = resultados_gerais_disciplina_fgv[resultados_gerais_disciplina_fgv['Nome do aluno(a)'] != '']
+        #resultados_gerais_disciplina_fgv_aux = resultados_gerais_disciplina_fgv[resultados_gerais_disciplina_fgv['Nome do aluno(a)'].notna()]
 
         resultados_gerais_disciplina_fgv2 = resultados_gerais_disciplina_fgv.drop(columns = ['Número da questão'])
 
@@ -4052,6 +4057,9 @@ elif simulado_selecionado == 'FGV':
         
         ### Resultados do aluno por disciplina
         resultados_gerais_disciplina_fgv3["Login do aluno(a)"] = resultados_gerais_disciplina_fgv3["Login do aluno(a)"].apply(extract_login)    
+
+        resultados_gerais_disciplina_fgv3 = resultados_gerais_disciplina_fgv3[resultados_gerais_disciplina_fgv3['Nome do aluno(a)'].str.strip() != '']
+
         resultados_disciplina_aluno_fgv = resultados_gerais_disciplina_fgv3[resultados_gerais_disciplina_fgv3['Login do aluno(a)'] == login_aluno].reset_index()
 
         resultados_disciplina_aluno_fgv2 = resultados_disciplina_aluno_fgv.sort_values(by = 'Disciplina', ascending = False)
@@ -4161,7 +4169,7 @@ elif simulado_selecionado == 'FGV':
         <div class="card">
         <div class="card-body" style="border-radius: 0px 0px 10px 10px; background: #9E089E; padding-top: 12px; width: 350px;
         height: 50px;">
-            <p class="card-title" style="background-color:#9E089E; color:#FFFFFF; font-family:Georgia; text-align: center; padding: 0px 0;">Total de questões: 24</p>
+            <p class="card-title" style="background-color:#9E089E; color:#FFFFFF; font-family:Georgia; text-align: center; padding: 0px 0;">Total de questões: 15</p>
         </div>
         </div>
         """
@@ -4246,6 +4254,7 @@ elif simulado_selecionado == 'FGV':
             """
 
         matematica_detalhes = base_alunos_fizeram_fgv[base_alunos_fizeram_fgv['Disciplina'] == 'Matemática']
+
         matematica_detalhes_media = matematica_detalhes.groupby(['Assunto']).mean(['Acerto']).reset_index()
 
         matematica_detalhes["Login do aluno(a)"] = matematica_detalhes["Login do aluno(a)"].apply(extract_login)    
